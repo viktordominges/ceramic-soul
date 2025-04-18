@@ -1,0 +1,20 @@
+{
+    "require": {
+        "php": "^8.0",
+        "symfony/var-dumper": "^7.2"
+    },  
+    "autoload": {
+        "files": [
+            "core/application.php",
+            "core/request.php",
+            "core/response.php",
+            "core/router.php",
+            "app/Controllers/homeController.php",
+            "app/Controllers/aboutController.php",
+            "app/Controllers/contactController.php",
+            "app/Controllers/apiUsersController.php",
+            "app/Controllers/categoryController.php",
+            "app/Controllers/notFoundController.php"
+        ]
+    }
+}

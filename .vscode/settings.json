@@ -1,0 +1,11 @@
+{
+    "filewatcher.commands": [
+      {
+        "match": "composer\\.json",
+        "cmd": "cd ${workspaceRoot} && composer update",
+        "event": "onFileChange",
+        "runIn": "terminal",
+        "isAsync": false
+      }
+    ]
+}
