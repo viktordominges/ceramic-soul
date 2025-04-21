@@ -9,7 +9,8 @@ function get_routes() {
         'about' => 'aboutController',
         'contact' => 'contactController',
         'category' => 'categoryController',
-        'api/users' => 'api_users_controller'
+        'api/users' => 'apiUsersController',
+        'api/categories' => 'apiAllCategoriesController'
     ];
 }
 /**

@@ -9,12 +9,15 @@
             "core/request.php",
             "core/response.php",
             "core/router.php",
+            "core/database.php",
             "app/Controllers/homeController.php",
             "app/Controllers/aboutController.php",
             "app/Controllers/contactController.php",
             "app/Controllers/apiUsersController.php",
             "app/Controllers/categoryController.php",
-            "app/Controllers/notFoundController.php"
+            "app/Controllers/notFoundController.php",
+            "app/Controllers/apiAllCategoriesController.php",
+            "helpers/view.php"
 
         ]
     }

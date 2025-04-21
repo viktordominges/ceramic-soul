@@ -2,9 +2,7 @@
 
 
 function response() {
-    echo "Response function initialized.";
-    echo "<br>";
-    
+    // Начинаем с пустого ответа
     return [
         'status' => 200,
         'headers' => [],
@@ -12,17 +10,21 @@ function response() {
     ];
 }
 
+/**
+ * Отправка ответа клиенту
+ * 
+ * @param array $response Массив с данными ответа
+ * @return void
+ */
 function send_response($response) {
-    // Устанавливаем статус первым
-    http_response_code($response['status']);
-    
-    // Добавляем заголовки
-    foreach ($response['headers'] as $name => $value) {
+    http_response_code($response['status'] ?? 200);
+
+    foreach ($response['headers'] ?? [] as $name => $value) {
         header("$name: $value");
     }
-    
-    // Выводим содержимое
-    echo $response['content'];
+
+    // Проверяем, является ли content строкой перед выводом
+    echo is_string($response['content']) ? $response['content'] : json_encode($response['content']);
 }
 
 /**
@@ -32,9 +34,16 @@ function json_response($data, int $status = 200) {
     $response = response();
     $response['status'] = $status;
     $response['headers']['Content-Type'] = 'application/json';
-    $response['content'] = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+    // Преобразуем данные в JSON
+    $response['content'] = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+    // Делаем распаковку массива из строки в контенте
+    $response['content'] = json_decode($response['content'], true);  // Преобразуем обратно в массив
+
     return $response;
 }
+
 
 /**
  * Редирект

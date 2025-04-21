@@ -1,6 +1,15 @@
 <?php
 
+/**
+ * Контроллер для обработки страницы 404
+ * 
+ * @return string HTML-код страницы 404
+ */
 function notFoundController() {
-    header('HTTP/1.0 404 Not Found');
-    return '404 Страница не найдена';
+    http_response_code(404);
+    $data = [
+        'title' => 'Страница не найдена',
+        'content' => renderContent('404')
+    ];
+    return renderView('layout', $data);
 }

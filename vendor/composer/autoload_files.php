@@ -12,10 +12,13 @@ return array(
     '74431b2aabe2e4e9bde52a3f65c1d7d1' => $baseDir . '/core/request.php',
     'c19bbaa4e47021c1a4446e4194f7f59e' => $baseDir . '/core/response.php',
     'cc3e04aa0503741e57dfcd3b96a13e53' => $baseDir . '/core/router.php',
+    'fde8edfbc93bd9e5b622db618825e457' => $baseDir . '/core/database.php',
     '9363b7ee76be6ad529959e916469304e' => $baseDir . '/app/Controllers/homeController.php',
     'a3fa88ba9bb2c56c784eee39c9161d28' => $baseDir . '/app/Controllers/aboutController.php',
     '2cb75e05bc48cc5f216aa04022a424ad' => $baseDir . '/app/Controllers/contactController.php',
     '52beb9b26b07a29bc28f85ee63e6c9b4' => $baseDir . '/app/Controllers/apiUsersController.php',
     '6fa878d47689b7146ea86126a1b4dd2e' => $baseDir . '/app/Controllers/categoryController.php',
     'ecc8c1d79280f0a4242c854c6d14a98a' => $baseDir . '/app/Controllers/notFoundController.php',
+    '21d5a4d0f30b9988e1a9fd475d58f2ee' => $baseDir . '/app/Controllers/apiAllCategoriesController.php',
+    '0c6037ae6db779bcef30017b21910dab' => $baseDir . '/helpers/view.php',
 );

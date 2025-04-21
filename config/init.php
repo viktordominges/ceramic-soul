@@ -8,4 +8,4 @@ const CORE = ROOT . '/core';
 const CONFIG = ROOT . '/config';
 const HELPERS = ROOT . '/helpers';
 const VENDOR = ROOT . '/vendor';
-
+const VIEWS = ROOT . '/app/Views';

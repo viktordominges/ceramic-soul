@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($title ?? 'Мой сайт') ?></title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem;
-        }
-        main {
-            padding: 2rem;
-            min-height: 60vh;
-        }
-        footer {
-            background: #34495e;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="<?= htmlspecialchars($description ?? 'Описание сайта') ?>">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <script src="/assets/js/script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Мой сайт</h1>
-        <nav>
-            <a href="/">Главная</a> |
-            <a href="/about">О нас</a> |
-            <a href="/contact">Контакты</a>
-        </nav>
-    </header>
+<header>
+    <h1>Мой сайт</h1>
+    <nav>
+        <a href="/">Главная</a> |
+        <a href="/about">О нас</a> |
+        <a href="/contact">Контакты</a> |
+        
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Категории ▼</a>
+            <div class="dropdown-menu">
+                <!-- <a href="/category?slug=technology">Технологии</a>
+                <a href="/category?slug=travel">Путешествия</a>
+                <a href="/category?slug=food">Еда</a>
+                <a href="/category?slug=sport">Спорт</a>
+                <a href="/category?slug=art">Искусство</a> -->
+            </div>
+        </div>
+    </nav>
+</header>
+
 
     <main>
         <?php 

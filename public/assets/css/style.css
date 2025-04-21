@@ -1,0 +1,169 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+    flex: 1;
+}
+
+footer {
+    background: #34495e;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Основные стили формы */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+  /* Стили для всех label */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+}
+  
+  /* Общие стили для полей ввода */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+  
+  /* Фокус-стили для полей */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+  
+  /* Специфичные стили для textarea */
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+  
+  /* Стили для кнопки */
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+  /* Ховер-эффект для кнопки */
+button[type="submit"]:hover {
+    background-color: #3a7bc8;
+}
+  
+  /* Активное состояние кнопки */
+button[type="submit"]:active {
+    background-color: #2a65a8;
+}
+  
+  /* Валидация полей */
+input:invalid,
+textarea:invalid {
+    border-color: #ff6b6b;
+}
+  
+input:valid,
+textarea:valid {
+    border-color: #51cf66;
+}
+  
+  /* Адаптивность для мобильных */
+@media (max-width: 640px) {
+    form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 0.65rem;
+    }
+}
+  
+  /* Анимация при фокусе */
+@keyframes input-focus {
+    from { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+    to { box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); }
+}
+  
+input:focus,
+textarea:focus {
+    animation: input-focus 0.3s ease-out;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

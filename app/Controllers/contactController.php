@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Контроллер для обработки страницы О нас
+ * 
+ * @return string HTML-код страницы О нас
+ */
 function contactController() {
-    echo "Contact controller initialized.";
-    echo "<br>";
-
-    return 'Контактная страница';
+    
+    $data = [
+        'title' => 'Contact Us',
+        'description' => 'Get in touch with us', 
+        'content' => renderContent('contact') 
+    ];
+    
+    return renderView('layout', $data);
 }
