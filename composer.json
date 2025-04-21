@@ -15,6 +15,7 @@
             "app/Controllers/apiUsersController.php",
             "app/Controllers/categoryController.php",
             "app/Controllers/notFoundController.php"
+
         ]
     }
 }

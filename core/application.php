@@ -1,6 +1,4 @@
 <?php
-
-
 function application() {
     // 1. Включаем буферизацию
     ob_start();
