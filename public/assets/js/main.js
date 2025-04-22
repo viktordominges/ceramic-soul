@@ -1,21 +1,17 @@
 import { fetchCategories } from './modules/api.js';
 import { renderCategoryLink } from './components/client/renderCategoryLink.js';
 import { initHomePage } from './pages/client/home.js';
-// import { initAdminDashboard } from './pages/admin/dashboard.js'; // позже
+import { initCategoryPage } from './pages/client/category.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    console.log('Текущий путь:', path);
-    // Определим, где мы
+    const url = new URL(window.location.href);
+    const path = url.pathname;
     const isAdmin = path.startsWith('/admin');
-    console.log('Это админка:', isAdmin);
-
 
     if (isAdmin) {
-        // TODO: подключить admin dashboard init
         console.log('Админка: логика админки будет здесь');
     } else {
-        // Загружаем категории для меню
+        // Рендерим меню с категориями
         fetchCategories()
             .then(data => {
                 const categories = data.content;
@@ -27,9 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(console.error);
 
-        // Определяем, на какой мы клиентской странице
+        // Клиентская логика по страницам
         if (path === '/' || path === '/index.php') {
             initHomePage();
+        }
+
+        // Проверка: если путь /category и есть параметр slug
+        if (path === '/category') {
+            const slug = url.searchParams.get('slug');
+            if (slug) {
+                initCategoryPage(slug);
+            }
         }
     }
 });

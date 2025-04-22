@@ -18,6 +18,7 @@
             "app/Controllers/notFoundController.php",
             "app/Controllers/apiAllCategoriesController.php",
             "app/Controllers/apiAllPostsController.php",
+            "app/Controllers/apiCategoryPostsController.php",
             "app/Models/categoryModel.php",
             "app/Models/postModel.php",
             "helpers/view.php"
