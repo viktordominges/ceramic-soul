@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <meta name="description" content="<?= htmlspecialchars($description ?? 'Описание сайта') ?>">
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <script src="/assets/js/script.js" defer></script>
+    <script type="module" src="/assets/js/main.js" defer></script>
 </head>
 <body>
 <header>
