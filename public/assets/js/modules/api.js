@@ -1,7 +1,9 @@
-export function fetchPosts() {
-    return fetch('/api/posts').then(res => res.json());
+export async function fetchPosts() {
+    const response = await fetch('/api/posts');
+    return response.json();
 }
 
-export function fetchCategories() {
-    return fetch('/api/categories').then(res => res.json());
+export async function fetchCategories() {
+    const response = await fetch('/api/categories');
+    return response.json();
 }

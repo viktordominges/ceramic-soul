@@ -5,9 +5,11 @@ import { initHomePage } from './pages/client/home.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-
+    console.log('Текущий путь:', path);
     // Определим, где мы
     const isAdmin = path.startsWith('/admin');
+    console.log('Это админка:', isAdmin);
+
 
     if (isAdmin) {
         // TODO: подключить admin dashboard init

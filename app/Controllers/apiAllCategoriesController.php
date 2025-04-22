@@ -9,8 +9,6 @@
 
 function apiAllCategoriesController() {
     try {
-        // Подключение модели
-        require_once APP . '/Models/category.php';
         
         // Получаем категории
         $categories = findAllCategories();

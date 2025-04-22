@@ -21,6 +21,9 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '6fa878d47689b7146ea86126a1b4dd2e' => __DIR__ . '/../..' . '/app/Controllers/categoryController.php',
         'ecc8c1d79280f0a4242c854c6d14a98a' => __DIR__ . '/../..' . '/app/Controllers/notFoundController.php',
         '21d5a4d0f30b9988e1a9fd475d58f2ee' => __DIR__ . '/../..' . '/app/Controllers/apiAllCategoriesController.php',
+        '2e00154a3b4e55c072e11a9ca5ecaf9a' => __DIR__ . '/../..' . '/app/Controllers/apiAllPostsController.php',
+        '2e1ff631f174922b0737f803599d1cb7' => __DIR__ . '/../..' . '/app/Models/categoryModel.php',
+        'd31fe1a891bb78da309ba6e3e6080aa5' => __DIR__ . '/../..' . '/app/Models/postModel.php',
         '0c6037ae6db779bcef30017b21910dab' => __DIR__ . '/../..' . '/helpers/view.php',
     );
 
