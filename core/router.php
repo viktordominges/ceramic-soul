@@ -8,7 +8,7 @@ function get_routes() {
         '' => 'homeController',
         'about' => 'aboutController',
         'contact' => 'contactController',
-        'category' => 'categoryController',
+        'categories' => 'categoriesController',
         'api/users' => 'apiUsersController',
         'api/categories' => 'apiAllCategoriesController',
         'api/posts' => 'apiAllPostsController'

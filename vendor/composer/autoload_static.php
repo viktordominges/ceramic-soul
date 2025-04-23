@@ -18,7 +18,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'a3fa88ba9bb2c56c784eee39c9161d28' => __DIR__ . '/../..' . '/app/Controllers/aboutController.php',
         '2cb75e05bc48cc5f216aa04022a424ad' => __DIR__ . '/../..' . '/app/Controllers/contactController.php',
         '52beb9b26b07a29bc28f85ee63e6c9b4' => __DIR__ . '/../..' . '/app/Controllers/apiUsersController.php',
-        '6fa878d47689b7146ea86126a1b4dd2e' => __DIR__ . '/../..' . '/app/Controllers/categoryController.php',
+        '0667cc82cf22d57fb487d6346b5eb0eb' => __DIR__ . '/../..' . '/app/Controllers/categoriesController.php',
         'ecc8c1d79280f0a4242c854c6d14a98a' => __DIR__ . '/../..' . '/app/Controllers/notFoundController.php',
         '21d5a4d0f30b9988e1a9fd475d58f2ee' => __DIR__ . '/../..' . '/app/Controllers/apiAllCategoriesController.php',
         '2e00154a3b4e55c072e11a9ca5ecaf9a' => __DIR__ . '/../..' . '/app/Controllers/apiAllPostsController.php',

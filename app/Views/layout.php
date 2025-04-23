@@ -18,7 +18,7 @@
         <a href="/contact">Контакты</a> |
         
         <div class="dropdown">
-            <a href="#" class="dropdown-toggle">Категории ▼</a>
+            <a href="/categories" class="dropdown-toggle">Категории ▼</a>
             <div class="dropdown-menu">
                 <!-- <a href="/category?slug=technology">Технологии</a>
                 <a href="/category?slug=travel">Путешествия</a>

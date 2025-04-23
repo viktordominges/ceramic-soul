@@ -10,7 +10,7 @@ function homeController() {
     $data = [
         'title' => 'Home Page', // Заголовок страницы
         'description' => 'Welcome to the home page', // Описание страницы
-        'content' => renderContent('home') // Загружаем контент из home-content.php
+        'content' => renderContent('home') // Загружаем контент из home.php
     ];
     
     return renderView('layout', $data);
