@@ -12,7 +12,7 @@
             "core/database.php",
             "app/Controllers/homeController.php",
             "app/Controllers/aboutController.php",
-            "app/Controllers/contactController.php",
+            "app/Controllers/registerController.php",
             "app/Controllers/apiUsersController.php",
             "app/Controllers/categoriesController.php",
             "app/Controllers/notFoundController.php",
@@ -21,8 +21,9 @@
             "app/Controllers/apiCategoryPostsController.php",
             "app/Models/categoryModel.php",
             "app/Models/postModel.php",
-            "helpers/view.php"
-
+            "helpers/view.php",
+            "helpers/validateUserData.php",
+            "helpers/validateUserAvatar.php"
         ]
     }
 }

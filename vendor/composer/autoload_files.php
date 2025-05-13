@@ -15,7 +15,7 @@ return array(
     'fde8edfbc93bd9e5b622db618825e457' => $baseDir . '/core/database.php',
     '9363b7ee76be6ad529959e916469304e' => $baseDir . '/app/Controllers/homeController.php',
     'a3fa88ba9bb2c56c784eee39c9161d28' => $baseDir . '/app/Controllers/aboutController.php',
-    '2cb75e05bc48cc5f216aa04022a424ad' => $baseDir . '/app/Controllers/contactController.php',
+    'ac85bf63e854db3ca27e2b823ba0e710' => $baseDir . '/app/Controllers/registerController.php',
     '52beb9b26b07a29bc28f85ee63e6c9b4' => $baseDir . '/app/Controllers/apiUsersController.php',
     '0667cc82cf22d57fb487d6346b5eb0eb' => $baseDir . '/app/Controllers/categoriesController.php',
     'ecc8c1d79280f0a4242c854c6d14a98a' => $baseDir . '/app/Controllers/notFoundController.php',
@@ -25,4 +25,6 @@ return array(
     '2e1ff631f174922b0737f803599d1cb7' => $baseDir . '/app/Models/categoryModel.php',
     'd31fe1a891bb78da309ba6e3e6080aa5' => $baseDir . '/app/Models/postModel.php',
     '0c6037ae6db779bcef30017b21910dab' => $baseDir . '/helpers/view.php',
+    'cdba0e1d08a30f288f0bd3bbdb772b69' => $baseDir . '/helpers/validateUserData.php',
+    'a349b91d40d8726c9d4fc0c1e72087cd' => $baseDir . '/helpers/validateUserAvatar.php',
 );

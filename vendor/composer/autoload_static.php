@@ -16,7 +16,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'fde8edfbc93bd9e5b622db618825e457' => __DIR__ . '/../..' . '/core/database.php',
         '9363b7ee76be6ad529959e916469304e' => __DIR__ . '/../..' . '/app/Controllers/homeController.php',
         'a3fa88ba9bb2c56c784eee39c9161d28' => __DIR__ . '/../..' . '/app/Controllers/aboutController.php',
-        '2cb75e05bc48cc5f216aa04022a424ad' => __DIR__ . '/../..' . '/app/Controllers/contactController.php',
+        'ac85bf63e854db3ca27e2b823ba0e710' => __DIR__ . '/../..' . '/app/Controllers/registerController.php',
         '52beb9b26b07a29bc28f85ee63e6c9b4' => __DIR__ . '/../..' . '/app/Controllers/apiUsersController.php',
         '0667cc82cf22d57fb487d6346b5eb0eb' => __DIR__ . '/../..' . '/app/Controllers/categoriesController.php',
         'ecc8c1d79280f0a4242c854c6d14a98a' => __DIR__ . '/../..' . '/app/Controllers/notFoundController.php',
@@ -26,6 +26,8 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '2e1ff631f174922b0737f803599d1cb7' => __DIR__ . '/../..' . '/app/Models/categoryModel.php',
         'd31fe1a891bb78da309ba6e3e6080aa5' => __DIR__ . '/../..' . '/app/Models/postModel.php',
         '0c6037ae6db779bcef30017b21910dab' => __DIR__ . '/../..' . '/helpers/view.php',
+        'cdba0e1d08a30f288f0bd3bbdb772b69' => __DIR__ . '/../..' . '/helpers/validateUserData.php',
+        'a349b91d40d8726c9d4fc0c1e72087cd' => __DIR__ . '/../..' . '/helpers/validateUserAvatar.php',
     );
 
     public static $prefixLengthsPsr4 = array (

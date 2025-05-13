@@ -31,8 +31,8 @@ function findAllPosts() {
     }
 }
 
-function findCategoryPosts($slug) {
-    if (!preg_match('/^[a-z0-9-]+$/', $slug)) {
+function findCategoryPosts($name) {
+    if (!preg_match('/^[a-z0-9-]+$/', $name)) {
         throw new InvalidArgumentException('Invalid category slug format');
     }
 
@@ -50,11 +50,11 @@ function findCategoryPosts($slug) {
                 c.name AS category_name
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE c.slug = :slug
+            WHERE c.name = :name
             ORDER BY p.created_at DESC
         ";
         $stmt = $db->prepare($sql);
-        $stmt->execute([':slug' => $slug]);
+        $stmt->execute([':name' => $name]);
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $db = null;

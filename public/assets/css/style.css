@@ -1,169 +1,465 @@
-html, body {
-    height: 100%;
+
+/******************************************************************
+/* CSS Reset
+/******************************************************************/    
+
+/* 1. Box-sizing: border-box для всех элементов */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  
+  /* 2. Убираем отступы и поля */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
     margin: 0;
     padding: 0;
 }
-
-body {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem;
-}
-
-main {
-    padding: 2rem;
-    flex: 1;
-}
-
-footer {
-    background: #34495e;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-/* Основные стили формы */
-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* 3. Наследуем шрифты и убираем подчеркивания у ссылок */
+a {
+    color: inherit;
+    text-decoration: none;
 }
   
-  /* Стили для всех label */
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-    font-size: 1rem;
+  /* 4. Убираем списочные стили по умолчанию */
+ul[role='list'],
+ol[role='list'],
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
   
-  /* Общие стили для полей ввода */
-input[type="text"],
-input[type="email"],
+  /* 5. Убираем стандартный outline при фокусе, но оставляем доступность */
+button,
+input,
+select,
 textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-  
-  /* Фокус-стили для полей */
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: #4a90e2;
+    font: inherit;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-}
-  
-  /* Специфичные стили для textarea */
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-  
-  /* Стили для кнопки */
-button[type="submit"] {
-    background-color: #4a90e2;
-    color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background: none;
 }
   
-  /* Ховер-эффект для кнопки */
-button[type="submit"]:hover {
-    background-color: #3a7bc8;
+  /* 6. Настройки body */
+body {
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    color: #000;
 }
   
-  /* Активное состояние кнопки */
-button[type="submit"]:active {
-    background-color: #2a65a8;
+  /* 7. Изображения по умолчанию адаптивны */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
   
-  /* Валидация полей */
-input:invalid,
-textarea:invalid {
-    border-color: #ff6b6b;
+  /* 8. Убираем пробелы у форм */
+input,
+button,
+textarea,
+select {
+    margin: 0;
 }
   
-input:valid,
-textarea:valid {
-    border-color: #51cf66;
+  /* 9. Наследуем line-height в формах */
+input,
+textarea,
+select,
+button {
+    line-height: inherit;
 }
   
-  /* Адаптивность для мобильных */
-@media (max-width: 640px) {
-    form {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-    
-    input[type="text"],
-    input[type="email"],
-    textarea {
-        padding: 0.65rem;
-    }
-}
-  
-  /* Анимация при фокусе */
-@keyframes input-focus {
-    from { box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
-    to { box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); }
-}
-  
-input:focus,
-textarea:focus {
-    animation: input-focus 0.3s ease-out;
+  /* 10. Таблицы без отступов */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.dropdown {
-    display: inline-block;
+/******************************************************************
+/* Variables
+/******************************************************************/
+
+:root {
+    /* Main colors */
+    --light-gray-color: #d9d9d9;
+    --dark-gray-color: #474646;
+    --brown-color: #c69978;
+    --success-color: #198754;
+    --error-color: #f14668;
+    --white-color: #fafafa;
+    --black-color: #232323;
+
+    /* Font sizes */
+    --font-size-xxl: 2.5rem; /* 40px */
+    --font-size-xl: 2rem; /* 32px */
+    --font-size-l: 1.5rem; /* 24px */
+    --font-size-m: 1.25rem; /* 20px */
+    --font-size-s: 1rem; /* 16px */
+
+    /* Font weights */
+    --font-weight-xxl: 900; /* 900 */
+    --font-weight-xl: 700; /* 700 */
+    --font-weight-l: 600; /* 600 */
+    --font-weight-m: 500; /* 500 */
+    --font-weight-s: 400; /* 400 */
+
+    /* Container width */
+    --container-width-xl: 1680px; /* desktop min width 1920px */
+    --container-width-lg: 1120px; /* large tablets and laptops min width 1200px */
+    --container-width-md: 550px; /* small tablets min width 768px */
+    --container-width-sm: 100%; /* smartphones */
+}
+  
+/******************************************************************
+/* Header
+/******************************************************************/
+
+.header {
+    position: relative;
+    background-color: var(--light-gray-color);
+    height: 180px;
+	padding: 0 30px;
+}
+
+.container {
+    max-width: var(--container-width-lg);
+    margin: 0 auto;
+    height: 100%; /* важно для выравнивания по высоте */
     position: relative;
 }
 
-.dropdown-toggle {
-    cursor: pointer;
-    text-decoration: none;
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
-.dropdown-menu {
-    display: none;
+.header__logo,
+.header__nav,
+.header__account-trigger {
+    flex: 1;
+}
+
+.header__logo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* расстояние между пунктами меню */
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-l);
+	color: var(--black-color);
+	text-transform: uppercase;
+}
+
+.header__account-trigger {
+    display: flex;
+    justify-content: flex-end;
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-l);
+	color: var(--black-color);
+	text-transform: uppercase;
+}
+
+.header__social-icons {
     position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    min-width: 160px;
-    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 73%;
+    display: flex;
+    gap: 20px;
 }
 
-.dropdown-menu a {
+.header__social-icons a img {
     display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    color: black;
+    width: 40px;
+    height: 40px;
 }
 
-.dropdown-menu a:hover {
-    background-color: #f0f0f0;
+.active {
+	color: var(--dark-gray-color);
 }
 
-.dropdown:hover .dropdown-menu {
+.page-title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-l);
+    color: var(--black-color);
+    text-align: left;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+
+/******************************************************************
+/* Footer
+/******************************************************************/
+
+.footer {
+	background-color: var(--black-color);
+	color: var(--white-color);
+    padding: 80px 0 50px 0;
+    position: relative;
+}
+
+.footer__wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.footer__header {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-m);
+    color: var(--white-color);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.footer__newsletter form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__newsletter form label a {
+    color: #A22DC6;
+}
+
+.footer__input {
+    padding: 10px;
+    border-bottom: 2px solid var(--white-color);
+    background-color: transparent;
+    color: var(--white-color);
+    font-size: var(--font-size-s);
+}
+
+.footer__form-btn {
+    padding: 10px;
+    border: 2px solid var(--white-color);
+    background-color: transparent;
+    color: var(--white-color);
+    font-size: var(--font-size-s);
+    width: 40%;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__form-btn:hover {
+    background-color: var(--white-color);
+    color: var(--black-color);
+}
+
+.footer__check-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Скрываем оригинальный checkbox */
+.footer__checkbox {
+    display: none;
+}
+
+/* Создаем кастомный вид чекбокса */
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--white-color);
+    background-color: transparent;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+/* Ставим галочку при активном чекбоксе */
+.footer__checkbox:checked + .custom-checkbox::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--white-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.footer__checkbox:checked + .custom-checkbox {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+/* Наведение */
+.footer__check-block:hover .custom-checkbox {
+    border-color: #2980b9;
+}
+
+.footer__nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer__link:hover {
+    color: var(--dark-gray-color);
+}
+
+.footer__social-block {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  fill: #A22DC6; /* цвет при наведении */
+}
+
+.footer__copyright {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/******************************************************************
+/* Home Page
+/******************************************************************/
+
+.posts {
+    margin: 50px 0;
+}
+
+.posts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.post-item {
+    position: relative;
+    border: 1px solid var(--light-gray-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr min-content;
+}
+
+.post-image {
+    grid-area: 1 / 1 / 2 / 2;
+}
+.post-header {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-content {
+    grid-area: 2 / 1 / 3 / 3;
+}
+.category-down-post__wrapper {
+    position: relative;
+    grid-area: 3 / 1 / 4 / 3;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.category-down-post__wrapper::before {
+    position: absolute;
+    content: '';
+    width: 60%;
+    height: 1px;
+    top: 0;
+    left: 12px;
+    background-color: var(--light-gray-color);
+}
+
+.post-item h2 {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-m);
+    color: var(--black-color);
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+
+    display: inline-block;
+}
+
+.post-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 40px 20px;
+    text-align: left;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-s);
+    color: var(--black-color);
+}
+
+.read-more {
     display: block;
+    text-align: center;
+    padding: 5px 30px;
+    background-color: transparent;
+    color: var(--black-color);
+    border: 2px solid var(--black-color);
+    text-transform: uppercase;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-m);
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.read-more:hover {
+    color: var(--white-color);
+    background-color: var(--black-color);
+}
+
+.category-down-post__img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.category-down-post__name {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-m);
+    color: var(--black-color);
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.category-down-post__name:hover {
+    color: var(--dark-gray-color);
 }

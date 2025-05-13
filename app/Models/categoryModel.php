@@ -8,7 +8,7 @@ function findCategoryByName($name) {
 
     try {
         $db = connectDB();
-        $sql = "SELECT id, name, slug FROM categories WHERE name = :name";
+        $sql = "SELECT id, name, image FROM categories WHERE name = :name";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->execute();

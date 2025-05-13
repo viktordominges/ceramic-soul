@@ -5,12 +5,12 @@
  * 
  * @return string HTML-код страницы О нас
  */
-function contactController() {
+function registerController() {
     
     $data = [
-        'title' => 'Contact Us',
-        'description' => 'Get in touch with us', 
-        'content' => renderContent('contact') 
+        'title' => 'Register',
+        'description' => 'Registration page', 
+        'content' => renderContent('register') 
     ];
     
     return renderView('layout', $data);
