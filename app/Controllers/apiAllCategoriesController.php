@@ -26,6 +26,7 @@ function apiAllCategoriesController() {
             return [
                 'id' => (int)$category['id'],
                 'name' => htmlspecialchars($category['name']),
+                'description' => htmlspecialchars($category['description']),
                 'image' => htmlspecialchars($category['image'])
             ];
         }, $categories);

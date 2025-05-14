@@ -1,7 +1,6 @@
-<h1>Все категории</h1>
+<h2 class="page-title">categories</h2>
 
 <section class="categories">
-    <p>Здесь будут рендериться категории</p>
     <!-- Здесь будут рендериться посты -->
-    <div class="categories-wrapper"></div>
+    <div class="categories__wrapper"></div>
 </section>

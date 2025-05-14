@@ -1,18 +1,18 @@
 export function renderPost(post) {
     const postElement = document.createElement('div');
-    postElement.classList.add('post-item');
+    postElement.classList.add('post__item');
 
     // Базовый HTML, общий для всех постов
     let postHTML = `
-        <img src="${post.image}" alt="${post.title}" class="post-image" />
-        <div class="post-header">
+        <img src="${post.image}" alt="${post.title}" class="post__item_image" />
+        <div class="post__item_header">
             <h2>${post.title}</h2>
             <a class="read-more" href="/post/${post.slug}">Read</a>
         </div>
-        <p class="post-content">${post.content}</p>
-        <div class="category-down-post__wrapper">
-            <img src="assets/images/icons/gold-star.png" alt="star" class="category-down-post__img" />
-            <p class="category-down-post__name">${post.category ?? 'Без категории'}</p>
+        <p class="post__item_content">${post.description}</p>
+        <div class="post__item-down_wrapper">
+            <img src="assets/images/icons/gold-star.png" alt="star" class="post__item-down_img" />
+            <p class="post__item-down_name">${post.category ?? 'Без категории'}</p>
         </div>
     `;
 

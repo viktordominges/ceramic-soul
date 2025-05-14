@@ -96,6 +96,13 @@ button {
     cursor: pointer;
 }
 
+
+
+
+
+
+
+
 /******************************************************************
 /* Variables
 /******************************************************************/
@@ -131,6 +138,13 @@ button {
     --container-width-sm: 100%; /* smartphones */
 }
   
+
+
+
+
+
+
+
 /******************************************************************
 /* Header
 /******************************************************************/
@@ -271,6 +285,12 @@ button {
     text-transform: uppercase;
     margin-top: 50px;
 }
+
+
+
+
+
+
 
 
 /******************************************************************
@@ -414,6 +434,13 @@ button {
     margin: 0 auto;
 }
 
+
+
+
+
+
+
+
 /******************************************************************
 /* Home Page
 /******************************************************************/
@@ -422,14 +449,14 @@ button {
     margin: 50px 0;
 }
 
-.posts-wrapper {
+.posts__wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 20px;
 }
 
-.post-item {
+.post__item {
     position: relative;
     border: 1px solid var(--light-gray-color);
     display: grid;
@@ -437,20 +464,38 @@ button {
     grid-template-rows: 1fr 1fr min-content;
 }
 
-.post-image {
-    grid-area: 1 / 1 / 2 / 2;
+.post__item h2 {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-m);
+    color: var(--black-color);
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    display: inline-block;
 }
-.post-header {
+
+.post__item_image {
+    grid-area: 1 / 1 / 2 / 2;
+    width: 100%;
+    object-fit: cover;
+}
+.post__item_header {
     grid-area: 1 / 2 / 2 / 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-.post-content {
+.post__item_content {
     grid-area: 2 / 1 / 3 / 3;
+    padding: 40px 20px;
+    text-align: left;
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-s);
+    color: var(--black-color);
 }
-.category-down-post__wrapper {
+
+.post__item-down_wrapper {
     position: relative;
     grid-area: 3 / 1 / 4 / 3;
     display: flex;
@@ -462,7 +507,7 @@ button {
     transition: all 0.3s ease-in-out;
 }
 
-.category-down-post__wrapper::before {
+.post__item-down_wrapper::before {
     position: absolute;
     content: '';
     width: 60%;
@@ -470,30 +515,6 @@ button {
     top: 0;
     left: 12px;
     background-color: var(--light-gray-color);
-}
-
-.post-item h2 {
-    font-size: var(--font-size-l);
-    font-weight: var(--font-weight-m);
-    color: var(--black-color);
-    text-align: center;
-    padding: 10px;
-    text-transform: uppercase;
-
-    display: inline-block;
-}
-
-.post-image {
-    width: 100%;
-    object-fit: cover;
-}
-
-.post-content {
-    padding: 40px 20px;
-    text-align: left;
-    font-size: var(--font-size-s);
-    font-weight: var(--font-weight-s);
-    color: var(--black-color);
 }
 
 .read-more {
@@ -515,13 +536,13 @@ button {
     background-color: var(--black-color);
 }
 
-.category-down-post__img {
+.post__item-down_img {
     width: 30px;
     height: 30px;
     object-fit: cover;
 }
 
-.category-down-post__name {
+.post__item-down_name {
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-m);
     color: var(--black-color);
@@ -529,9 +550,15 @@ button {
     transition: all 0.5s ease-in-out;
 }
 
-.category-down-post__name:hover {
+.post__item-down_name:hover {
     color: var(--dark-gray-color);
 }
+
+
+
+
+
+
 
 /******************************************************************
 /* Register and Login Page
@@ -610,4 +637,29 @@ button {
 .back-to {
     margin-top: 20px;
     text-align: center;
+}
+
+
+
+
+
+
+/******************************************************************
+/* All Categories Page
+/******************************************************************/
+
+.categories {
+    margin: 50px 0;
+}
+
+.categories__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.category__item {
+    position: relative;
+    border: 1px solid var(--light-gray-color);
 }

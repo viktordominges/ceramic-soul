@@ -14,12 +14,13 @@ function apiAllPostsController() {
             return [
                 'id' => (int)$post['id'],
                 'title' => htmlspecialchars($post['title']),
-                'content' => htmlspecialchars($post['content']),
+                'description' => htmlspecialchars($post['description']),
+                'text' => htmlspecialchars($post['text']),
                 'image' => htmlspecialchars($post['image']),
                 'slug' => htmlspecialchars($post['slug']),
                 'created_at' => $post['created_at'],
                 'updated_at' => $post['updated_at'] ? $post['updated_at'] : null,
-                'category' => $post['category_name'] ? htmlspecialchars($post['category_name']) : null
+                'category' => $post['category'] ? htmlspecialchars($post['category']) : null
             ];
         }, $posts);
 

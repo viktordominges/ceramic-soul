@@ -7,13 +7,11 @@ export function initCategoriesPage() {
 
     if (!categoriesSection) return;
 
-    let wrapper = categoriesSection.querySelector('.categories-wrapper');
+    let wrapper = categoriesSection.querySelector('.categories__wrapper');
 
-    console.log('wrapper', wrapper);
-    
     if (!wrapper) {
         wrapper = document.createElement('div');
-        wrapper.classList.add('categories-wrapper');
+        wrapper.classList.add('categories__wrapper');
         categoriesSection.appendChild(wrapper);
     } else {
         wrapper.innerHTML = '';

@@ -8,12 +8,13 @@ function findAllPosts() {
             SELECT
                 p.id, 
                 p.title, 
-                p.content, 
+                p.description,
+                p.text, 
                 p.image, 
                 p.slug, 
                 p.created_at, 
                 p.updated_at,
-                c.name AS category_name
+                c.name AS category
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
             ORDER BY p.created_at DESC
@@ -39,18 +40,19 @@ function findCategoryPosts($name) {
     try {
         $db = connectDB();
         $sql = "
-            SELECT 
+            SELECT
                 p.id, 
-                p.title, 
-                p.content, 
-                p.image, 
-                p.slug, 
+                p.post-title, 
+                p.post-description,
+                p.post-text, 
+                p.post-image, 
+                p.post-slug, 
                 p.created_at, 
                 p.updated_at,
-                c.name AS category_name
+                c.category-name
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE c.name = :name
+            WHERE c.category-name = :name
             ORDER BY p.created_at DESC
         ";
         $stmt = $db->prepare($sql);
@@ -73,18 +75,19 @@ function findPostBySlug($slug) {
     try {
         $db = connectDB();
         $sql = "
-            SELECT 
+            SELECT
                 p.id, 
-                p.title, 
-                p.content, 
-                p.image, 
-                p.slug, 
+                p.post-title, 
+                p.post-description,
+                p.post-text, 
+                p.post-image, 
+                p.post-slug, 
                 p.created_at, 
                 p.updated_at,
-                c.name AS category_name
+                c.category-name
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE p.slug = :slug
+            WHERE p.post-slug = :slug
         ";
         $stmt = $db->prepare($sql);
         $stmt->execute([':slug' => $slug]);

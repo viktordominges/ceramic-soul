@@ -2,5 +2,5 @@
 
 <section class="posts">
     <!-- Здесь будут рендериться посты -->
-    <div class="posts-wrapper"></div>
+    <div class="posts__wrapper"></div>
 </section>

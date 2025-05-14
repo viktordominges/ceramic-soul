@@ -6,10 +6,10 @@ export function initHomePage() {
     const postsSection = document.querySelector('section.posts');
     if (!postsSection) return;
 
-    let wrapper = postsSection.querySelector('.posts-wrapper');
+    let wrapper = postsSection.querySelector('.posts__wrapper');
     if (!wrapper) {
         wrapper = document.createElement('div');
-        wrapper.classList.add('posts-wrapper');
+        wrapper.classList.add('posts__wrapper');
         postsSection.appendChild(wrapper);
     } else {
         wrapper.innerHTML = '';

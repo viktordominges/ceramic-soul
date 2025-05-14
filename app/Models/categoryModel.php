@@ -8,7 +8,7 @@ function findCategoryByName($name) {
 
     try {
         $db = connectDB();
-        $sql = "SELECT id, name, image FROM categories WHERE name = :name";
+        $sql = "SELECT id, name, description, image FROM categories WHERE name = :name";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->execute();
@@ -22,7 +22,7 @@ function findCategoryByName($name) {
 function findAllCategories() {
     try {
         $db = connectDB();
-        $sql = "SELECT id, name, image FROM categories";
+        $sql = "SELECT id, name, description, image FROM categories";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
