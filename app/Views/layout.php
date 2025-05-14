@@ -19,7 +19,9 @@
 
         <div class="header__wrapper">
             <div class="header__logo">
-                <img src="/assets/images/img/logo.png" alt="logo">
+                <a href="/">
+                    <img src="/assets/images/img/logo.png" alt="logo">
+                </a>
             </div>
             <nav class="header__nav">
                 <a class="active" href="/">Home</a>

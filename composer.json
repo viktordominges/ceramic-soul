@@ -13,6 +13,7 @@
             "app/Controllers/homeController.php",
             "app/Controllers/aboutController.php",
             "app/Controllers/registerController.php",
+            "app/Controllers/loginController.php",
             "app/Controllers/apiUsersController.php",
             "app/Controllers/categoriesController.php",
             "app/Controllers/notFoundController.php",

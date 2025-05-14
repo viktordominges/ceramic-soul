@@ -16,6 +16,7 @@ return array(
     '9363b7ee76be6ad529959e916469304e' => $baseDir . '/app/Controllers/homeController.php',
     'a3fa88ba9bb2c56c784eee39c9161d28' => $baseDir . '/app/Controllers/aboutController.php',
     'ac85bf63e854db3ca27e2b823ba0e710' => $baseDir . '/app/Controllers/registerController.php',
+    '0b11b992daae897cfabd02c869960a95' => $baseDir . '/app/Controllers/loginController.php',
     '52beb9b26b07a29bc28f85ee63e6c9b4' => $baseDir . '/app/Controllers/apiUsersController.php',
     '0667cc82cf22d57fb487d6346b5eb0eb' => $baseDir . '/app/Controllers/categoriesController.php',
     'ecc8c1d79280f0a4242c854c6d14a98a' => $baseDir . '/app/Controllers/notFoundController.php',
