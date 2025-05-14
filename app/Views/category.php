@@ -1,5 +1,4 @@
-<h2>Страница КАТЕГОРИИ</h2>
-<p>Здесь будут рендериться посты из категории: <span class="category__name"></span></p>
+<h2 class="page-title">category: <span class="category__name"></span></h2>
 
 <section class="posts">
     <!-- Здесь будут рендериться посты -->

@@ -1,6 +1,6 @@
-export function renderPost(post) {
-    const postElement = document.createElement('div');
-    postElement.classList.add('post__item');
+export function renderSinglePost(post) {
+    const singlePost = document.createElement('div');
+    singlePost.classList.add('post__item');
 
     // Базовый HTML, общий для всех постов
     let postHTML = `
@@ -17,14 +17,14 @@ export function renderPost(post) {
     `;
 
     // Добавляем дату создания
-    // postHTML += `<span class="post-date">Created at: ${new Date(post.created_at).toLocaleDateString()}</span>`;
+    postHTML += `<span class="post-date">Created at: ${new Date(post.created_at).toLocaleDateString()}</span>`;
 
     // Добавляем дату обновления, если она есть и отличается от даты создания
-    // if (post.updated_at && post.updated_at !== 'null' && post.updated_at !== post.created_at) {
-    //     postHTML += `<span class="post-date">Updated at: ${new Date(post.updated_at).toLocaleDateString()}</span>`;
-    // }
+    if (post.updated_at && post.updated_at !== 'null' && post.updated_at !== post.created_at) {
+        postHTML += `<span class="post-date">Updated at: ${new Date(post.updated_at).toLocaleDateString()}</span>`;
+    }
 
-    postElement.innerHTML = postHTML;
+    singlePost.innerHTML = postHTML;
 
-    return postElement;
+    return singlePost;
 }

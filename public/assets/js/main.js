@@ -3,6 +3,7 @@
 import { initHomePage } from './pages/client/home.js';
 import { initCategoriesPage } from './pages/client/categories.js';
 import { initCategoryPage } from './pages/client/category.js';
+import { initPostPage } from './pages/client/post.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Проверяем, что мы находимся в админке
@@ -37,7 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 initCategoryPage(name);
             }
             console.log('Страница категории инициализирована');
-        } else {
+        } else if (path === '/post') {
+            const slug = url.searchParams.get('slug');
+            if (slug) {
+                initPostPage(slug);
+            }
+            console.log('Страница категории инициализирована');
+        } 
+        else {
             initHomePage();
         }
 

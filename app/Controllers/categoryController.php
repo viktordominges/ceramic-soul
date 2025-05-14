@@ -10,7 +10,7 @@ function categoryController() {
     $data = [
         'title' => 'Category Page', // Заголовок страницы
         'description' => 'Welcome to the category page', // Описание страницы
-        'content' => renderContent('category') // Загружаем контент из home.php
+        'content' => renderContent('category') // Загружаем контент из category.php
     ];
     
     return renderView('layout', $data);

@@ -21,3 +21,11 @@ export async function fetchPostsByCategory(name) {
     }
     return response.json();
 }
+
+export async function fetchPostBySlug(slug) {
+    const response = await fetch(`/api/posts/post/${encodeURIComponent(slug)}`);
+    if (!response.ok) {
+        throw new Error(`Ошибка загрузки: ${response.status}`);
+    }
+    return response.json();
+}
