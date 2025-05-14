@@ -19,6 +19,7 @@ return array(
     '0b11b992daae897cfabd02c869960a95' => $baseDir . '/app/Controllers/loginController.php',
     '52beb9b26b07a29bc28f85ee63e6c9b4' => $baseDir . '/app/Controllers/apiUsersController.php',
     '0667cc82cf22d57fb487d6346b5eb0eb' => $baseDir . '/app/Controllers/categoriesController.php',
+    '6fa878d47689b7146ea86126a1b4dd2e' => $baseDir . '/app/Controllers/categoryController.php',
     'ecc8c1d79280f0a4242c854c6d14a98a' => $baseDir . '/app/Controllers/notFoundController.php',
     '21d5a4d0f30b9988e1a9fd475d58f2ee' => $baseDir . '/app/Controllers/apiAllCategoriesController.php',
     '2e00154a3b4e55c072e11a9ca5ecaf9a' => $baseDir . '/app/Controllers/apiAllPostsController.php',

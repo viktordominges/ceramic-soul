@@ -16,6 +16,7 @@
             "app/Controllers/loginController.php",
             "app/Controllers/apiUsersController.php",
             "app/Controllers/categoriesController.php",
+            "app/Controllers/categoryController.php",
             "app/Controllers/notFoundController.php",
             "app/Controllers/apiAllCategoriesController.php",
             "app/Controllers/apiAllPostsController.php",

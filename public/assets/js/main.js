@@ -2,6 +2,7 @@
 // import { renderCategoryLink } from './components/client/renderCategory.js';
 import { initHomePage } from './pages/client/home.js';
 import { initCategoriesPage } from './pages/client/categories.js';
+import { initCategoryPage } from './pages/client/category.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Проверяем, что мы находимся в админке
@@ -27,9 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Клиентская логика по страницам
         // Только для страницы категорий
-        if (path === '/categories') {
+         if (path === '/categories') {
             initCategoriesPage();
             console.log('Страница категорий инициализирована');
+        } else if (path === '/category') {
+            const name = url.searchParams.get('name');
+            if (name) {
+                initCategoryPage(name);
+            }
+            console.log('Страница категории инициализирована');
         } else {
             initHomePage();
         }

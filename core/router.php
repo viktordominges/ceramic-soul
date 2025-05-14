@@ -8,6 +8,7 @@ function get_routes() {
         '' => 'homeController',
         'about' => 'aboutController',
         'categories' => 'categoriesController',
+        'category' => 'categoryController',
         'register' => 'registerController',
         'login' => 'loginController',
         'api/users' => 'apiUsersController',
@@ -33,14 +34,18 @@ function router($uri) {
         }
     }
     
-    // 2. Обработка динамического маршрута: /api/posts/category/{slug}
-    if (preg_match('#^api/posts/category/([a-z0-9-]+)$#', $uri, $matches)) {
-        $slug = $matches[1];
+    // 2. Обработка динамического маршрута: /api/posts/category/{name}
+    // router.php
+    if (preg_match('#^api/posts/category/([\w%\-]+)$#u', $uri, $matches)) {
+        $name = urldecode($matches[1]);
+
+        
 
         if (function_exists('apiCategoryPostsController')) {
-            return apiCategoryPostsController($slug);
+            return apiCategoryPostsController($name);
         }
     }
+
 
     // 3. Маршрут не найден
     return notFoundController();

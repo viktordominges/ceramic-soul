@@ -33,8 +33,9 @@ function findAllPosts() {
 }
 
 function findCategoryPosts($name) {
-    if (!preg_match('/^[a-z0-9-]+$/', $name)) {
-        throw new InvalidArgumentException('Invalid category slug format');
+    // Пример мягкой валидации: убираем опасные символы, но разрешаем буквы, пробелы, тире
+    if (!preg_match('/^[\p{L}\p{N}\s\-]+$/u', $name)) {
+        throw new InvalidArgumentException('Invalid category name format');
     }
 
     try {
@@ -42,17 +43,17 @@ function findCategoryPosts($name) {
         $sql = "
             SELECT
                 p.id, 
-                p.post-title, 
-                p.post-description,
-                p.post-text, 
-                p.post-image, 
-                p.post-slug, 
+                p.title, 
+                p.description,
+                p.text, 
+                p.image, 
+                p.slug, 
                 p.created_at, 
                 p.updated_at,
-                c.category-name
+                c.name AS category
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE c.category-name = :name
+            WHERE c.name = :name
             ORDER BY p.created_at DESC
         ";
         $stmt = $db->prepare($sql);
@@ -77,17 +78,17 @@ function findPostBySlug($slug) {
         $sql = "
             SELECT
                 p.id, 
-                p.post-title, 
-                p.post-description,
-                p.post-text, 
-                p.post-image, 
-                p.post-slug, 
+                p.title, 
+                p.description,
+                p.text, 
+                p.image, 
+                p.slug, 
                 p.created_at, 
                 p.updated_at,
-                c.category-name
+                c.name AS category
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE p.post-slug = :slug
+            WHERE p.slug = :slug
         ";
         $stmt = $db->prepare($sql);
         $stmt->execute([':slug' => $slug]);

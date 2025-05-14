@@ -1,10 +1,10 @@
 <?php
 
-function apiCategoryPostsController($slug) {
+function apiCategoryPostsController($name) {
     try {
-        $posts = findCategoryPosts($slug);
+        $posts = findCategoryPosts($name);
 
-        error_log('Category Posts fetched for slug [' . $slug . ']: ' . print_r($posts, true));
+        error_log('Category Posts fetched for name [' . $name . ']: ' . print_r($posts, true));
 
         if (empty($posts)) {
             return json_response([], 200);
@@ -14,21 +14,22 @@ function apiCategoryPostsController($slug) {
             return [
                 'id' => (int)$post['id'],
                 'title' => htmlspecialchars($post['title']),
-                'content' => htmlspecialchars($post['content']),
+                'description' => htmlspecialchars($post['description']),
+                'text' => htmlspecialchars($post['text']),
                 'image' => htmlspecialchars($post['image']),
                 'slug' => htmlspecialchars($post['slug']),
                 'created_at' => $post['created_at'],
                 'updated_at' => $post['updated_at'] ?: null,
-                'category' => $post['category_name'] ? htmlspecialchars($post['category_name']) : null
+                'category' => $post['category'] ? htmlspecialchars($post['category']) : null
             ];
         }, $posts);
 
         return json_response($formattedPosts);
 
     } catch (InvalidArgumentException $e) {
-        // Неверный slug — вернём 400
-        error_log('Invalid slug: ' . $e->getMessage());
-        return json_response(['error' => 'Invalid category slug'], 400);
+        // Неверный name — вернём 400
+        error_log('Invalid name: ' . $e->getMessage());
+        return json_response(['error' => 'Invalid category name'], 400);
 
     } catch (RuntimeException $e) {
         // Проблемы с базой данных
