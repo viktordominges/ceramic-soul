@@ -5,59 +5,65 @@
     <title><?= htmlspecialchars($title ?? 'Blog') ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
     <meta name="description" content="<?= htmlspecialchars($description ?? 'Site description') ?>">
+
+    <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
+    <!-- Google fonts - Barlow -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script type="module" src="/assets/js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
-
-        <div class="header__wrapper">
-            <div class="header__logo">
-                <a href="/">
-                    <img src="/assets/images/img/logo.png" alt="logo">
-                </a>
+        <div class="main-container">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <a href="/">
+                        <img src="/assets/images/img/logo.png" alt="logo">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/categories">Categories</a>
+                    
+                    
+                    <!-- <div class="dropdown">
+                        <a href="/categories" class="dropdown-toggle">Категории ▼</a>
+                        <div class="dropdown-menu">
+                            <!-- <a href="/category?slug=technology">Технологии</a>
+                        </div>
+                    </div> -->
+                </nav>
+                <div class="header__account-trigger">
+                    <a href="/login" class="header__account-link">Login</a>
+                </div>
             </div>
-            <nav class="header__nav">
-                <a class="active" href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/categories">Categories</a>
-                
-                
-                <!-- <div class="dropdown">
-                    <a href="/categories" class="dropdown-toggle">Категории ▼</a>
-                    <div class="dropdown-menu">
-                        <!-- <a href="/category?slug=technology">Технологии</a>
-                    </div>
-                </div> -->
-            </nav>
-            <div class="header__account-trigger">
-                <a href="/login" class="header__account-link">Login</a>
+            <div class="header__social-icons">
+                <a href="https://www.facebook.com/"><span class="icon-facebook">
+                    <img src="/assets/images/icons/fb.svg" alt="Facebook">
+                </span></a>
+                <a href="https://www.instagram.com/"><span class="icon-instagram">
+                    <img src="/assets/images/icons/instagram.svg" alt="Instagram">
+                </span></a>
+                <a href="https://www.pinterest.com/"><span class="icon-pinterest-circled">
+                    <img src="/assets/images/icons/pinterest.svg" alt="Pinterest">
+                </span></a>
             </div>
-            
         </div>
-        <div class="header__social-icons">
-            <a href="https://www.facebook.com/"><span class="icon-facebook">
-                <img src="/assets/images/icons/fb.svg" alt="Facebook">
-            </span></a>
-            <a href="https://www.instagram.com/"><span class="icon-instagram">
-                <img src="/assets/images/icons/instagram.svg" alt="Instagram">
-            </span></a>
-            <a href="https://www.pinterest.com/"><span class="icon-pinterest-circled">
-                <img src="/assets/images/icons/pinterest.svg" alt="Pinterest">
-            </span></a>
-        </div>
-
     </header>
  
 
     <main>
-        <div class="container">
+        <div class="main-container">
             <?php 
             // Здесь будет подгружаться динамический контент
             if (!empty($content)) {
@@ -74,7 +80,7 @@
     </main>
     
     <footer class="footer">
-        <div class="container">
+        <div class="main-container">
             <div class="footer__wrapper">
                 <div class="footer__newsletter">
                     <h2 class="footer__header">newsletter</h2>

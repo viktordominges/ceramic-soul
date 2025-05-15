@@ -1,11 +1,14 @@
 // import { fetchCategories } from './modules/api.js';
 // import { renderCategoryLink } from './components/client/renderCategory.js';
+import { setActiveLink } from './modules/helpers.js';
 import { initHomePage } from './pages/client/home.js';
 import { initCategoriesPage } from './pages/client/categories.js';
 import { initCategoryPage } from './pages/client/category.js';
 import { initPostPage } from './pages/client/post.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    setActiveLink();
     // Проверяем, что мы находимся в админке
     // Если путь начинается с /admin, значит мы в админке
     const url = new URL(window.location.href);

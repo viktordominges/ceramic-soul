@@ -3,4 +3,7 @@
 <section class="posts">
     <!-- Здесь будут рендериться посты -->
     <div class="posts__wrapper"></div>
+    <div class="pagination__btn">
+        <a href="" class="read-more">show more</a>
+    </div>
 </section>

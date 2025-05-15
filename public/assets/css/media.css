@@ -1,0 +1,31 @@
+/* Container width */
+:root {
+    /* Main colors */
+    --light-gray-color: #d9d9d9;
+    --dark-gray-color: #474646;
+    --brown-color: #c69978;
+    --success-color: #198754;
+    --error-color: #f14668;
+    --white-color: #fafafa;
+    --black-color: #232323;
+
+    /* Font sizes */
+    --font-size-xxl: 2.5rem; /* 40px */
+    --font-size-xl: 2rem; /* 32px */
+    --font-size-l: 1.5rem; /* 24px */
+    --font-size-m: 1.25rem; /* 20px */
+    --font-size-s: 1rem; /* 16px */
+
+    /* Font weights */
+    --font-weight-xxl: 900; /* 900 */
+    --font-weight-xl: 700; /* 700 */
+    --font-weight-l: 600; /* 600 */
+    --font-weight-m: 500; /* 500 */
+    --font-weight-s: 400; /* 400 */
+
+    /* Container width */
+    --container-width-xl: 1680px; /* desktop min width 1920px */
+    --container-width-lg: 1120px; /* large tablets and laptops min width 1200px */
+    --container-width-md: 550px; /* small tablets min width 768px */
+    --container-width-sm: 100%; /* smartphones */
+}
