@@ -3,7 +3,7 @@
     <!-- Здесь будет рендериться форма для регистрации -->
     <div class="main-form__wrapper">
         <h2>Login to your account</h2>
-        <form class="main-form" id="login-form" action="/login" method="POST" novalidate>
+        <form class="main-form" id="login-form" novalidate>
         
             <label for="email">Enter your email:</label>
             <input type="email" id="email" name="email" placeholder="Email" required />

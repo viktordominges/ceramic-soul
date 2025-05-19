@@ -1,5 +1,6 @@
 
-export function register(formId) {
+export function fetchRegisterForm(formId) {
+    console.log('fetchRegisterForm подключен');
     const form = document.getElementById(formId);
 
     form.addEventListener('submit', async (event) => {
@@ -23,6 +24,7 @@ export function register(formId) {
             });
 
             const result = await response.json();
+            console.log(result);
 
             if (response.ok) {
                 alert(result.message || 'Registration successful!');

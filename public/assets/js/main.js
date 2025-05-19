@@ -1,10 +1,11 @@
-// import { fetchCategories } from './modules/api.js';
-// import { renderCategoryLink } from './components/client/renderCategory.js';
+
 import { setActiveLink } from './modules/helpers.js';
 import { initHomePage } from './pages/client/home.js';
 import { initCategoriesPage } from './pages/client/categories.js';
 import { initCategoryPage } from './pages/client/category.js';
 import { initPostPage } from './pages/client/post.js';
+import { fetchRegisterForm } from './pages/client/register.js';
+import { fetchLoginForm } from './pages/client/login.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -18,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAdmin) {
         console.log('Админка: логика админки будет здесь');
     } else {
-         if (path === '/categories') {
+         
+        if (path === '/categories') {
             initCategoriesPage();
             console.log('Страница категорий инициализирована');
         } else if (path === '/category') {
@@ -33,19 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 initPostPage(slug);
             }
             console.log('Страница постов инициализирована');
-        } 
-        else {
+        } else if (path === '/register') {
+            // console.log('Страница регистрации инициализирована');
+            // const form = document.getElementById('register-form');
+            // console.log('Нашли форму:', form);
+            fetchRegisterForm('register-form');
+        } else if (path === '/login') {
+            console.log('Страница логина инициализирована');
+            fetchLoginForm('login-form');
+        } else {
             initHomePage();
         }
 
-        // Проверка: если путь /category и есть параметр slug
-        // if (path === '/category') {
-        //     const slug = url.searchParams.get('slug');
-        //     if (slug) {
-        //         initCategoryPage(slug);
-        //     }
-        // }
-        
     }
     
 });

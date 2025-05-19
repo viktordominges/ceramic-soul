@@ -2,7 +2,7 @@
     <!-- Здесь будет рендериться форма для регистрации -->
     <div class="main-form__wrapper">
         <h2>CREATE ACCOUNT</h2>
-        <form class="main-form" id="register-form" action="/register" method="POST" enctype="multipart/form-data" novalidate>
+        <form class="main-form" id="register-form" enctype="multipart/form-data" novalidate>
             <label for="username">Enter your name:</label>
             <input type="text" id="username" name="username" placeholder="Name" required />
 

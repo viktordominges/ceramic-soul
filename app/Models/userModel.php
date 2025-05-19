@@ -51,6 +51,38 @@ function createUser($username, $email, $password, $role = 'user', $avatar = null
 }
 
 
+function authenticateUser($email, $password) {
+    try {
+        $db = connectDB();
+
+        // Получаем пользователя по email
+        $sql = "SELECT * FROM users WHERE email = :email LIMIT 1";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Если пользователь не найден
+        if (!$user) {
+            throw new InvalidArgumentException("User with this email not found.");
+        }
+
+        // Проверка пароля
+        if (!password_verify($password, $user['password'])) {
+            throw new InvalidArgumentException("Incorrect password.");
+        }
+
+        // Всё прошло успешно — можно вернуть данные пользователя
+        unset($user['password']); // Удаляем хеш пароля из результата
+        return $user;
+
+    } catch (PDOException $e) {
+        error_log("Database error in authenticateUser: " . $e->getMessage());
+        throw new RuntimeException('Authentication failed due to server error.');
+    }
+}
+
 
 function updateUserPassword($id, $newPassword) {
     try {
