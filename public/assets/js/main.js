@@ -18,20 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAdmin) {
         console.log('Админка: логика админки будет здесь');
     } else {
-        // Рендерим меню с категориями
-        // fetchCategories()
-        //     .then(data => {
-        //         const categories = data.content;
-        //         const menu = document.querySelector('.dropdown-menu');
-        //         if (Array.isArray(categories) && menu) {
-        //             menu.innerHTML = '';
-        //             categories.forEach(cat => menu.appendChild(renderCategoryLink(cat)));
-        //         }
-        //     })
-        //     .catch(console.error);
-
-        // Клиентская логика по страницам
-        // Только для страницы категорий
          if (path === '/categories') {
             initCategoriesPage();
             console.log('Страница категорий инициализирована');
@@ -46,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (slug) {
                 initPostPage(slug);
             }
-            console.log('Страница категории инициализирована');
+            console.log('Страница постов инициализирована');
         } 
         else {
             initHomePage();

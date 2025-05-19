@@ -1,6 +1,6 @@
-export function showEmptyMessage(container) {
+export function showEmptyMessage(container, message) {
     const msg = document.createElement('p');
     msg.classList.add('no-posts');
-    msg.textContent = 'Постов пока нет.';
+    msg.textContent = message ?? 'Постов пока нет.';
     container.appendChild(msg);
 }

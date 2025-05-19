@@ -20,36 +20,41 @@ export function initHomePage() {
     // Загружаем посты
     fetchPosts()
         .then(data => {
-            const posts = data.content;
-
+            // Если данные — массив, используем его напрямую
+            const posts = Array.isArray(data) ? data : data.content;
+            
+            console.log('Posts:', posts);
+            
             if (Array.isArray(posts) && posts.length) {
-                // Отображение основных постов
+                // Отображаем посты
                 posts.forEach(post => postsWrapper.appendChild(renderPost(post)));
-
-                // Отображение популярных постов
+                // Отображаем популярные посты (если нужно)
                 posts.forEach(post => popularPostsWrapper.appendChild(renderPopularPostsTitles(post)));
             } else {
-                showEmptyMessage(postsWrapper);
-                showEmptyMessage(popularPostsWrapper);
+                showEmptyMessage(postsWrapper, 'Постов пока нет.');
+                showEmptyMessage(popularPostsWrapper, 'Популярных постов пока нет.');
             }
         })
         .catch(error => {
             console.error('Ошибка загрузки постов:', error);
-            showEmptyMessage(postsWrapper);
-            showEmptyMessage(popularPostsWrapper);
+            showEmptyMessage(postsWrapper, 'Ошибка загрузки постов.');
+            showEmptyMessage(popularPostsWrapper, 'Ошибка загрузки популярных постов.');
         });
 
 
     fetchCategories()
             .then(data => {
-                const categories = data.content;
+                // Если данные — массив, используем его напрямую
+                const categories = Array.isArray(data) ? data : data.content;
+
                 if (Array.isArray(categories) && categories.length) {
                     categories.forEach(category => categoriesListWrapper.appendChild(renderCategoriesNameList(category))); // Нужно создать и импортировать
                 } else {
-                    showEmptyMessage(categoriesListWrapper);
+                    showEmptyMessage(categoriesListWrapper, 'Категорий пока нет.');
                 }
             })
             .catch(error => {
                 console.error('Ошибка загрузки категорий:', error);
+                showEmptyMessage(categoriesListWrapper, 'Ошибка загрузки категорий.');
             });
 }
