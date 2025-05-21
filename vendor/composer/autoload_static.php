@@ -25,6 +25,8 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '470cfa0a18143f15bb185cd3a2ea8b7d' => __DIR__ . '/../..' . '/app/Controllers/methodNotAllowedController.php',
         '6169080bd63e334f4c66891d427bf77a' => __DIR__ . '/../..' . '/app/Controllers/apiRegisterController.php',
         '3fb16c9ff24894efe2d20e3fcb518ba6' => __DIR__ . '/../..' . '/app/Controllers/apiLoginController.php',
+        '7afcb13efcda4c86b14dabdb85fcef53' => __DIR__ . '/../..' . '/app/Controllers/apiLogoutController.php',
+        '303a458a3e716a585b1ca6725e8463a8' => __DIR__ . '/../..' . '/app/Controllers/apiDeleteAccountController.php',
         '21d5a4d0f30b9988e1a9fd475d58f2ee' => __DIR__ . '/../..' . '/app/Controllers/apiAllCategoriesController.php',
         '2e00154a3b4e55c072e11a9ca5ecaf9a' => __DIR__ . '/../..' . '/app/Controllers/apiAllPostsController.php',
         '1056cf680a95a6cd1c7d2f527af00c3a' => __DIR__ . '/../..' . '/app/Controllers/apiCategoryPostsController.php',

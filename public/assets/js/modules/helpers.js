@@ -17,4 +17,27 @@ export function setActiveLink() {
         }
     });
 }
-    
+
+export function toggleDropdownMenuTriggers(openTriggerId, menuClass, closeTriggerClass) {
+    const triggerOpen = document.getElementById(openTriggerId);
+    const dropdownMenu = document.querySelector(menuClass);
+
+    triggerOpen.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('open');
+    });
+
+    // Делегирование: ловим клик по крестику внутри меню
+    dropdownMenu.addEventListener('click', function (e) {
+        if (e.target.classList.contains(closeTriggerClass)) {
+            dropdownMenu.classList.remove('open');
+        }
+    });
+
+    // Закрытие при клике вне
+    document.addEventListener('click', function (e) {
+        if (!dropdownMenu.contains(e.target) && e.target !== triggerOpen) {
+            dropdownMenu.classList.remove('open');
+        }
+    });
+}
+   

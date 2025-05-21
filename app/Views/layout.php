@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,6 @@
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script type="module" src="/assets/js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -29,22 +29,22 @@
                         <img src="/assets/images/img/logo.png" alt="logo">
                     </a>
                 </div>
+
                 <nav class="header__nav">
                     <a href="/">Home</a>
                     <a href="/about">About</a>
                     <a href="/categories">Categories</a>
-                    
-                    
-                    <!-- <div class="dropdown">
-                        <a href="/categories" class="dropdown-toggle">Категории ▼</a>
-                        <div class="dropdown-menu">
-                            <!-- <a href="/category?slug=technology">Технологии</a>
-                        </div>
-                    </div> -->
                 </nav>
-                <div class="header__account-trigger">
-                    <a href="/login" class="header__account-link">Login</a>
+                
+                <div class="header-auth__triggers">
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <img id="user-open__trigger" src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
+                    <?php else: ?>
+                        <span id="auth-open__trigger">Login</span>
+                    <?php endif; ?>
                 </div>
+
+
             </div>
             <div class="header__social-icons">
                 <a href="https://www.facebook.com/"><span class="icon-facebook">
@@ -57,6 +57,32 @@
                     <img src="/assets/images/icons/pinterest.svg" alt="Pinterest">
                 </span></a>
             </div>
+        </div>
+
+        <div class="main-dropdown__menu">
+            <div class="main-dropdown__menu_trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="main-dropdown__menu_items">
+                <span class="dropdown__close"></span>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/categories">Categories</a>
+            </div>
+        </div>
+
+        <div class="dropdown-auth__menu">
+            <span class="auth-close__trigger"></span>
+            <a href="/login">Login</a>
+            <a href="/register">Create account</a>
+        </div>
+
+        <div class="dropdown-account__menu">
+            <span class="user-close__trigger"></span>
+            <div class="user-logout__trigger">Logout</div>
+            <div class="user-delete__trigger">Delete account</div>
         </div>
     </header>
  
@@ -160,6 +186,6 @@
             <div class="footer__copyright">© Copyright <?= date('Y') ?>, Ceramic Blog</div>
         </div>
     </footer>
-
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

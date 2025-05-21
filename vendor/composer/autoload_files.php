@@ -24,6 +24,8 @@ return array(
     '470cfa0a18143f15bb185cd3a2ea8b7d' => $baseDir . '/app/Controllers/methodNotAllowedController.php',
     '6169080bd63e334f4c66891d427bf77a' => $baseDir . '/app/Controllers/apiRegisterController.php',
     '3fb16c9ff24894efe2d20e3fcb518ba6' => $baseDir . '/app/Controllers/apiLoginController.php',
+    '7afcb13efcda4c86b14dabdb85fcef53' => $baseDir . '/app/Controllers/apiLogoutController.php',
+    '303a458a3e716a585b1ca6725e8463a8' => $baseDir . '/app/Controllers/apiDeleteAccountController.php',
     '21d5a4d0f30b9988e1a9fd475d58f2ee' => $baseDir . '/app/Controllers/apiAllCategoriesController.php',
     '2e00154a3b4e55c072e11a9ca5ecaf9a' => $baseDir . '/app/Controllers/apiAllPostsController.php',
     '1056cf680a95a6cd1c7d2f527af00c3a' => $baseDir . '/app/Controllers/apiCategoryPostsController.php',

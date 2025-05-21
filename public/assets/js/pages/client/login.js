@@ -1,3 +1,5 @@
+// import { toggleAuthTriggers } from "../../modules/helpers.js";
+
 export function fetchLoginForm(formId) {
     console.log('fetchLoginForm подключен');
     const form = document.getElementById(formId);
@@ -18,7 +20,8 @@ export function fetchLoginForm(formId) {
         try {
             const response = await fetch('/api/users/login', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                credentials: 'same-origin'
             });
 
             const result = await response.json();
@@ -27,6 +30,7 @@ export function fetchLoginForm(formId) {
             if (response.ok) {
                 alert(result.message || 'Login successful!');
                 form.reset();
+                // toggleAuthTriggers();
                 window.location.href = '/';
             } else {
                 alert(result.error || 'Login failed. Please try again.');

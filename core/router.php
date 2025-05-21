@@ -15,7 +15,9 @@ function get_routes() {
         'api/categories' => 'apiAllCategoriesController',
         'api/posts' => 'apiAllPostsController',
         'api/users/register' => 'apiRegisterController',
-        'api/users/login' => 'apiLoginController'
+        'api/users/login' => 'apiLoginController',
+        'api/users/logout' => 'apiLogoutController',
+        'api/users/delete' => 'apiDeleteAccountController',
 
     ];
 }
@@ -38,7 +40,9 @@ function router($uri) {
         if (
             $method === 'GET' ||
             ($uri === 'api/users/register' && $method === 'POST') ||
-            ($uri === 'api/users/login' && $method === 'POST')
+            ($uri === 'api/users/login' && $method === 'POST') ||
+            ($uri === 'api/users/logout' && $method === 'POST') ||
+            ($uri === 'api/users/delete' && $method === 'POST')
         ) {
             return $handler();
         }
