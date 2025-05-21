@@ -31,18 +31,18 @@ export async function fetchPostBySlug(slug) {
 }
 
 // Получить комментарии по post_id
-export async function fetchCommentsByPost(slug) {
-    const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
+// export async function fetchCommentsByPost(slug) {
+//     const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
 
-    if (!response.ok) {
-        throw new Error(`Ошибка загрузки комментариев поста: ${response.status}`);
-    }
+//     if (!response.ok) {
+//         throw new Error(`Ошибка загрузки комментариев поста: ${response.status}`);
+//     }
 
-    const data = await response.json();
-    console.log('Parsed JSON data:', data); // <-- Вот тут увидишь, пустой ли он или нет
+//     const data = await response.json();
+//     console.log('Parsed JSON data:', data); // <-- Вот тут увидишь, пустой ли он или нет
 
-    return data;
-}
+//     return data;
+// }
 
 // Получить комментарии по user_id
 export async function fetchCommentsByUser(userId) {

@@ -9,10 +9,12 @@ import { renderPopularPostsTitles } from '../../components/client/renderPopularP
 import { fetchCategories } from '../../modules/api.js';
 import { renderCategoriesNameList } from '../../components/client/renderCategoriesNameList.js';
 
-import {fetchCreateComment} from '../../components/client/createComment.js';
+import { fetchAndRenderCommentsByPost } from '../../components/client/fetchAndRenderCommentsByPost.js';
 
-import { fetchCommentsByPost } from '../../modules/api.js';
-import { renderPostComment } from '../../components/client/renderPostComment.js';
+import { fetchCreateComment } from '../../components/client/createComment.js';
+
+// import { fetchCommentsByPost } from '../../modules/api.js';
+// import { renderPostComment } from '../../components/client/renderPostComment.js';
 
 import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
@@ -83,23 +85,9 @@ export function initPostPage(slug) {
             showEmptyMessage(categoriesListWrapper, 'Ошибка загрузки категорий.');
         });
 
-    fetchCreateComment();
 
-    // Загружаем комментарии поста
-    fetchCommentsByPost(slug)
-        .then(data => {
-            const comments = Array.isArray(data) ? data : data.content;
-            console.log(comments);
-             // зависит от формата ответа
-            if (Array.isArray(comments) && comments.length) {
-                comments.forEach(comment => commentsListWrapper.appendChild(renderPostComment(comment)));
-            } else {
-                showEmptyMessage(commentsListWrapper, 'Комментариев пока нет.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки комментариев поста:', error);
-            showEmptyMessage(commentsListWrapper, 'Ошибка загрузки комментариев.');
-        });
+    fetchAndRenderCommentsByPost(slug, commentsListWrapper);
+
+    fetchCreateComment(slug, commentsListWrapper);
 
 }
