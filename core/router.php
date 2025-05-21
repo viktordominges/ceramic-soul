@@ -12,15 +12,18 @@ function get_routes() {
         'post' => 'postController',
         'register' => 'registerController',
         'login' => 'loginController',
+        
+        // API
         'api/categories' => 'apiAllCategoriesController',
         'api/posts' => 'apiAllPostsController',
         'api/users/register' => 'apiRegisterController',
         'api/users/login' => 'apiLoginController',
         'api/users/logout' => 'apiLogoutController',
         'api/users/delete' => 'apiDeleteAccountController',
-
+        'api/comments/create' => 'apiCreateCommentController', // ✅ Новый маршрут
     ];
 }
+
 /**
  * Основная функция роутера
  */
@@ -31,26 +34,26 @@ function router($uri) {
 
     // 1. Проверка обычных маршрутов
     if (array_key_exists($uri, $routes)) {
-    $handler = $routes[$uri];
+        $handler = $routes[$uri];
 
-    if (function_exists($handler)) {
-        // Разрешаем:
-        // - GET-запросы на все страницы
-        // - POST-запросы на конкретные API-маршруты
-        if (
-            $method === 'GET' ||
-            ($uri === 'api/users/register' && $method === 'POST') ||
-            ($uri === 'api/users/login' && $method === 'POST') ||
-            ($uri === 'api/users/logout' && $method === 'POST') ||
-            ($uri === 'api/users/delete' && $method === 'POST')
-        ) {
-            return $handler();
+        if (function_exists($handler)) {
+            // Разрешаем:
+            // - GET-запросы на все страницы
+            // - POST-запросы на конкретные API-маршруты
+            if (
+                $method === 'GET' ||
+                ($uri === 'api/users/register' && $method === 'POST') ||
+                ($uri === 'api/users/login' && $method === 'POST') ||
+                ($uri === 'api/users/logout' && $method === 'POST') ||
+                ($uri === 'api/users/delete' && $method === 'POST') ||
+                ($uri === 'api/comments/create' && $method === 'POST')
+            ) {
+                return $handler();
+            }
+
+            return methodNotAllowedController(); // 405
         }
-
-        return methodNotAllowedController(); // 405
     }
-}
-
 
     // 2. Динамические маршруты (GET)
     if ($method === 'GET') {

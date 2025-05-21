@@ -6,6 +6,14 @@
         <div class="single-post__wrapper"></div>
     </section>
 
+    <section class="add-comment">
+        <h2 class="page-title">add comment:</h2>
+        <form id="add-comment-form" class="add-comment__form"> 
+                <textarea id="comment-textarea" type="text" placeholder="Your comment" name="comment" ></textarea>
+                <button id="add-comment-btn" class="read-more" type="submit">add comment</button>
+        </form>
+    </section>
+
     <section class="comments-list">
         <h2 class="page-title">comments:</h2>
         <!-- Здесь будут рендериться комментарии -->

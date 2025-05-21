@@ -295,9 +295,6 @@ button {
 
 
 
-
-
-
 /******************************************************************
 /* Dropdown Menus
 /******************************************************************/
@@ -943,6 +940,44 @@ button {
     color: var(--light-gray-color);
 }
 
+
+
+
+
+/******************************************************************
+/* Add comment section
+/******************************************************************/
+
+.add-comment__form {
+    margin-top: 30px;
+}
+
+.add-comment__form textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 20px;
+    border: 1px solid var(--dark-gray-color);
+    resize: none;
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-s);
+    color: var(--black-color);
+    background-color: var(--white-color);
+}
+
+.add-comment__form button {
+    margin-top: 30px;
+}
+
+
+
+
+/******************************************************************
+/* Comments list section
+/******************************************************************/
+
+.comments-list {
+    margin-top: 50px;
+}
 
 
 

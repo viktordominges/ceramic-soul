@@ -1,5 +1,26 @@
 <?php
 
+function createComment($text, $user_id, $post_id) {
+    try {
+        $db = connectDB();
+        $sql = "
+            INSERT INTO comments (text, user_id, post_id)
+            VALUES (:text, :user_id, :post_id)
+        ";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':text', $text, PDO::PARAM_STR);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $db = null;
+        return true;
+    } catch (PDOException $e) {
+        error_log("Database error in createComment: " . $e->getMessage());
+        throw new RuntimeException('Failed to create comment');
+    }
+}
+
 function findCommentsByPostSlug($slug) {
     try {
         $db = connectDB();

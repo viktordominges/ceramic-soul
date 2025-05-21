@@ -14,7 +14,7 @@ function validateUserAvatar($avatarFile) {
 
         $ext = pathinfo($avatarFile['name'], PATHINFO_EXTENSION);
         $uniqueName = uniqid('avatar_', true) . '.' . $ext;
-        $uploadDir = __DIR__ . '/../../public/uploads/avatars/';
+        $uploadDir = WWW . '/uploads/avatars/';
         $relativePath = '/uploads/avatars/' . $uniqueName;
 
         if (!is_dir($uploadDir)) {

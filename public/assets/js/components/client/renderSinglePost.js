@@ -1,5 +1,8 @@
 export function renderSinglePost(post) {
     const singlePost = document.createElement('div');
+    
+    singlePost.dataset.postId = post.id; // Добавляем data-post-id
+
     singlePost.classList.add('single-post__item');
 
     // Базовый HTML, общий для всех постов

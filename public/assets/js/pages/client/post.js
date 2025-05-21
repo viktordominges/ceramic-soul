@@ -9,6 +9,8 @@ import { renderPopularPostsTitles } from '../../components/client/renderPopularP
 import { fetchCategories } from '../../modules/api.js';
 import { renderCategoriesNameList } from '../../components/client/renderCategoriesNameList.js';
 
+import {fetchCreateComment} from '../../components/client/createComment.js';
+
 import { fetchCommentsByPost } from '../../modules/api.js';
 import { renderPostComment } from '../../components/client/renderPostComment.js';
 
@@ -80,6 +82,8 @@ export function initPostPage(slug) {
             console.error('Ошибка загрузки категорий:', error);
             showEmptyMessage(categoriesListWrapper, 'Ошибка загрузки категорий.');
         });
+
+    fetchCreateComment();
 
     // Загружаем комментарии поста
     fetchCommentsByPost(slug)

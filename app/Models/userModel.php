@@ -111,19 +111,41 @@ function updateUserPassword($id, $newPassword) {
 function deleteUser($id) {
     try {
         $db = connectDB();
-        $sql = "DELETE FROM users WHERE id = :id";
 
+        // Получаем пользователя по ID
+        $sql = "SELECT * FROM users WHERE id = :id";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
         $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$user) {
+            throw new InvalidArgumentException("User not found.");
+        }
+
+        $avatarPath = $user['avatar'];
+        if ($avatarPath) {
+            $fullPath = WWW . $avatarPath;
+            if (file_exists($fullPath)) {
+                unlink($fullPath);
+            }
+        }
+
+        // Удаляем пользователя из базы данных
+        $sql = "DELETE FROM users WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
         $db = null;
         return true;
+
     } catch (PDOException $e) {
         error_log("Database error in deleteUser: " . $e->getMessage());
         throw new RuntimeException('Failed to delete user');
     }
 }
+
 
 
 function findAllUsers() {
