@@ -6,6 +6,9 @@ export function renderPopularPostsTitles(post) {
     let postHTML = `
         <img src="${post.image}" alt="${post.title}" />
         <a href="/post?slug=${encodeURIComponent(post.slug)}">${post.title}</a>
+        <span class="popular-post__comments-count">
+            ${post.comments_count} ${post.comments_count === 1 ? 'comment' : 'comments'}
+        </span>
     `;
 
     postElement.innerHTML = postHTML;

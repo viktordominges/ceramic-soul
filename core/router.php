@@ -16,11 +16,12 @@ function get_routes() {
         // API
         'api/categories' => 'apiAllCategoriesController',
         'api/posts' => 'apiAllPostsController',
+        'api/posts/popular' => 'apiPopularPostsController',
         'api/users/register' => 'apiRegisterController',
         'api/users/login' => 'apiLoginController',
         'api/users/logout' => 'apiLogoutController',
         'api/users/delete' => 'apiDeleteAccountController',
-        'api/comments/create' => 'apiCreateCommentController', // ✅ Новый маршрут
+        'api/comments/create' => 'apiCreateCommentController',
     ];
 }
 

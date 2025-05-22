@@ -25,6 +25,7 @@
             "app/Controllers/apiDeleteAccountController.php",
             "app/Controllers/apiAllCategoriesController.php",
             "app/Controllers/apiAllPostsController.php",
+            "app/Controllers/apiPopularPostsController.php",
             "app/Controllers/apiCategoryPostsController.php",
             "app/Controllers/apiPostController.php",
             "app/Controllers/apiCreateCommentController.php",

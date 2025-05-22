@@ -3,14 +3,13 @@ import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
 
 export async function fetchShowPopularPosts(popularPostsWrapper) {
     try {
-        const response = await fetch('/api/posts');
+        const response = await fetch('/api/posts/popular');
         if (!response.ok) {
             throw new Error(`Ошибка загрузки: ${response.status}`);
         }
 
         const posts = await response.json();
-        console.log('Posts:', posts);
-
+       
         if (Array.isArray(posts) && posts.length) {
             posts.forEach(post => {
                 popularPostsWrapper.appendChild(renderPopularPostsTitles(post));
