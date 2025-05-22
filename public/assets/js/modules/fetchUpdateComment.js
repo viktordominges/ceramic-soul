@@ -1,36 +1,17 @@
-import { fetchCommentsByPost } from "./fetchCommentsByPost.js";
+import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
 
-export function bindCommentActionButtons(slug) {
-    
-    // === Обработка удаления комментария ===
-    document.querySelectorAll('.delete-comment-btn').forEach(button => {
-        button.addEventListener('click', async (e) => {
-            const commentId = e.target.dataset.id;
-            if (confirm('Удалить комментарий?')) {
-                const response = await fetch(`/api/comments/${commentId}/delete`, {
-                    method: 'DELETE'
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    const commentsWrapper = document.querySelector('.comments-list__wrapper'); // <- здесь исправлено
-                    fetchCommentsByPost(slug, commentsWrapper);
-                } else {
-                    alert(result.error || 'Ошибка при удалении комментария');
-                }
-            }
-        });
-    });
-
+export function fetchUpdateComment(slug) {
 
     // === Обработка редактирования комментария ===
     document.querySelectorAll('.edit-comment-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
+            // Получаем id комментария
             const commentId = e.target.dataset.id;
+            // Получаем элемент комментария
             const commentElement = e.target.closest('.comment__item');
             const textElement = commentElement.querySelector('p');
 
+            // Получаем текст комментария
             const originalText = textElement.textContent;
 
             // Создаем поле ввода
@@ -38,21 +19,23 @@ export function bindCommentActionButtons(slug) {
             textarea.value = originalText;
             textarea.style.width = '100%';
 
-            // Кнопки "Сохранить" и "Отмена"
+            // Создаем кнопку сохранения
             const saveBtn = document.createElement('button');
             saveBtn.textContent = 'Сохранить';
             saveBtn.classList.add('save-edit-btn');
 
+            // Создаем кнопку отмены
             const cancelBtn = document.createElement('button');
             cancelBtn.textContent = 'Отмена';
             cancelBtn.classList.add('cancel-edit-btn');
 
-            // Заменяем содержимое
+            // Заменяем содержимое текста на поле ввода
             textElement.replaceWith(textarea);
             button.style.display = 'none'; // скрыть кнопку "редактировать"
             commentElement.appendChild(saveBtn);
             commentElement.appendChild(cancelBtn);
 
+            // Обработка нажатия кнопки "отмена"
             cancelBtn.addEventListener('click', () => {
                 textarea.replaceWith(textElement); // вернуть старый текст
                 button.style.display = ''; // показать кнопку редактирования
@@ -60,6 +43,7 @@ export function bindCommentActionButtons(slug) {
                 cancelBtn.remove();
             });
 
+            // Обработка нажатия кнопки "сохранить"
             saveBtn.addEventListener('click', async () => {
                 const updatedText = textarea.value.trim();
                 if (!updatedText) {
@@ -78,9 +62,11 @@ export function bindCommentActionButtons(slug) {
                 const result = await response.json();
 
                 if (result.success) {
-
                     const commentsWrapper = document.querySelector('.comments-list__wrapper');
-                    fetchCommentsByPost(slug, commentsWrapper);
+
+                    // Обновляем содержимое комментариев
+                    fetchShowCommentsByPost(slug, commentsWrapper);
+
                 } else {
                     alert(result.error || 'Ошибка при обновлении комментария');
                 }

@@ -1,15 +1,14 @@
-import { fetchPostBySlug } from '../../modules/api.js';
+import { fetchShowPostBySlug } from '../../modules/fetchShowPostBySlug.js';
 import { renderSinglePost } from '../../components/client/renderSinglePost.js';
+
+import { fetchShowPopularPosts } from '../../modules/fetchShowPopularPosts.js';
 
 import { prepareWrapper } from '../../modules/helpers.js';
 
-import { fetchPosts } from '../../modules/api.js';
-import { renderPopularPostsTitles } from '../../components/client/renderPopularPostsTitles.js';
-
-import { fetchCategories } from '../../modules/api.js';
+import { fetchShowCategories } from '../../modules/fetchShowCategories.js';
 import { renderCategoriesNameList } from '../../components/client/renderCategoriesNameList.js';
 
-import { fetchCommentsByPost } from '../../modules/fetchCommentsByPost.js';
+import { fetchShowCommentsByPost } from '../../modules/fetchShowCommentsByPost.js';
 
 import { fetchCreateComment } from '../../modules/fetchCreateComment.js';
 
@@ -32,59 +31,19 @@ export function initPostPage(slug) {
     const popularPostsWrapper = prepareWrapper(popularPostsSection, '.popular-posts__wrapper');
     const categoriesListWrapper = prepareWrapper(categoriesListSection, '.categories-list__wrapper');
 
-    // Загружаем посты по категории
-    fetchPostBySlug(slug)
-        .then(data => {
-            const post = data;
-            
-            if (post) {
-                singlePostWrapper.appendChild(renderSinglePost(post));
-            } else {
-                showEmptyMessage(singlePostWrapper, 'Пост не найден.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки поста по слагу:', error);
-            showEmptyMessage(singlePostWrapper, 'Ошибка загрузки поста.');
-        });
+    // Загружаем пост по slug
+    fetchShowPostBySlug(slug, singlePostWrapper, renderSinglePost, showEmptyMessage);
 
-
-    //Пока просто все посты для списка. Нужно будет переделать в 5 самых популярных в категории    
-    fetchPosts()
-        .then(data => {
-            const posts = Array.isArray(data) ? data : data.content;
-
-            if (Array.isArray(posts) && posts.length) {
-
-                // Отображение популярных постов
-                posts.forEach(post => popularPostsWrapper.appendChild(renderPopularPostsTitles(post)));
-            } else {
-                showEmptyMessage(popularPostsWrapper, 'Популярных постов пока нет.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки постов:', error);
-            showEmptyMessage(popularPostsWrapper, 'Ошибка загрузки популярных постов.');
-        });
+    // Загружаем список популярных постов
+    fetchShowPopularPosts(popularPostsWrapper);
 
     // Загружаем список категорий
-    fetchCategories()
-        .then(data => {
-            const categories = Array.isArray(data) ? data : data.content;
-            if (Array.isArray(categories) && categories.length) {
-                categories.forEach(category => categoriesListWrapper.appendChild(renderCategoriesNameList(category)));
-            } else {
-                showEmptyMessage(categoriesListWrapper, 'Категорий пока нет.');
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки категорий:', error);
-            showEmptyMessage(categoriesListWrapper, 'Ошибка загрузки категорий.');
-        });
+    fetchShowCategories(categoriesListWrapper, renderCategoriesNameList, showEmptyMessage);
 
+    // Загружаем список комментариев по посту
+    fetchShowCommentsByPost(slug, commentsListWrapper);
 
-    fetchCommentsByPost(slug, commentsListWrapper);
-
+    // Добавляем новый комментарий
     fetchCreateComment(slug, commentsListWrapper);
 
 }

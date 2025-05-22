@@ -1,9 +1,10 @@
 
 import { renderPostComment } from "../components/client/renderPostComment.js";
 import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
-import { bindCommentActionButtons } from "../modules/bindCommentActionButtons.js";
+import { fetchDeleteComment } from "./fetchDeleteComment.js";
+import { fetchUpdateComment } from "./fetchUpdateComment.js";
 
-export async function fetchCommentsByPost(slug, commentsListWrapper) {
+export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
     try {
         const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
 
@@ -22,7 +23,12 @@ export async function fetchCommentsByPost(slug, commentsListWrapper) {
             comments.slice().reverse().forEach(comment => {
                 commentsListWrapper.appendChild(renderPostComment(comment));
             });
-            bindCommentActionButtons(slug);
+
+            // Обработка удаления комментария (добавляем обработчики)
+            fetchDeleteComment(slug);
+            // Обработка редактирования комментария (добавляем обработчики)
+            fetchUpdateComment(slug);
+
         } else {
             showEmptyMessage(commentsListWrapper, 'Комментариев пока нет.');
         }

@@ -18,10 +18,6 @@ export function renderSinglePost(post) {
             <span class="single-post__comments-count">5 comments</span>
         </div>
         <p class="single-post__text">${post.text}</p>
-        <div class="leave-comment__wrapper">
-            <img src="assets/images/icons/comment.svg" alt="comment" />
-            <a href="#">Leave a comment</a>
-        </div>
     `;
 
     // Добавляем дату обновления, если она есть и отличается от даты создания
