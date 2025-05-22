@@ -32,6 +32,7 @@ return array(
     'c265dcee4324d350e30f4e8f8582771e' => $baseDir . '/app/Controllers/apiPostController.php',
     'acacad361c5cba1d9af1abfd8f9688ce' => $baseDir . '/app/Controllers/apiCreateCommentController.php',
     '086be4b4b895a4e88535626e493d8f8b' => $baseDir . '/app/Controllers/apiDeleteCommentController.php',
+    'e144b8e36cb1780e25773218fbad85ff' => $baseDir . '/app/Controllers/apiUpdateCommentController.php',
     '42e7d4808bca62eee232a0b2718e880f' => $baseDir . '/app/Controllers/apiCommentsByPostController.php',
     '2e1ff631f174922b0737f803599d1cb7' => $baseDir . '/app/Models/categoryModel.php',
     'd31fe1a891bb78da309ba6e3e6080aa5' => $baseDir . '/app/Models/postModel.php',

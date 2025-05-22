@@ -78,8 +78,8 @@ export function bindCommentActionButtons(slug) {
                 const result = await response.json();
 
                 if (result.success) {
-                    const slug = document.querySelector('.single-post__item').dataset.slug;
-                    const commentsWrapper = document.querySelector('#comments-list');
+
+                    const commentsWrapper = document.querySelector('.comments-list__wrapper');
                     fetchCommentsByPost(slug, commentsWrapper);
                 } else {
                     alert(result.error || 'Ошибка при обновлении комментария');
