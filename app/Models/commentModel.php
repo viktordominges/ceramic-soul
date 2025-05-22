@@ -1,6 +1,6 @@
 <?php
 
-function createComment($text, $user_id, $post_id) {
+function createComment($text, int $user_id, int $post_id) {
     try {
         $db = connectDB();
         $sql = "
@@ -29,6 +29,7 @@ function findCommentsByPostSlug($slug) {
                 c.id,
                 c.text,
                 u.username,
+                c.user_id,
                 c.post_id,
                 c.created_at,
                 c.updated_at
@@ -51,9 +52,73 @@ function findCommentsByPostSlug($slug) {
     }
 }
 
+function findCommentById(int $id)
+{
+    try {
+        $db = connectDB();
+        $sql = "
+            SELECT 
+                c.id,
+                c.text,
+                c.user_id,
+                c.post_id,
+                p.title AS post_title,
+                c.created_at,
+                c.updated_at
+            FROM comments c
+            INNER JOIN posts p ON c.post_id = p.id
+            WHERE c.id = :id
+        ";
 
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $comment = $stmt->fetch(PDO::FETCH_ASSOC);
 
-function findCommentsByUserId($user_id) {
+        return $comment ?: null;
+    } catch (PDOException $e) {
+        error_log("Database error in findCommentById: " . $e->getMessage());
+        throw new RuntimeException('Failed to retrieve comment by ID');
+    }
+}
+
+function updateCommentById(int $id, string $text): bool
+{
+    try {
+        $db = connectDB();
+        $sql = "UPDATE comments SET text = :text WHERE id = :id";
+        
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':text', $text, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->rowCount() > 0; // true, если запись обновлена
+    } catch (PDOException $e) {
+        error_log("Database error in updateCommentById: " . $e->getMessage());
+        throw new RuntimeException('Failed to update comment');
+    }
+}
+
+function deleteCommentById(int $id): bool
+{
+    try {
+        $db = connectDB();
+        $sql = "DELETE FROM comments WHERE id = :id";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Возвращаем true, если была удалена хотя бы одна строка
+        return $stmt->rowCount() > 0;
+    } catch (PDOException $e) {
+        error_log("Database error in deleteCommentById: " . $e->getMessage());
+        throw new RuntimeException('Failed to delete comment by ID');
+    }
+}
+
+function findCommentsByUserId(int $user_id): ?array 
+{
     try {
         $db = connectDB();
         $sql = "

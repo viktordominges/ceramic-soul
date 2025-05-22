@@ -1,4 +1,4 @@
-import { fetchAndRenderCommentsByPost } from "./fetchAndRenderCommentsByPost.js";
+import { fetchCommentsByPost } from "./fetchCommentsByPost.js";
     
 export function fetchCreateComment(slug, commentsListWrapper) {
 
@@ -38,7 +38,7 @@ export function fetchCreateComment(slug, commentsListWrapper) {
             document.querySelector('#comment-textarea').value = '';
 
             // Обновляем список комментариев после успешной отправки
-            await fetchAndRenderCommentsByPost(slug, commentsListWrapper);
+            await fetchCommentsByPost(slug, commentsListWrapper);
 
         } catch (error) {
             console.error('Ошибка запроса:', error);

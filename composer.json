@@ -28,6 +28,7 @@
             "app/Controllers/apiCategoryPostsController.php",
             "app/Controllers/apiPostController.php",
             "app/Controllers/apiCreateCommentController.php",
+            "app/Controllers/apiDeleteCommentController.php",
             "app/Controllers/apiCommentsByPostController.php",
             "app/Models/categoryModel.php",
             "app/Models/postModel.php",

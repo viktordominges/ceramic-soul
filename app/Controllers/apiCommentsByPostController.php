@@ -16,13 +16,20 @@ function apiCommentsByPostController($slug) {
             return json_response([], 200);
         }
 
+        session_start();
+        $currentUserId = isset($_SESSION['user']['id']) ? (int)$_SESSION['user']['id'] : null;
+
+
+
         // Форматируем комментарии
-        $formattedComments = array_map(function($comment) {
+        $formattedComments = array_map(function($comment) use ($currentUserId) {
             return [
                 'id' => (int)$comment['id'],
                 'text' => htmlspecialchars($comment['text']),
                 'username' => htmlspecialchars($comment['username']),
                 'post_id' => (int)$comment['post_id'],
+                'user_id' => (int)$comment['user_id'], // <- добавим user_id
+                'is_owner' => $currentUserId && $comment['user_id'] == $currentUserId, // <- полезно для фронта (получаем Boolean)
                 'created_at' => $comment['created_at'],
                 'updated_at' => $comment['updated_at'] ?: null
             ];

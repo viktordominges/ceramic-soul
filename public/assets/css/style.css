@@ -976,10 +976,12 @@ button {
 /******************************************************************/
 
 .comments-list {
-    margin-top: 50px;
+    margin: 50px;
 }
 
-
+.comment__item {
+    margin-top: 30px;
+}
 
 
 

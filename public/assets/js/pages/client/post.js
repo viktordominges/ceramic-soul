@@ -9,12 +9,9 @@ import { renderPopularPostsTitles } from '../../components/client/renderPopularP
 import { fetchCategories } from '../../modules/api.js';
 import { renderCategoriesNameList } from '../../components/client/renderCategoriesNameList.js';
 
-import { fetchAndRenderCommentsByPost } from '../../components/client/fetchAndRenderCommentsByPost.js';
+import { fetchCommentsByPost } from '../../modules/fetchCommentsByPost.js';
 
-import { fetchCreateComment } from '../../components/client/createComment.js';
-
-// import { fetchCommentsByPost } from '../../modules/api.js';
-// import { renderPostComment } from '../../components/client/renderPostComment.js';
+import { fetchCreateComment } from '../../modules/fetchCreateComment.js';
 
 import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
@@ -86,7 +83,7 @@ export function initPostPage(slug) {
         });
 
 
-    fetchAndRenderCommentsByPost(slug, commentsListWrapper);
+    fetchCommentsByPost(slug, commentsListWrapper);
 
     fetchCreateComment(slug, commentsListWrapper);
 

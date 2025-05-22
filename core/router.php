@@ -86,6 +86,24 @@ function router($uri) {
         }
     }
 
+    if ($method === 'DELETE') {
+        if (preg_match('#^api/comments/(\d+)/delete$#', $uri, $matches)) {
+            $commentId = (int)$matches[1];
+            if (function_exists('apiDeleteCommentController')) {
+                return apiDeleteCommentController($commentId);
+            }
+        }
+    }
+
+    if ($method === 'PUT') {
+        if (preg_match('#^api/comments/(\d+)/update$#', $uri, $matches)) {
+            $commentId = (int)$matches[1];
+            if (function_exists('apiUpdateCommentController')) {
+                return apiUpdateCommentController($commentId);
+            }
+        }
+    }
+
     // 3. Маршрут не найден
     return notFoundController();
 }
