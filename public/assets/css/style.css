@@ -147,6 +147,31 @@ button {
 
 
 
+/******************************************************************
+/* Styles pour validation
+/******************************************************************/
+.valid {
+    border: 2px solid green;
+}
+.main-form input.invalid {
+    border: 2px solid red;
+}
+.input-error {
+    display: block;
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.main-form button.disabled {
+    background-color: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    border: none;
+    transition: none;
+}
+
 
 
 
