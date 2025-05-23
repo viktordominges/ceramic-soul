@@ -24,6 +24,12 @@
     <header class="header">
         <div class="main-container">
             <div class="header__wrapper">
+                <div class="main-dropdown__menu_trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
                 <div class="header__logo">
                     <a href="/">
                         <img src="/assets/images/img/logo.png" alt="logo">
@@ -38,9 +44,9 @@
                 
                 <div class="header-auth__triggers">
                     <?php if (isset($_SESSION['user'])): ?>
-                        <img id="user-open__trigger" src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
+                        <img class="user-open__trigger" src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
                     <?php else: ?>
-                        <span id="auth-open__trigger">Login</span>
+                        <span class="auth-open__trigger">Login</span>
                     <?php endif; ?>
                 </div>
 
@@ -60,11 +66,6 @@
         </div>
 
         <div class="main-dropdown__menu">
-            <div class="main-dropdown__menu_trigger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <div class="main-dropdown__menu_items">
                 <span class="dropdown__close"></span>
                 <a href="/">Home</a>
@@ -72,6 +73,7 @@
                 <a href="/categories">Categories</a>
             </div>
         </div>
+        
 
         <div class="dropdown-auth__menu">
             <span class="auth-close__trigger"></span>
@@ -186,6 +188,7 @@
             <div class="footer__copyright">© Copyright <?= date('Y') ?>, Ceramic Blog</div>
         </div>
     </footer>
+    <div class="dropdown-overlay"></div>
     <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

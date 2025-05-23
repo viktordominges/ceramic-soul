@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setActiveLink();
 
-    if (document.getElementById('auth-open__trigger')) {
-        toggleDropdownMenuTriggers('auth-open__trigger', '.dropdown-auth__menu', 'auth-close__trigger');
+    if (document.querySelector('.auth-open__trigger')) {
+        toggleDropdownMenuTriggers('.auth-open__trigger', '.dropdown-auth__menu', 'auth-close__trigger');
     } else {
-        toggleDropdownMenuTriggers('user-open__trigger', '.dropdown-account__menu', 'user-close__trigger');
-    };
+        toggleDropdownMenuTriggers('.user-open__trigger', '.dropdown-account__menu', 'user-close__trigger');
+    }
+
+    if (document.querySelector('.main-dropdown__menu_trigger')) {
+        toggleDropdownMenuTriggers('.main-dropdown__menu_trigger', '.main-dropdown__menu', 'dropdown__close');
+    }
 
     if (document.querySelector('.dropdown-account__menu')) {
         fetchLogout();
