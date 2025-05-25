@@ -18,9 +18,9 @@ function apiRegisterController() {
         $success = createUser($username, $email, $password, $role, $avatar);
 
         if ($success) {
-            return json_response(['message' => 'Пользователь успешно зарегистрирован'], 201);
+            return json_response(['message' => 'User registered successfully'], 201);
         } else {
-            return json_response(['error' => 'Не удалось создать пользователя'], 500);
+            return json_response(['error' => 'Failed to create user'], 500);
         }
 
     } catch (InvalidArgumentException $e) {
@@ -31,6 +31,6 @@ function apiRegisterController() {
 
     } catch (Exception $e) {
         error_log("Unexpected error in registerUserController: " . $e->getMessage());
-        return json_response(['error' => 'Непредвиденная ошибка'], 500);
+        return json_response(['error' => 'Unexpected error'], 500);
     }
 }

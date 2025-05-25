@@ -2,7 +2,7 @@ export async function fetchShowCategories(wrapper, renderItem, showEmptyMessageF
     try {
         const response = await fetch('/api/categories');
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error(`Loading error: ${response.status}`);
         }
 
         const data = await response.json();
@@ -13,11 +13,11 @@ export async function fetchShowCategories(wrapper, renderItem, showEmptyMessageF
                 wrapper.appendChild(renderItem(category));
             });
         } else {
-            showEmptyMessageFn(wrapper, 'Категорий пока нет.');
+            showEmptyMessageFn(wrapper, 'There are no categories yet.');
         }
     } catch (error) {
-        console.error('Ошибка загрузки категорий:', error);
-        showEmptyMessageFn(wrapper, 'Ошибка загрузки категорий.');
+        console.error('Error loading categories:', error);
+        showEmptyMessageFn(wrapper, 'Error loading categories.');
     }
 }
 

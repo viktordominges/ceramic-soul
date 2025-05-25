@@ -2,8 +2,8 @@
 
 function categoriesController() {
     $data = [
-        'title' => 'Категории',
-        'description' => 'Список всех категорий',
+        'title' => 'Categories',
+        'description' => 'List of all categories',
         'content' => renderContent('categories') // app/Views/categories.php
     ];
     

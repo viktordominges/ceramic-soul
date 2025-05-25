@@ -15,7 +15,7 @@ export function fetchCreateComment(slug, commentsListWrapper) {
         const commentText = document.querySelector('#comment-textarea').value.trim();
 
         if (!commentText) {
-            alert('Комментарий не может быть пустым');
+            alert('Comment cannot be empty');
             return;
         }
 
@@ -34,15 +34,15 @@ export function fetchCreateComment(slug, commentsListWrapper) {
                 return;
             }
 
-            alert('Комментарий добавлен!');
+            alert('Comment added!');
             document.querySelector('#comment-textarea').value = '';
 
             // Обновляем список комментариев после успешной отправки
             await fetchShowCommentsByPost(slug, commentsListWrapper);
 
         } catch (error) {
-            console.error('Ошибка запроса:', error);
-            alert('Произошла ошибка при отправке комментария');
+            console.error('Request error:', error);
+            alert('There was an error sending your comment. Please try again.');
         }
     });
 

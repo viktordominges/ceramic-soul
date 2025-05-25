@@ -2,7 +2,7 @@ export async function fetchShowPostBySlug(slug, singlePostWrapper, renderSingleP
     try {
         const response = await fetch(`/api/posts/post/${encodeURIComponent(slug)}`);
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error(`Loading error: ${response.status}`);
         }
 
         const post = await response.json();
@@ -10,10 +10,10 @@ export async function fetchShowPostBySlug(slug, singlePostWrapper, renderSingleP
         if (post) {
             singlePostWrapper.appendChild(renderSinglePost(post));
         } else {
-            showEmptyMessageFn(singlePostWrapper, 'Пост не найден.');
+            showEmptyMessageFn(singlePostWrapper, 'Post not found.');
         }
     } catch (error) {
-        console.error('Ошибка загрузки поста по слагу:', error);
-        showEmptyMessageFn(singlePostWrapper, 'Ошибка загрузки поста.');
+        console.error('Error loading post by slug:', error);
+        showEmptyMessageFn(singlePostWrapper, 'Error loading post by slug.');
     }
 }

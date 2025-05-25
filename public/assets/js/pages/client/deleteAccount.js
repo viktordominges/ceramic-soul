@@ -3,7 +3,7 @@ export function fetchDeleteAccount() {
     const deleteAccountButton = document.querySelector('.user-delete__trigger');
 
     deleteAccountButton.addEventListener('click', async function () {
-        if (!confirm('Вы уверены, что хотите удалить аккаунт? Это действие необратимо.')) {
+        if (!confirm('Are you sure you want to delete your account? This action is irreversible.')) {
             return;
         }
 
@@ -23,12 +23,12 @@ export function fetchDeleteAccount() {
                 // Перенаправляем на главную страницу
                 window.location.href = '/';
             } else {
-                alert(data.error || 'Ошибка при удалении аккаунта');
+                alert(data.error || 'Error deleting account');
             }
 
         } catch (error) {
-            console.error('Ошибка при отправке запроса:', error);
-            alert('Ошибка подключения к серверу.');
+            console.error('Error sending request:', error);
+            alert('Error connecting to server.');
         }
     });
 }

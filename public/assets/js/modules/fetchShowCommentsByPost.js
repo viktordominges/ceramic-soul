@@ -9,7 +9,7 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
         const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
 
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки комментариев поста: ${response.status}`);
+            throw new Error(`Error loading post comments: ${response.status}`);
         }
 
         const data = await response.json();
@@ -30,11 +30,11 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
             fetchUpdateComment(slug);
 
         } else {
-            showEmptyMessage(commentsListWrapper, 'Комментариев пока нет.');
+            showEmptyMessage(commentsListWrapper, 'There are no comments yet.');
         }
     } catch (error) {
-        console.error('Ошибка загрузки комментариев поста:', error);
+        console.error('Error loading post comments:', error);
         commentsListWrapper.innerHTML = '';
-        showEmptyMessage(commentsListWrapper, 'Ошибка загрузки комментариев.');
+        showEmptyMessage(commentsListWrapper, 'Error loading post comments.');
     }
 }

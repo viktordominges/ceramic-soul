@@ -8,7 +8,7 @@ export function fetchDeleteComment(slug) {
             // Получаем id комментария
             const commentId = e.target.dataset.id;
 
-            if (confirm('Удалить комментарий?')) {
+            if (confirm('Delete comment?')) {
                 const response = await fetch(`/api/comments/${commentId}/delete`, {
                     method: 'DELETE'
                 });
@@ -22,7 +22,7 @@ export function fetchDeleteComment(slug) {
                     fetchShowCommentsByPost(slug, commentsWrapper);
 
                 } else {
-                    alert(result.error || 'Ошибка при удалении комментария');
+                    alert(result.error || 'Error deleting comment');
                 }
             }
         });

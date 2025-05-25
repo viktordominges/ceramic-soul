@@ -21,12 +21,12 @@ export function fetchUpdateComment(slug) {
 
             // Создаем кнопку сохранения
             const saveBtn = document.createElement('button');
-            saveBtn.textContent = 'Сохранить';
+            saveBtn.textContent = 'Save';
             saveBtn.classList.add('save-edit-btn');
 
             // Создаем кнопку отмены
             const cancelBtn = document.createElement('button');
-            cancelBtn.textContent = 'Отмена';
+            cancelBtn.textContent = 'Cancel';
             cancelBtn.classList.add('cancel-edit-btn');
 
             // Заменяем содержимое текста на поле ввода
@@ -47,7 +47,7 @@ export function fetchUpdateComment(slug) {
             saveBtn.addEventListener('click', async () => {
                 const updatedText = textarea.value.trim();
                 if (!updatedText) {
-                    alert('Текст не может быть пустым');
+                    alert('Comment text cannot be empty');
                     return;
                 }
 
@@ -68,7 +68,7 @@ export function fetchUpdateComment(slug) {
                     fetchShowCommentsByPost(slug, commentsWrapper);
 
                 } else {
-                    alert(result.error || 'Ошибка при обновлении комментария');
+                    alert(result.error || 'Error updating comment');
                 }
             });
         });

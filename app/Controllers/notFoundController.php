@@ -8,8 +8,8 @@
 function notFoundController() {
     http_response_code(404);
     $data = [
-        'title' => 'Страница не найдена',
+        'title' => 'Page not found',
         'content' => renderContent('404')
     ];
-    return renderView('layout', $data);
+    return renderView('empty-layout', $data);
 }

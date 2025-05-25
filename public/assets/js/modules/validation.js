@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Если все ок, можно отправить форму
-        console.log('Форма успешно прошла валидацию');
+        console.log('The form has been validated successfully.');
         form.submit(); // или отправка через fetch
     });
 });

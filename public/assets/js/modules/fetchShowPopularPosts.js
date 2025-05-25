@@ -5,7 +5,7 @@ export async function fetchShowPopularPosts(popularPostsWrapper) {
     try {
         const response = await fetch('/api/posts/popular');
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error(`Loading error: ${response.status}`);
         }
 
         const posts = await response.json();
@@ -15,10 +15,10 @@ export async function fetchShowPopularPosts(popularPostsWrapper) {
                 popularPostsWrapper.appendChild(renderPopularPostsTitles(post));
             });
         } else {
-            showEmptyMessage(popularPostsWrapper, 'Популярных постов пока нет.');
+            showEmptyMessage(popularPostsWrapper, 'There are no popular posts yet.');
         }
     } catch (error) {
-        console.error('Ошибка загрузки постов:', error);
-        showEmptyMessage(popularPostsWrapper, 'Ошибка загрузки популярных постов.');
+        console.error('Error loading popular posts:', error);
+        showEmptyMessage(popularPostsWrapper, 'Error loading popular posts.');
     }
 }

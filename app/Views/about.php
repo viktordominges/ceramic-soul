@@ -1,25 +1,46 @@
 
-<h1>О нас</h1>
+<h1 class="page-title">About</h1>
 
-<p>Мы - команда профессионалов, которая занимается разработкой веб-приложений.</p>
-<p>Наша цель - предоставить качественные решения для бизнеса и частных клиентов.</p>
+<section class="about__info">
+    <div class="about__info_img">
+        <img src="/assets/images/img/about.jpg" alt="about">
+    </div>
+    <div class="about__info_text">
+        <p>Lorem minima totam quasi numquam vero consequuntur quo omnis veniam explicabo hic quaerat, et odit repudiandae, harum quae blanditiis doloremque quod. Dolorum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque minima totam quasi numquam vero consequuntur quo omnis veniam explicabo hic quaerat, et odit repudiandae, harum quae blanditiis doloremque quod. Dolorum. Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <br>
+        <p>Dolorum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque minima totam quasi numquam vero consequuntur quo omnis vsit amet consectetur, adipisicing elit. Itaque mivvvvvvvvvvvvhvnumquam vero consequuntur quo omnis veniam explicabo hic quaerat, et odit repudiandae, harum quae blanditiis doloremque quod. Dolorum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque minima totam quasi numquam vero consequuntur quo omnis vsit amet consectetur, adipisicing elit. </p>
+    </div>
+</section>
 
-<h2>Contact Us</h2>
+<section class="about__form">
+    <div class="about__form_img">
+        <img src="/assets/images/img/tea.jpg" alt="tea">
+    </div>
+    <div class="about__form_content">
+        <h2 class="page-title">get in touch</h2>
+        <form action="/contact" method="post">
+            <div class="form-row">
+                <div>
+                    <label for="name">Enter your name:</label>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                </div>
+                <div>
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+            </div>
 
-<p>Get in touch with us for any inquiries or feedback.</p>
-<p>We are here to help you with any questions you may have.</p>
-<p>Feel free to reach out to us through the contact form below.</p>
+            <label for="message">Enter your question:</label>
+            <textarea id="message" name="message" placeholder="Question" required></textarea>
 
-<form action="/contact" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required />
+                <label for="terms">
+                    I agree with the <a href="#">terms</a>
+                </label>
+            </div>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" required></textarea>
-
-    <button type="submit">Submit</button>
-</form>
-<p>We will get back to you as soon as possible.</p>
+            <button class="read-more" type="submit">Send message</button>
+        </form>
+    </div>
+</section>

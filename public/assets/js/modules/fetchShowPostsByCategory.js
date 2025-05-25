@@ -2,7 +2,7 @@ export async function fetchShowPostsByCategory(name, postsWrapper, renderPost, s
     try {
         const response = await fetch(`/api/posts/category/${encodeURIComponent(name)}`);
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error(`Loading error: ${response.status}`);
         }
 
         const data = await response.json();
@@ -10,17 +10,17 @@ export async function fetchShowPostsByCategory(name, postsWrapper, renderPost, s
 
         // Установка имени категории, если передан соответствующий элемент
         if (categoryNameSpan) {
-            const categoryName = posts[0]?.category || 'Неизвестная категория';
+            const categoryName = posts[0]?.category || 'Unknown category';
             categoryNameSpan.textContent = categoryName;
         }
 
         if (Array.isArray(posts) && posts.length) {
             posts.forEach(post => postsWrapper.appendChild(renderPost(post)));
         } else {
-            showEmptyMessageFn(postsWrapper, 'Постов в данной категории пока нет.');
+            showEmptyMessageFn(postsWrapper, 'There are no posts in this category yet..');
         }
     } catch (error) {
-        console.error('Ошибка загрузки постов по категории:', error);
-        showEmptyMessageFn(postsWrapper, 'Ошибка загрузки постов по категории.');
+        console.error('Error loading posts by category:', error);
+        showEmptyMessageFn(postsWrapper, 'Error loading posts by category.');
     }
 }

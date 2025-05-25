@@ -11,11 +11,11 @@ function apiUpdateCommentController($commentId) {
     $comment = findCommentById($commentId);
 
     if (!$comment) {
-        return json_response(['error' => 'Комментарий не найден'], 404);
+        return json_response(['error' => 'Comment not found'], 404);
     }
 
     if ($comment['user_id'] !== $userId) {
-        return json_response(['error' => 'Нет прав на редактирование'], 403);
+        return json_response(['error' => 'No editing rights'], 403);
     }
 
     // Получить тело PUT-запроса
@@ -23,12 +23,12 @@ function apiUpdateCommentController($commentId) {
     $newText = trim($input['text'] ?? '');
 
     if (empty($newText)) {
-        return json_response(['error' => 'Текст не может быть пустым'], 400);
+        return json_response(['error' => 'Text cannot be empty'], 400);
     }
 
     $updated = updateCommentById($commentId, $newText);
 
     return $updated
         ? json_response(['success' => true])
-        : json_response(['error' => 'Не удалось обновить комментарий'], 500);
+        : json_response(['error' => 'Failed to update comment'], 500);
 }

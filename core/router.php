@@ -5,6 +5,7 @@
  */
 function get_routes() {
     return [
+        // Pages
         '' => 'homeController',
         'about' => 'aboutController',
         'categories' => 'categoriesController',
@@ -87,6 +88,7 @@ function router($uri) {
         }
     }
 
+    // 2. Динамические маршруты (DELETE)
     if ($method === 'DELETE') {
         if (preg_match('#^api/comments/(\d+)/delete$#', $uri, $matches)) {
             $commentId = (int)$matches[1];
@@ -96,6 +98,7 @@ function router($uri) {
         }
     }
 
+    // 2. Динамические маршруты (PUT)
     if ($method === 'PUT') {
         if (preg_match('#^api/comments/(\d+)/update$#', $uri, $matches)) {
             $commentId = (int)$matches[1];

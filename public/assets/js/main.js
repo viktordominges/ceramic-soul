@@ -40,27 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
         //Маршруты
         if (path === '/categories') {
             initCategoriesPage();
-            console.log('Страница категорий инициализирована');
+
         } else if (path === '/category') {
             const name = url.searchParams.get('name');
             if (name) {
                 initCategoryPage(name);
             }
-            console.log('Страница категории инициализирована');
+
         } else if (path === '/post') {
             const slug = url.searchParams.get('slug');
             if (slug) {
                 initPostPage(slug);
             }
-            console.log('Страница постов инициализирована');
+
         } else if (path === '/register') {
-            console.log('Страница регистрации инициализирована');
+
             fetchRegisterForm('register-form');
         } else if (path === '/login') {
-            console.log('Страница логина инициализирована');
+
             fetchLoginForm('login-form');
         } else {
-            console.log('Главная страница инициализирована');
+
             initHomePage();
             
         }

@@ -5,7 +5,7 @@ export async function fetchShowPosts(postsWrapper) {
     try {
         const response = await fetch('/api/posts');
         if (!response.ok) {
-            throw new Error(`Ошибка загрузки: ${response.status}`);
+            throw new Error(`Loading error: ${response.status}`);
         }
 
         const posts = await response.json();
@@ -16,10 +16,10 @@ export async function fetchShowPosts(postsWrapper) {
                 postsWrapper.appendChild(renderPost(post));
             });
         } else {
-            showEmptyMessage(postsWrapper, 'Постов пока нет.');
+            showEmptyMessage(postsWrapper, 'There are no posts yet.');
         }
     } catch (error) {
-        console.error('Ошибка загрузки постов:', error);
-        showEmptyMessage(postsWrapper, 'Ошибка загрузки постов.');
+        console.error('Error loading posts:', error);
+        showEmptyMessage(postsWrapper, 'Error loading posts.');
     }
 }

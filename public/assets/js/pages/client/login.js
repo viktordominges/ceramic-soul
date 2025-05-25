@@ -1,7 +1,7 @@
 // import { toggleAuthTriggers } from "../../modules/helpers.js";
 
 export function fetchLoginForm(formId) {
-    console.log('fetchLoginForm подключен');
+
     const form = document.getElementById(formId);
 
     form.addEventListener('submit', async (event) => {
@@ -30,7 +30,7 @@ export function fetchLoginForm(formId) {
             if (response.ok) {
                 alert(result.message || 'Login successful!');
                 form.reset();
-                // toggleAuthTriggers();
+
                 window.location.href = '/';
             } else {
                 alert(result.error || 'Login failed. Please try again.');

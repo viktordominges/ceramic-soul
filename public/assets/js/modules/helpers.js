@@ -31,7 +31,7 @@ export function toggleDropdownMenuTriggers(openTriggerClass, menuClass, closeTri
 
     // Проверка существования элементов
     if (!triggerOpen || !dropdownMenu || !overlay) {
-        console.error('Один из необходимых элементов не найден:', {
+        console.error('One of the required elements was not found.:', {
             triggerOpen,
             dropdownMenu,
             overlay

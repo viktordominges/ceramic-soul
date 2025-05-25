@@ -97,10 +97,10 @@
                 if (is_string($content)) {
                     echo $content;
                 } else {
-                    echo 'Неверный формат контента';
+                    echo 'Invalid content format';
                 }
             } else {
-                echo 'Контент не загружен';
+                echo 'Content not loaded';
             }
             ?>
         </div>

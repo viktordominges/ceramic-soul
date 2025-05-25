@@ -1,24 +1,26 @@
 <div class="single-post-grid__container">
 
-    <section class="single-post">
-        <h2 class="page-title">single post</h2>
-        <!-- Здесь будут рендериться посты -->
-        <div class="single-post__wrapper"></div>
-    </section>
+    <div class="posts">
+        <section class="single-post">
+            <h2 class="page-title">single post</h2>
+            <!-- Здесь будут рендериться посты -->
+            <div class="single-post__wrapper"></div>
+        </section>
 
-    <section class="add-comment">
-        <h2 class="page-title">add comment:</h2>
-        <form id="add-comment-form" class="add-comment__form"> 
-                <textarea id="comment-textarea" type="text" placeholder="Your comment" name="comment" ></textarea>
-                <button id="add-comment-btn" class="read-more" type="submit">add comment</button>
-        </form>
-    </section>
+        <section class="add-comment">
+            <h2 class="page-title">add comment:</h2>
+            <form id="add-comment-form" class="add-comment__form"> 
+                    <textarea id="comment-textarea" type="text" placeholder="Your comment" name="comment" ></textarea>
+                    <button id="add-comment-btn" class="read-more" type="submit">add comment</button>
+            </form>
+        </section>
 
-    <section class="comments-list">
-        <h2 class="page-title">comments:</h2>
-        <!-- Здесь будут рендериться комментарии -->
-        <div class="comments-list__wrapper"></div>
-    </section>
+        <section class="comments-list">
+            <h2 class="page-title">comments:</h2>
+            <!-- Здесь будут рендериться комментарии -->
+            <div class="comments-list__wrapper"></div>
+        </section>
+    </div>
 
     <section class="author">
         <div class="author__wrapper">
