@@ -4,7 +4,7 @@ export function renderPost(post) {
 
     // Базовый HTML, общий для всех постов
     let postHTML = `
-        <img src="${post.image}" alt="${post.title}" class="post__item_image" />
+        <img src="${post.image || 'assets/images/placeholders/ceramic-vase.jpg'}" alt="${post.title}" class="post__item_image" />
         <div class="post__item_header">
             <h2>${post.title}</h2>
             <a class="read-more" href="/post?slug=${encodeURIComponent(post.slug)}">Read</a>
