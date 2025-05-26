@@ -42,4 +42,5 @@ return array(
     '0c6037ae6db779bcef30017b21910dab' => $baseDir . '/helpers/view.php',
     'cdba0e1d08a30f288f0bd3bbdb772b69' => $baseDir . '/helpers/validateUserData.php',
     'a349b91d40d8726c9d4fc0c1e72087cd' => $baseDir . '/helpers/validateUserAvatar.php',
+    '5bfdd1392f173dcff105053ccac0fbd3' => $baseDir . '/app/Controllers/admin/adminPostsController.php',
 );

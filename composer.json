@@ -42,7 +42,9 @@
 
             "helpers/view.php",
             "helpers/validateUserData.php",
-            "helpers/validateUserAvatar.php"
+            "helpers/validateUserAvatar.php",
+
+            "app/Controllers/admin/adminPostsController.php"
         ]
     }
 }

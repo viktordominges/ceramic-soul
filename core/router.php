@@ -23,6 +23,13 @@ function get_routes() {
         'api/users/logout' => 'apiLogoutController',
         'api/users/delete' => 'apiDeleteAccountController',
         'api/comments/create' => 'apiCreateCommentController',
+
+        // Admin panel
+        'admin' => 'adminController', // страница логина
+        'admin/register' => 'adminRegisterController',
+        'admin/categories' => 'adminCategoriesController',
+        'admin/posts' => 'adminPostsController',
+        'admin/users' => 'adminUsersController',
     ];
 }
 
