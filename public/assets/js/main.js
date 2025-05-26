@@ -10,13 +10,17 @@ import { fetchLoginForm } from './pages/client/login.js';
 import { fetchLogout } from './pages/client/logout.js';
 import { fetchDeleteAccount } from './pages/client/deleteAccount.js';
 
+import { initAdminPostsPage } from './pages/admin/adminPosts.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     setActiveLink();
 
     if (document.querySelector('.auth-open__trigger')) {
         toggleDropdownMenuTriggers('.auth-open__trigger', '.dropdown-auth__menu', 'auth-close__trigger');
-    } else {
+    } 
+    
+    if (document.querySelector('.user-open__trigger')) {
         toggleDropdownMenuTriggers('.user-open__trigger', '.dropdown-account__menu', 'user-close__trigger');
     }
 
@@ -28,14 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchLogout();
         fetchDeleteAccount();
     }
-    // Проверяем, что мы находимся в админке
-    // Если путь начинается с /admin, значит мы в админке
+    
     const url = new URL(window.location.href);
     const path = url.pathname;
     const isAdmin = path.startsWith('/admin');
 
+
+    // Проверяем, что мы находимся в админке
+    // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
         console.log('Админка: логика админки будет здесь');
+        if (path === '/admin/posts') {
+            initAdminPostsPage() ;
+        } 
+
     } else {
         //Маршруты
         if (path === '/categories') {

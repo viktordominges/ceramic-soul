@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/admin.css">
     <meta name="description" content="<?= htmlspecialchars($description ?? 'Site description') ?>">
-
+ 
     <!-- Favicon -->
     <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
@@ -30,38 +30,40 @@
                     <span></span>
                 </div> -->
                 <nav class="admin__nav">
-                    <a href="/admin/posts">Posts</a>
-                    <a href="/admin/categories">Categories</a>
-                    <a href="/admin/users">Users</a>
+                    <a href="/admin/posts">Posts <span class="post-count">666</span></a>
+                    <a href="/admin/categories">Categories <span class="category-count">13</span></a>
+                    <a href="/admin/users">Users <span class="user-count">15</span></a>
                 </nav>
+            
+        
+
+                <!-- <div class="main-dropdown__menu">
+                    <div class="main-dropdown__menu_items">
+                        <span class="dropdown__close"></span>
+                        <a href="/">Home</a>
+                        <a href="/about">About</a>
+                        <a href="/categories">Categories</a>
+                    </div>
+                </div> -->
+
+                <!-- Триггер для открытия выпадающего меню аккаунта -->
+                <div class="admin-account__trigger"> 
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <img src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
+                    <?php else: ?>
+                        <span>Account</span>
+                    <?php endif; ?>
+                </div>
+
+                <!-- <div class="admin-account__dropdown-menu">
+
+                    <span class="admin-close__trigger"></span>
+
+                    <a href="/register">Register</a>
+                    <div class="admin-logout__trigger">Logout</div>
+                    <div class="admin-delete__trigger">Delete account</div>
+                </div> -->
             </div>
-        </div>
-
-        <!-- <div class="main-dropdown__menu">
-            <div class="main-dropdown__menu_items">
-                <span class="dropdown__close"></span>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/categories">Categories</a>
-            </div>
-        </div> -->
-
-        <!-- Триггер для открытия выпадающего меню аккаунта -->
-        <div class="admin-account__trigger"> 
-            <?php if (isset($_SESSION['user'])): ?>
-                <img src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
-            <?php else: ?>
-                <span>Account</span>
-            <?php endif; ?>
-        </div>
-
-        <div class="admin-account__dropdown-menu">
-
-            <span class="admin-close__trigger"></span> <!-- Триггер для закрытия выпадающего меню -->
-
-            <a href="/register">Register</a>
-            <div class="admin-logout__trigger">Logout</div>
-            <div class="admin-delete__trigger">Delete account</div>
         </div>
     </header>
  

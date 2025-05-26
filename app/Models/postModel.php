@@ -1,5 +1,21 @@
 <?php
 
+function getPostsCount() {
+    try {
+        $db = connectDB();
+        $sql = "SELECT COUNT(*) as total FROM posts";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $db = null;
+
+        return (int) ($result['total'] ?? 0);
+    } catch (PDOException $e) {
+        error_log("Database error in getPostsCount: " . $e->getMessage());
+        throw new RuntimeException('Failed to get post count');
+    }
+}
+
 
 function findAllPosts() {
     try {
