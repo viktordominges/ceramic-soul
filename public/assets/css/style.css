@@ -1128,6 +1128,19 @@ button {
     border: 2px solid var(--light-gray-color);
 }
 
+.comment__author {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment__avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
 /******************************************************************
 /* Author section

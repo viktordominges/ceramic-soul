@@ -3,7 +3,10 @@ export function renderPostComment(comment) {
     commentElement.classList.add('comment__item');
 
     commentElement.innerHTML = `
-        <h3>${comment.username}</h3>
+        <div class="comment__author">
+            <img src="${comment.avatar ?? '/assets/images/placeholders/default-avatar.png'}" alt="Avatar" class="comment__avatar">
+            <h3>${comment.username}</h3>
+        </div>
         <p>${comment.text ?? ''}</p>
         <span>${new Date(comment.created_at).toLocaleDateString()}</span>
         ${comment.is_owner ? `

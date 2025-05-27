@@ -52,7 +52,7 @@
                     <?php if (isset($_SESSION['user'])): ?>
                         <img src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
                     <?php else: ?>
-                        <span>Account</span>
+                        <img src="/assets/images/placeholders/default-avatar.png" alt="avatar">
                     <?php endif; ?>
                 </div>
 

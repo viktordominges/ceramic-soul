@@ -1,6 +1,7 @@
 <?php
 
 function apiCommentsByPostController($slug) {
+    file_put_contents('log.txt', "Контроллер apiCommentsByPostController вызван\n", FILE_APPEND);
     try {
         // Проверка, что slug — это непустая строка
         if (empty($slug) || !is_string($slug)) {
@@ -20,13 +21,13 @@ function apiCommentsByPostController($slug) {
         $currentUserId = isset($_SESSION['user']['id']) ? (int)$_SESSION['user']['id'] : null;
 
 
-
         // Форматируем комментарии
         $formattedComments = array_map(function($comment) use ($currentUserId) {
             return [
                 'id' => (int)$comment['id'],
                 'text' => htmlspecialchars($comment['text']),
                 'username' => htmlspecialchars($comment['username']),
+                'avatar' => $comment['avatar'] ? htmlspecialchars($comment['avatar']) : null, // <- добавим проверку на null
                 'post_id' => (int)$comment['post_id'],
                 'user_id' => (int)$comment['user_id'], // <- добавим user_id
                 'is_owner' => $currentUserId && $comment['user_id'] == $currentUserId, // <- полезно для фронта (получаем Boolean)

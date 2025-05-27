@@ -27,7 +27,7 @@ function get_routes() {
         // Admin panel
         // 'admin' => 'adminController',
         // 'admin/register' => 'adminRegisterController',
-        // 'admin/categories' => 'adminCategoriesController',
+        'admin/categories' => 'adminCategoriesController',
         'admin/posts' => 'adminPostsController',
         'api/admin/stats' => 'apiAdminStatsController',
         // 'admin/users' => 'adminUsersController',

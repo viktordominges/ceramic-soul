@@ -45,6 +45,7 @@
             "helpers/validateUserAvatar.php",
 
             "app/Controllers/admin/adminPostsController.php",
+            "app/Controllers/admin/adminCategoriesController.php",
             "app/Controllers/admin/apiAdminStatsController.php"
         ]
     }

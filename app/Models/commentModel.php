@@ -29,6 +29,7 @@ function findCommentsByPostSlug($slug) {
                 c.id,
                 c.text,
                 u.username,
+                u.avatar,
                 c.user_id,
                 c.post_id,
                 c.created_at,
