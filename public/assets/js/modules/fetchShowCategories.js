@@ -1,6 +1,11 @@
-export async function fetchShowCategories(wrapper, renderItem, showEmptyMessageFn) {
+export async function fetchShowCategories({
+    endpoint = '/api/categories',
+    wrapper,
+    renderItem,
+    showEmptyMessageFn
+}) {
     try {
-        const response = await fetch('/api/categories');
+        const response = await fetch(endpoint);
         if (!response.ok) {
             throw new Error(`Loading error: ${response.status}`);
         }
@@ -20,4 +25,5 @@ export async function fetchShowCategories(wrapper, renderItem, showEmptyMessageF
         showEmptyMessageFn(wrapper, 'Error loading categories.');
     }
 }
+
 

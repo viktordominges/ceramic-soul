@@ -10,5 +10,9 @@ export function initCategoriesPage() {
 
     const categoriesWrapper = prepareWrapper(categoriesSection, '.categories__wrapper');
 
-    fetchShowCategories(categoriesWrapper, renderCategory, showEmptyMessage);
+    fetchShowCategories({
+        wrapper: categoriesWrapper,
+        renderItem: renderCategory,
+        showEmptyMessageFn: showEmptyMessage
+    });
 }

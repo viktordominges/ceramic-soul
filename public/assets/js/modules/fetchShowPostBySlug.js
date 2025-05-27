@@ -1,4 +1,4 @@
-export async function fetchShowPostBySlug(slug, singlePostWrapper, renderSinglePost, showEmptyMessageFn) {
+export async function fetchShowPostBySlug(slug, singlePostWrapper, renderItemFn, showEmptyMessageFn) {
     try {
         const response = await fetch(`/api/posts/post/${encodeURIComponent(slug)}`);
         if (!response.ok) {
@@ -8,7 +8,7 @@ export async function fetchShowPostBySlug(slug, singlePostWrapper, renderSingleP
         const post = await response.json();
 
         if (post) {
-            singlePostWrapper.appendChild(renderSinglePost(post));
+            singlePostWrapper.appendChild(renderItemFn(post));
         } else {
             showEmptyMessageFn(singlePostWrapper, 'Post not found.');
         }

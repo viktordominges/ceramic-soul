@@ -37,8 +37,12 @@ export function initPostPage(slug) {
     // Загружаем список популярных постов
     fetchShowPopularPosts(popularPostsWrapper);
 
-    // Загружаем список категорий
-    fetchShowCategories(categoriesListWrapper, renderCategoriesNameList, showEmptyMessage);
+    //Боковой список категорий
+    fetchShowCategories({
+        wrapper: categoriesListWrapper,
+        renderItem: renderCategoriesNameList,
+        showEmptyMessageFn: showEmptyMessage
+    });
 
     // Загружаем список комментариев по посту
     fetchShowCommentsByPost(slug, commentsListWrapper);

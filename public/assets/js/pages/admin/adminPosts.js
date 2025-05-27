@@ -1,5 +1,7 @@
-import { adminFetchShowPosts } from '../../modules/adminFetchShowPosts.js';
+import { fetchShowPosts } from '../../modules/fetchShowPosts.js';
 import { prepareWrapper } from '../../modules/helpers.js';
+import { adminRenderPost } from '../../components/admin/adminRenderPost.js';
+import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
 
 export function initAdminPostsPage() {
@@ -11,6 +13,10 @@ export function initAdminPostsPage() {
     const postsWrapper = prepareWrapper(postsSection, '.admin-posts__wrapper');
 
     // Загружаем посты
-    adminFetchShowPosts(postsWrapper);
+    fetchShowPosts({
+        wrapper: postsWrapper,
+        renderItem: adminRenderPost,
+        showEmptyMessageFn: showEmptyMessage
+    });
 
 }

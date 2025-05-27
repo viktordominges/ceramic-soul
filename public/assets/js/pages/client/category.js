@@ -30,6 +30,10 @@ export function initCategoryPage(name) {
     // Загружаем список популярных постов
     fetchShowPopularPosts(popularPostsWrapper);
 
-    // Загружаем список категорий
-    fetchShowCategories(categoriesListWrapper, renderCategoriesNameList, showEmptyMessage);
+    //Боковой список категорий
+    fetchShowCategories({
+        wrapper: categoriesListWrapper,
+        renderItem: renderCategoriesNameList,
+        showEmptyMessageFn: showEmptyMessage
+    });
 }
