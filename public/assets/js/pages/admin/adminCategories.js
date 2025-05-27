@@ -10,5 +10,9 @@ export function initAdminCategoriesPage() {
 
     const categoriesWrapper = prepareWrapper(categoriesSection, '.admin-categories__wrapper');
 
-    fetchShowCategories(categoriesWrapper, adminRenderCategory, showEmptyMessage);
+    fetchShowCategories({
+        wrapper: categoriesWrapper,
+        renderItem: adminRenderCategory,
+        showEmptyMessageFn: showEmptyMessage
+    });
 }
