@@ -22,7 +22,17 @@ function findCategoryByName($name) {
 function findAllCategories() {
     try {
         $db = connectDB();
-        $sql = "SELECT id, name, description, image FROM categories";
+        $sql = "
+            SELECT 
+                c.id, 
+                c.name, 
+                c.description, 
+                c.image,
+                COUNT(p.id) AS post_count
+            FROM categories c
+            LEFT JOIN posts p ON p.category_id = c.id
+            GROUP BY c.id, c.name, c.description, c.image
+        ";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,6 +41,7 @@ function findAllCategories() {
         throw new RuntimeException("Failed to retrieve all categories");
     }
 }
+
 
 function getCategoriesCount() {
     try {

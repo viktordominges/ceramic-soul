@@ -27,9 +27,13 @@ function apiAllCategoriesController() {
                 'id' => (int)$category['id'],
                 'name' => htmlspecialchars($category['name']),
                 'description' => htmlspecialchars($category['description']),
-                'image' => htmlspecialchars($category['image'])
+                'image' => htmlspecialchars($category['image']),
+                'post_count' => (int)$category['post_count']
             ];
         }, $categories);
+
+        // Логируем форматированные категории для отладки
+        error_log('Formatted categories: ' . print_r($formattedCategories, true));
         
         // Возвращаем ответ с форматированными категориями
         return json_response($formattedCategories);

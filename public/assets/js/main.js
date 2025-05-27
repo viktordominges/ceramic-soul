@@ -12,6 +12,7 @@ import { fetchDeleteAccount } from './pages/client/deleteAccount.js';
 
 import { adminFetchShowStats } from './modules/adminFetchShowStats.js';
 import { initAdminPostsPage } from './pages/admin/adminPosts.js';
+import { initAdminCategoriesPage } from './pages/admin/adminCategories.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -42,13 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Проверяем, что мы находимся в админке
     // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
-        console.log('Админка: логика админки будет здесь');
 
         adminFetchShowStats();
 
         if (path === '/admin/posts') {
+
             initAdminPostsPage() ;
-        } 
+
+        } else if (path === '/admin/categories') {
+            
+            initAdminCategoriesPage();
+            console.log('Страница админки с категориями загружена');
+
+        } else if (path === '/admin/users') {
+
+            console.log('Страница админки с пользователями загружена');
+        } else {
+            // Если путь не соответствует ни одной из страниц админки, можно перенаправить на главную страницу админки
+            window.location.href = '/admin/posts';
+        }
 
     } else {
         //Маршруты
