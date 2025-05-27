@@ -44,6 +44,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'cdba0e1d08a30f288f0bd3bbdb772b69' => __DIR__ . '/../..' . '/helpers/validateUserData.php',
         'a349b91d40d8726c9d4fc0c1e72087cd' => __DIR__ . '/../..' . '/helpers/validateUserAvatar.php',
         '5bfdd1392f173dcff105053ccac0fbd3' => __DIR__ . '/../..' . '/app/Controllers/admin/adminPostsController.php',
+        'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
     );
 
     public static $prefixLengthsPsr4 = array (

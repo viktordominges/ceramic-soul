@@ -44,7 +44,8 @@
             "helpers/validateUserData.php",
             "helpers/validateUserAvatar.php",
 
-            "app/Controllers/admin/adminPostsController.php"
+            "app/Controllers/admin/adminPostsController.php",
+            "app/Controllers/admin/apiAdminStatsController.php"
         ]
     }
 }

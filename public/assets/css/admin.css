@@ -235,7 +235,7 @@ button {
     padding: 10px 20px;
     color: var(--white-color);
     font-size: var(--font-size-m);
-    font-weight: var(--font-weight-m);
+    font-weight: var(--font-weight-s);
     background: var(--blue-color);
     border: 1px solid var(--white-color);
     text-transform: uppercase;
@@ -250,6 +250,11 @@ button {
 .admin__nav a:active {
     /* Эффект полного нажатия */
     transform: translateY(-2px);
+}
+
+.admin__nav a.active {
+    font-weight: var(--font-weight-l);
+    border: 3px solid var(--white-color);
 }
 
 .admin__nav a span {

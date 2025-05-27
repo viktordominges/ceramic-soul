@@ -20,14 +20,5 @@
         <span>Post Title</span>
     </div>
    
-    <div class="admin-posts__wrapper">
-
-        <div class="posts-list__item">
-            <span>1</span>
-            <span>Some Category</span>
-            <span>Some Post Title</span>
-            <span class="details__btn">Details</span>
-        </div>
-
-    </div>  <!-- Здесь будут рендериться посты -->
+    <div class="admin-posts__wrapper"></div>  <!-- Здесь будут рендериться посты -->
 </section>

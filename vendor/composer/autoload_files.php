@@ -43,4 +43,5 @@ return array(
     'cdba0e1d08a30f288f0bd3bbdb772b69' => $baseDir . '/helpers/validateUserData.php',
     'a349b91d40d8726c9d4fc0c1e72087cd' => $baseDir . '/helpers/validateUserAvatar.php',
     '5bfdd1392f173dcff105053ccac0fbd3' => $baseDir . '/app/Controllers/admin/adminPostsController.php',
+    'f0acce3a2377ebd02fc552b7dd5dea69' => $baseDir . '/app/Controllers/admin/apiAdminStatsController.php',
 );

@@ -4,7 +4,7 @@ function apiCategoryPostsController($name) {
     try {
         $posts = findCategoryPosts($name);
 
-        error_log('Category Posts fetched for name [' . $name . ']: ' . print_r($posts, true));
+        // error_log('Category Posts fetched for name [' . $name . ']: ' . print_r($posts, true));
 
         if (empty($posts)) {
             return json_response([], 200);

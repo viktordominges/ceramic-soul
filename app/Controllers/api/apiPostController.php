@@ -5,9 +5,6 @@ function apiPostController($slug) {
         // Получаем пост по slug
         $post = findPostBySlug($slug);
 
-        // Логирование информации о полученном посте
-        error_log('Post fetched for slug [' . $slug . ']: ' . print_r($post, true));
-
         // Если пост не найден, возвращаем ошибку 404
         if (empty($post)) {
             return json_response(['error' => 'Post not found'], 404);

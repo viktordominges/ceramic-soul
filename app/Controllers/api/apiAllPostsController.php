@@ -4,7 +4,7 @@ function apiAllPostsController() {
     try {
         $posts = findAllPosts();
 
-        error_log('Posts fetched: ' . print_r($posts, true));
+        // error_log('Posts fetched: ' . print_r($posts, true));
 
         if (empty($posts)) {
             return json_response([], 200);

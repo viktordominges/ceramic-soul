@@ -30,10 +30,11 @@
                     <span></span>
                 </div> -->
                 <nav class="admin__nav">
-                    <a href="/admin/posts">Posts <span class="post-count">666</span></a>
-                    <a href="/admin/categories">Categories <span class="category-count">13</span></a>
-                    <a href="/admin/users">Users <span class="user-count">15</span></a>
+                    <a class="active" href="/admin/posts">Posts <span class="post-count"><?= htmlspecialchars($postCount ?? '0') ?></span></a>
+                    <a href="/admin/categories">Categories <span class="category-count"><?= htmlspecialchars($categoryCount ?? '0') ?></span></a>
+                    <a href="/admin/users">Users <span class="user-count"><?= htmlspecialchars($userCount ?? '0') ?></span></a>
                 </nav>
+
             
         
 

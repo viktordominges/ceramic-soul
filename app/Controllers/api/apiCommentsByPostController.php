@@ -10,7 +10,7 @@ function apiCommentsByPostController($slug) {
         // Получаем комментарии по slug поста
         $comments = findCommentsByPostSlug($slug);
 
-        error_log("Comments fetched for post slug [$slug]: " . print_r($comments, true));
+        // error_log("Comments fetched for post slug [$slug]: " . print_r($comments, true));
 
         if (empty($comments)) {
             return json_response([], 200);

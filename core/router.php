@@ -25,11 +25,12 @@ function get_routes() {
         'api/comments/create' => 'apiCreateCommentController',
 
         // Admin panel
-        'admin' => 'adminController', // страница логина
-        'admin/register' => 'adminRegisterController',
-        'admin/categories' => 'adminCategoriesController',
+        // 'admin' => 'adminController',
+        // 'admin/register' => 'adminRegisterController',
+        // 'admin/categories' => 'adminCategoriesController',
         'admin/posts' => 'adminPostsController',
-        'admin/users' => 'adminUsersController',
+        'api/admin/stats' => 'apiAdminStatsController',
+        // 'admin/users' => 'adminUsersController',
     ];
 }
 

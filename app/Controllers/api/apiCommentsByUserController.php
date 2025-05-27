@@ -8,7 +8,7 @@ function apiCommentsByUserController($user_id) {
 
         $comments = findCommentsByUserId((int)$user_id);
 
-        error_log("Comments fetched for user_id [$user_id]: " . print_r($comments, true));
+        // error_log("Comments fetched for user_id [$user_id]: " . print_r($comments, true));
 
         if (empty($comments)) {
             return json_response([], 200);

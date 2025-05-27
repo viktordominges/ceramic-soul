@@ -10,6 +10,7 @@ import { fetchLoginForm } from './pages/client/login.js';
 import { fetchLogout } from './pages/client/logout.js';
 import { fetchDeleteAccount } from './pages/client/deleteAccount.js';
 
+import { adminFetchShowStats } from './modules/adminFetchShowStats.js';
 import { initAdminPostsPage } from './pages/admin/adminPosts.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
         console.log('Админка: логика админки будет здесь');
+
+        adminFetchShowStats();
+
         if (path === '/admin/posts') {
             initAdminPostsPage() ;
         } 
