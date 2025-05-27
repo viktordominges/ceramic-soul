@@ -29,6 +29,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'bc508855a95e5821f83661094f1574b7' => __DIR__ . '/../..' . '/app/Controllers/api/apiDeleteAccountController.php',
         '08f5959515dd5a2f7f4b792106d64370' => __DIR__ . '/../..' . '/app/Controllers/api/apiAllCategoriesController.php',
         '78428796b89b2ef23aa4504163481cff' => __DIR__ . '/../..' . '/app/Controllers/api/apiAllPostsController.php',
+        'a8a8d90b97fef6d3c1a0ce70ef059a15' => __DIR__ . '/../..' . '/app/Controllers/api/apiAllUsersController.php',
         '454aa69f3aa682aff4215c48230f3da5' => __DIR__ . '/../..' . '/app/Controllers/api/apiPopularPostsController.php',
         '258fc8dc40f9c02d67fdb8aea03668da' => __DIR__ . '/../..' . '/app/Controllers/api/apiCategoryPostsController.php',
         'b9855f4d1140e985269b3e2c5a4203a3' => __DIR__ . '/../..' . '/app/Controllers/api/apiPostController.php',
@@ -45,6 +46,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'a349b91d40d8726c9d4fc0c1e72087cd' => __DIR__ . '/../..' . '/helpers/validateUserAvatar.php',
         '5bfdd1392f173dcff105053ccac0fbd3' => __DIR__ . '/../..' . '/app/Controllers/admin/adminPostsController.php',
         '119abee31686ee1c619306d66eb21f52' => __DIR__ . '/../..' . '/app/Controllers/admin/adminCategoriesController.php',
+        '88f498dc025c3221ddf56f4f7b7f33b9' => __DIR__ . '/../..' . '/app/Controllers/admin/adminUsersController.php',
         'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
     );
 

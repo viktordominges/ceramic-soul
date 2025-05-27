@@ -334,7 +334,9 @@ button {
 }
 
 .admin-posts, 
-.admin-categories {
+.admin-categories, 
+.admin-users {
+    margin-top: 50px;
     margin-bottom: 100px;
 }
 
@@ -348,7 +350,8 @@ button {
 }
 
 .posts-list__header,
-.categories-list__header {
+.categories-list__header,
+.users-list__header {
     padding-left: 10px;
     padding-bottom: 10px;
     display: grid;
@@ -362,14 +365,16 @@ button {
 }
 
 .posts-list__header span,
-.categories-list__header span {
+.categories-list__header span,
+.users-list__header span {
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-l);
     color: var(--black-color);
 }
 
 .posts-list__item,
-.categories-list__item {
+.categories-list__item,
+.users-list__item {
     display: grid;
     grid-template-columns: 100px 350px 1fr min-content;
     justify-content: start;

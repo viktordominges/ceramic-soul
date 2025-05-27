@@ -24,13 +24,16 @@ function get_routes() {
         'api/users/delete' => 'apiDeleteAccountController',
         'api/comments/create' => 'apiCreateCommentController',
 
-        // Admin panel
+        // Admin panel pages
         // 'admin' => 'adminController',
         // 'admin/register' => 'adminRegisterController',
         'admin/categories' => 'adminCategoriesController',
         'admin/posts' => 'adminPostsController',
+        'admin/users' => 'adminUsersController',
+
+        // Admin API
         'api/admin/stats' => 'apiAdminStatsController',
-        // 'admin/users' => 'adminUsersController',
+        'api/admin/users' => 'apiAllUsersController',
     ];
 }
 

@@ -1,25 +1,2 @@
-1. Контроллер вызван
-2. postCount: 29
-3. categoryCount: 6
-4. userCount: 3
-5. JSON: {"postCount":29,"categoryCount":6,"userCount":3}
-1. Контроллер вызван
-2. postCount: 29
-3. categoryCount: 6
-4. userCount: 3
-5. JSON: {"postCount":29,"categoryCount":6,"userCount":3}
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Модель findCommentsByPostSlug вызвана
-1. comments: 3
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
-Контроллер apiCommentsByPostController вызван
+
+apiAllUsersController вызван

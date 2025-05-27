@@ -28,6 +28,7 @@ return array(
     'bc508855a95e5821f83661094f1574b7' => $baseDir . '/app/Controllers/api/apiDeleteAccountController.php',
     '08f5959515dd5a2f7f4b792106d64370' => $baseDir . '/app/Controllers/api/apiAllCategoriesController.php',
     '78428796b89b2ef23aa4504163481cff' => $baseDir . '/app/Controllers/api/apiAllPostsController.php',
+    'a8a8d90b97fef6d3c1a0ce70ef059a15' => $baseDir . '/app/Controllers/api/apiAllUsersController.php',
     '454aa69f3aa682aff4215c48230f3da5' => $baseDir . '/app/Controllers/api/apiPopularPostsController.php',
     '258fc8dc40f9c02d67fdb8aea03668da' => $baseDir . '/app/Controllers/api/apiCategoryPostsController.php',
     'b9855f4d1140e985269b3e2c5a4203a3' => $baseDir . '/app/Controllers/api/apiPostController.php',
@@ -44,5 +45,6 @@ return array(
     'a349b91d40d8726c9d4fc0c1e72087cd' => $baseDir . '/helpers/validateUserAvatar.php',
     '5bfdd1392f173dcff105053ccac0fbd3' => $baseDir . '/app/Controllers/admin/adminPostsController.php',
     '119abee31686ee1c619306d66eb21f52' => $baseDir . '/app/Controllers/admin/adminCategoriesController.php',
+    '88f498dc025c3221ddf56f4f7b7f33b9' => $baseDir . '/app/Controllers/admin/adminUsersController.php',
     'f0acce3a2377ebd02fc552b7dd5dea69' => $baseDir . '/app/Controllers/admin/apiAdminStatsController.php',
 );
