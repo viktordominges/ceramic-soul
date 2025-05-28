@@ -8,16 +8,34 @@ function findCategoryByName($name) {
 
     try {
         $db = connectDB();
+
+        // Получаем данные о категории
         $sql = "SELECT id, name, description, image FROM categories WHERE name = :name";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $category = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($category) {
+            // Получаем количество постов в категории по ID
+            $sqlPosts = "SELECT COUNT(*) as posts_count FROM posts WHERE category_id = :category_id";
+            $stmtPosts = $db->prepare($sqlPosts);
+            $stmtPosts->bindParam(':category_id', $category['id'], PDO::PARAM_INT);
+            $stmtPosts->execute();
+
+            $postCount = $stmtPosts->fetch(PDO::FETCH_ASSOC);
+            $category['posts_count'] = (int) $postCount['posts_count'];
+        }
+
+        return $category;
+
     } catch (PDOException $e) {
         error_log("Database error in findCategoryByName: " . $e->getMessage());
         throw new RuntimeException("Failed to retrieve category by name");
     }
 }
+
 
 function findAllCategories() {
     try {

@@ -414,11 +414,13 @@ button {
     margin-bottom: 100px;
 }
 
-.post-info__wrapper {
+.post-info__wrapper,
+.category-info__wrapper {
     margin-top: 50px;
 }
 
-.post-info__item {
+.post-info__item,
+.category-info__item {
     display: grid;
     grid-template-columns: 200px 1fr;
     justify-content: flex-start;
@@ -427,7 +429,9 @@ button {
     gap: 10px;
 }
 
-.post-info__title {
+.post-info__title,
+.category-info__title {
+    text-align: left;
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-m);
     color: var(--black-color);
@@ -444,14 +448,16 @@ button {
 
 .admin-single-post { grid-area: 1 / 1 / 2 / 2; }
 
-.post-info__buttons { 
+.post-info__buttons,
+.category-info__buttons { 
     grid-area: 1 / 2 / 2 / 3; 
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.admin-comments { 
+.admin-comments,
+.admin-category-posts { 
     grid-area: 2 / 1 / 3 / 3;
     margin-top: 50px; 
 }

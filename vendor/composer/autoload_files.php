@@ -31,6 +31,7 @@ return array(
     'a8a8d90b97fef6d3c1a0ce70ef059a15' => $baseDir . '/app/Controllers/api/apiAllUsersController.php',
     '454aa69f3aa682aff4215c48230f3da5' => $baseDir . '/app/Controllers/api/apiPopularPostsController.php',
     '258fc8dc40f9c02d67fdb8aea03668da' => $baseDir . '/app/Controllers/api/apiCategoryPostsController.php',
+    'd5e70ce1764360f5b9b45ca5eb484930' => $baseDir . '/app/Controllers/api/apiCategoryByNameController.php',
     'b9855f4d1140e985269b3e2c5a4203a3' => $baseDir . '/app/Controllers/api/apiPostController.php',
     '2369e884f83edbf335760153f37d5258' => $baseDir . '/app/Controllers/api/apiCreateCommentController.php',
     'c1428d6f67aa8d41f5e45f72e3a58f96' => $baseDir . '/app/Controllers/api/apiDeleteCommentController.php',

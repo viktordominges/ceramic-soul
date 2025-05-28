@@ -1,11 +1,14 @@
-
-import { fetchShowPostsByCategory } from '../../modules/fetchShowPostsByCategory.js';
-
 import { prepareWrapper } from '../../modules/helpers.js';
 
 import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
+import { fetchShowPostsByCategory } from '../../modules/fetchShowPostsByCategory.js';
+
 import { adminRenderPost } from '../../components/admin/adminRenderPost.js';
+
+import { fetchShowCategoryByName } from '../../modules/fetchShowCategoryByName.js';
+
+import { adminRenderSingleCategory } from '../../components/admin/adminRenderSingleCategory.js';
 
 
 
@@ -20,6 +23,8 @@ export function initAdminSingleCategoryPage(name) {
     const singleCategoryWrapper = categorySection;
 
     const postsListWrapper = prepareWrapper(postsListSection, '.admin-posts__wrapper');
+
+    fetchShowCategoryByName(name, singleCategoryWrapper, adminRenderSingleCategory, showEmptyMessage)
 
     fetchShowPostsByCategory(name, postsListWrapper, adminRenderPost, showEmptyMessage)
 

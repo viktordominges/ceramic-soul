@@ -79,6 +79,17 @@ function router($uri) {
             }
         }
 
+
+
+        if (preg_match('#^api/categories/category/([\w%\-]+)$#u', $uri, $matches)) {
+            $name = urldecode($matches[1]);
+            if (function_exists('apiCategoryByNameController')) {
+                return apiCategoryByNameController($name);
+            }
+        }
+
+
+
         if (preg_match('#^api/posts/post/([\w%\-]+)$#u', $uri, $matches)) {
             $slug = urldecode($matches[1]);
             if (function_exists('apiPostController')) {

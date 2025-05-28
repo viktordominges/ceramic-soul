@@ -30,6 +30,7 @@
             "app/Controllers/api/apiAllUsersController.php",
             "app/Controllers/api/apiPopularPostsController.php",
             "app/Controllers/api/apiCategoryPostsController.php",
+            "app/Controllers/api/apiCategoryByNameController.php",
             "app/Controllers/api/apiPostController.php",
             "app/Controllers/api/apiCreateCommentController.php",
             "app/Controllers/api/apiDeleteCommentController.php",
