@@ -15,6 +15,7 @@ import { initAdminPostsPage } from './pages/admin/adminPosts.js';
 import { initAdminCategoriesPage } from './pages/admin/adminCategories.js';
 import { initAdminUsersPage } from './pages/admin/adminUsers.js';
 import { initAdminSinglePostPage } from './pages/admin/adminSinglePost.js';
+import { initAdminSingleCategoryPage } from './pages/admin/adminSingleCategory.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -66,6 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 initAdminSinglePostPage(slug);
             }
         
+        } else if (path === '/admin/category') {
+            const name = url.searchParams.get('name');
+            if (name) {
+                initAdminSingleCategoryPage(name);
+            }
+
         } else {
             // Если путь не соответствует ни одной из страниц админки, можно перенаправить на главную страницу админки
             window.location.href = '/admin/posts';

@@ -31,6 +31,7 @@ function get_routes() {
         'admin/posts' => 'adminPostsController',
         'admin/users' => 'adminUsersController',
         'admin/post' => 'adminSinglePostController',
+        'admin/category' => 'adminSingleCategoryController',
 
         // Admin API
         'api/admin/stats' => 'apiAdminStatsController',

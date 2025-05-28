@@ -7,7 +7,8 @@ export function adminRenderCategory(category) {
         <span>${category.id}</span>
         <span>${category.name}</span>
         <span>${category.post_count}</span>
-        <span class="details__btn">Details</span>
+
+        <a class="details__btn" href="/admin/category?name=${encodeURIComponent(category.name)}">Details</a>
     `;
 
     categoryElement.innerHTML = categoryHTML;

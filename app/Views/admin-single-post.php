@@ -1,6 +1,7 @@
 <div class="admin-sections__grid-wrapper">
     <section class="admin-single-post">
         <h2 class="admin-title">Single Post Info</h2>
+        <!-- Здесь будут рендериться посты -->
     </section>
 
     <section class="post-info__buttons">

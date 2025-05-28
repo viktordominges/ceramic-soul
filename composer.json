@@ -49,6 +49,7 @@
             "app/Controllers/admin/adminCategoriesController.php",
             "app/Controllers/admin/adminUsersController.php",
             "app/Controllers/admin/adminSinglePostController.php",
+            "app/Controllers/admin/adminSingleCategoryController.php",
             "app/Controllers/admin/apiAdminStatsController.php"
         ]
     }
