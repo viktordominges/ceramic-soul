@@ -11,10 +11,12 @@ export function initAdminUsersPage() {
     if (!usersSection) return;
 
     const usersWrapper = prepareWrapper(usersSection, '.admin-users__wrapper');
+    const adminsWrapper = prepareWrapper(usersSection, '.admin-users__wrapper_admin');
 
     // Загружаем пользователей
     fetchShowUsers({
-        wrapper: usersWrapper,
+        adminsWrapper: adminsWrapper,
+        usersWrapper: usersWrapper,
         renderItem: adminRenderUser,
         showEmptyMessageFn: showEmptyMessage
     });
