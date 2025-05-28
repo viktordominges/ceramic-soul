@@ -1,10 +1,10 @@
 
-import { renderPostComment } from "../components/client/renderPostComment.js";
-import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
+// import { renderPostComment } from "../components/client/renderPostComment.js";
+// import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
 import { fetchDeleteComment } from "./fetchDeleteComment.js";
 import { fetchUpdateComment } from "./fetchUpdateComment.js";
 
-export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
+export async function fetchShowCommentsByPost(slug, commentsListWrapper, renderItemFn, showEmptyMessageFn) {
     try {
         const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
 
@@ -24,7 +24,7 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
         if (Array.isArray(comments) && comments.length) {
             // Добавляем комментарии так, чтобы последние шли вверху
             comments.slice().reverse().forEach(comment => {
-                commentsListWrapper.appendChild(renderPostComment(comment));
+                commentsListWrapper.appendChild(renderItemFn(comment));
             });
 
             // Обработка удаления комментария (добавляем обработчики)
@@ -33,11 +33,11 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper) {
             fetchUpdateComment(slug);
 
         } else {
-            showEmptyMessage(commentsListWrapper, 'There are no comments yet.');
+            showEmptyMessageFn(commentsListWrapper, 'There are no comments yet.');
         }
     } catch (error) {
         console.error('Error loading post comments:', error);
         commentsListWrapper.innerHTML = '';
-        showEmptyMessage(commentsListWrapper, 'Error loading post comments.');
+        showEmptyMessageFn(commentsListWrapper, 'Error loading post comments.');
     }
 }

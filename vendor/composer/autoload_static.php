@@ -47,6 +47,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '5bfdd1392f173dcff105053ccac0fbd3' => __DIR__ . '/../..' . '/app/Controllers/admin/adminPostsController.php',
         '119abee31686ee1c619306d66eb21f52' => __DIR__ . '/../..' . '/app/Controllers/admin/adminCategoriesController.php',
         '88f498dc025c3221ddf56f4f7b7f33b9' => __DIR__ . '/../..' . '/app/Controllers/admin/adminUsersController.php',
+        'ea990669bb4577f5429c2013b9fc8312' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSinglePostController.php',
         'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
     );
 

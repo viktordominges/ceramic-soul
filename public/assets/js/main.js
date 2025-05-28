@@ -14,6 +14,7 @@ import { adminFetchShowStats } from './modules/adminFetchShowStats.js';
 import { initAdminPostsPage } from './pages/admin/adminPosts.js';
 import { initAdminCategoriesPage } from './pages/admin/adminCategories.js';
 import { initAdminUsersPage } from './pages/admin/adminUsers.js';
+import { initAdminSinglePostPage } from './pages/admin/adminSinglePost.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (path === '/admin/posts') {
 
-            initAdminPostsPage() ;
+            initAdminPostsPage();
 
         } else if (path === '/admin/categories') {
 
@@ -59,10 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             initAdminUsersPage();
 
+        } else if (path === '/admin/post') {
+            const slug = url.searchParams.get('slug');
+            if (slug) {
+                initAdminSinglePostPage(slug);
+            }
+        
         } else {
             // Если путь не соответствует ни одной из страниц админки, можно перенаправить на главную страницу админки
             window.location.href = '/admin/posts';
         }
+        
 
     } else {
         //Маршруты

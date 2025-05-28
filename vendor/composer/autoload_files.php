@@ -46,5 +46,6 @@ return array(
     '5bfdd1392f173dcff105053ccac0fbd3' => $baseDir . '/app/Controllers/admin/adminPostsController.php',
     '119abee31686ee1c619306d66eb21f52' => $baseDir . '/app/Controllers/admin/adminCategoriesController.php',
     '88f498dc025c3221ddf56f4f7b7f33b9' => $baseDir . '/app/Controllers/admin/adminUsersController.php',
+    'ea990669bb4577f5429c2013b9fc8312' => $baseDir . '/app/Controllers/admin/adminSinglePostController.php',
     'f0acce3a2377ebd02fc552b7dd5dea69' => $baseDir . '/app/Controllers/admin/apiAdminStatsController.php',
 );
