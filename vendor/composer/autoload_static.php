@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
 {
     public static $files = array (
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '015a8488c5be483cbdd29299fb24fba0' => __DIR__ . '/../..' . '/core/application.php',
@@ -33,11 +34,13 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '454aa69f3aa682aff4215c48230f3da5' => __DIR__ . '/../..' . '/app/Controllers/api/apiPopularPostsController.php',
         '258fc8dc40f9c02d67fdb8aea03668da' => __DIR__ . '/../..' . '/app/Controllers/api/apiCategoryPostsController.php',
         'd5e70ce1764360f5b9b45ca5eb484930' => __DIR__ . '/../..' . '/app/Controllers/api/apiCategoryByNameController.php',
+        '82d114a6565dfb50b29dc924aa3f0c48' => __DIR__ . '/../..' . '/app/Controllers/api/apiUserByIdController.php',
         'b9855f4d1140e985269b3e2c5a4203a3' => __DIR__ . '/../..' . '/app/Controllers/api/apiPostController.php',
         '2369e884f83edbf335760153f37d5258' => __DIR__ . '/../..' . '/app/Controllers/api/apiCreateCommentController.php',
         'c1428d6f67aa8d41f5e45f72e3a58f96' => __DIR__ . '/../..' . '/app/Controllers/api/apiDeleteCommentController.php',
         '4c0c58bc09e7f3fd1c9515346dfe87c9' => __DIR__ . '/../..' . '/app/Controllers/api/apiUpdateCommentController.php',
         '565f50e976d3c78516591e6290e72c44' => __DIR__ . '/../..' . '/app/Controllers/api/apiCommentsByPostController.php',
+        '4370cb292cf8ddbdcf1eb0489e620a6f' => __DIR__ . '/../..' . '/app/Controllers/api/apiCommentsByUserController.php',
         '2e1ff631f174922b0737f803599d1cb7' => __DIR__ . '/../..' . '/app/Models/categoryModel.php',
         'd31fe1a891bb78da309ba6e3e6080aa5' => __DIR__ . '/../..' . '/app/Models/postModel.php',
         '486aa51a96015b2659bfa70c196c2f21' => __DIR__ . '/../..' . '/app/Models/userModel.php',
@@ -50,6 +53,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '88f498dc025c3221ddf56f4f7b7f33b9' => __DIR__ . '/../..' . '/app/Controllers/admin/adminUsersController.php',
         'ea990669bb4577f5429c2013b9fc8312' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSinglePostController.php',
         'b8f256c1fbbe8f4f159b216939d65728' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSingleCategoryController.php',
+        '2d99b8c6b81fc508d80e46a5ded8237d' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSingleUserController.php',
         'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
     );
 

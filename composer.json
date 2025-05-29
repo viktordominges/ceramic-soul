@@ -31,11 +31,13 @@
             "app/Controllers/api/apiPopularPostsController.php",
             "app/Controllers/api/apiCategoryPostsController.php",
             "app/Controllers/api/apiCategoryByNameController.php",
+            "app/Controllers/api/apiUserByIdController.php",
             "app/Controllers/api/apiPostController.php",
             "app/Controllers/api/apiCreateCommentController.php",
             "app/Controllers/api/apiDeleteCommentController.php",
             "app/Controllers/api/apiUpdateCommentController.php",
             "app/Controllers/api/apiCommentsByPostController.php",
+            "app/Controllers/api/apiCommentsByUserController.php",
 
             "app/Models/categoryModel.php",
             "app/Models/postModel.php",
@@ -51,6 +53,7 @@
             "app/Controllers/admin/adminUsersController.php",
             "app/Controllers/admin/adminSinglePostController.php",
             "app/Controllers/admin/adminSingleCategoryController.php",
+            "app/Controllers/admin/adminSingleUserController.php",
             "app/Controllers/admin/apiAdminStatsController.php"
         ]
     }

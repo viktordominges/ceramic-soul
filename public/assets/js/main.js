@@ -1,4 +1,4 @@
-
+// Клиент
 import { setActiveLink } from './modules/helpers.js';
 import { toggleDropdownMenuTriggers } from './modules/helpers.js';
 import { initHomePage } from './pages/client/home.js';
@@ -10,12 +10,14 @@ import { fetchLoginForm } from './pages/client/login.js';
 import { fetchLogout } from './pages/client/logout.js';
 import { fetchDeleteAccount } from './pages/client/deleteAccount.js';
 
+// Админка
 import { adminFetchShowStats } from './modules/adminFetchShowStats.js';
 import { initAdminPostsPage } from './pages/admin/adminPosts.js';
 import { initAdminCategoriesPage } from './pages/admin/adminCategories.js';
 import { initAdminUsersPage } from './pages/admin/adminUsers.js';
 import { initAdminSinglePostPage } from './pages/admin/adminSinglePost.js';
 import { initAdminSingleCategoryPage } from './pages/admin/adminSingleCategory.js';
+import { initAdminSingleUserPage } from './pages/admin/adminSingleUser.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -42,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = url.pathname;
     const isAdmin = path.startsWith('/admin');
 
-
-    // Проверяем, что мы находимся в админке
     // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
 
@@ -73,7 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 initAdminSingleCategoryPage(name);
             }
 
-        } else {
+        } else if (path === '/admin/user') {
+            const id = url.searchParams.get('id');
+            if (id) {
+                initAdminSingleUserPage(id);
+            }
+        }
+        else {
             // Если путь не соответствует ни одной из страниц админки, можно перенаправить на главную страницу админки
             window.location.href = '/admin/posts';
         }

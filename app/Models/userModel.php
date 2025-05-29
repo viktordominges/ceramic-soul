@@ -184,6 +184,7 @@ function findUserById($id) {
                 username,
                 email,
                 role,
+                avatar,
                 created_at,
                 updated_at
             FROM users

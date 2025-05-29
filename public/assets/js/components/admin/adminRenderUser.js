@@ -7,9 +7,10 @@ export function adminRenderUser(user) {
         <span>${user.id}</span>
         <span>${user.username}</span>
         <span>${user.email}</span>
-        <span data-user-id="${user.id}" data-user-role="${user.role}" class="details__btn">Details</span>
+    
+        <a class="details__btn" data-user-role="${user.role}" href="/admin/user?id=${user.id}">Details</a>
     `;
-
+    
     userElement.innerHTML = userHTML;
 
     return userElement;

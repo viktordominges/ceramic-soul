@@ -28,10 +28,12 @@ function get_routes() {
         // 'admin' => 'adminController',
         // 'admin/register' => 'adminRegisterController',
         'admin/categories' => 'adminCategoriesController',
-        'admin/posts' => 'adminPostsController',
-        'admin/users' => 'adminUsersController',
-        'admin/post' => 'adminSinglePostController',
         'admin/category' => 'adminSingleCategoryController',
+        'admin/posts' => 'adminPostsController',
+        'admin/post' => 'adminSinglePostController',
+        'admin/users' => 'adminUsersController',
+        'admin/user' => 'adminSingleUserController',
+        
 
         // Admin API
         'api/admin/stats' => 'apiAdminStatsController',
@@ -79,8 +81,6 @@ function router($uri) {
             }
         }
 
-
-
         if (preg_match('#^api/categories/category/([\w%\-]+)$#u', $uri, $matches)) {
             $name = urldecode($matches[1]);
             if (function_exists('apiCategoryByNameController')) {
@@ -88,6 +88,12 @@ function router($uri) {
             }
         }
 
+        if (preg_match('#^api/users/user/(\d+)$#', $uri, $matches)) {
+            $id = (int)$matches[1];
+            if (function_exists('apiUserByIdController')) {
+                return apiUserByIdController($id);
+            }
+        }
 
 
         if (preg_match('#^api/posts/post/([\w%\-]+)$#u', $uri, $matches)) {
