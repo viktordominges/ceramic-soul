@@ -11,8 +11,8 @@ export function renderPostComment(comment) {
         <span>${new Date(comment.created_at).toLocaleDateString()}</span>
         ${comment.is_owner ? `
             <div class="comment__actions">
-                <button class="edit-comment-btn" data-id="${comment.id}">Редактировать</button>
-                <button class="delete-comment-btn" data-id="${comment.id}">Удалить</button>
+                <button class="edit-comment-btn" data-id="${comment.id}">Update</button>
+                <button class="delete-comment-btn" data-id="${comment.id}">Delete</button>
             </div>
         ` : ''}
     `;

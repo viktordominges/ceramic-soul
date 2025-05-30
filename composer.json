@@ -5,6 +5,8 @@
     },  
     "autoload": {
         "files": [
+            "config/bootstrap.php",
+
             "core/application.php",
             "core/request.php",
             "core/response.php",

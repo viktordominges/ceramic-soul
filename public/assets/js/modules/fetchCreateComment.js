@@ -1,18 +1,18 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
     
-export function fetchCreateComment(slug, commentsListWrapper) {
-
+export function fetchCreateComment(slug, commentsListWrapper, renderCommentFn, showEmptyMessageFn) {
     const addCommentTrigger = document.querySelector('#add-comment-btn');
+
+    if (!addCommentTrigger) return;
 
     addCommentTrigger.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        // Получаем id поста из дата-атрибута
         const postElement = document.querySelector('.single-post__item');
-        const postId = parseInt(postElement.dataset.postId, 10); // обязательно число
+        if (!postElement) return;
 
-        // Получаем текст комментария
-        const commentText = document.querySelector('#comment-textarea').value.trim();
+        const postId = parseInt(postElement.dataset.postId, 10);
+        const commentText = document.querySelector('#comment-textarea')?.value.trim();
 
         if (!commentText) {
             alert('Comment cannot be empty');
@@ -37,13 +37,12 @@ export function fetchCreateComment(slug, commentsListWrapper) {
             alert('Comment added!');
             document.querySelector('#comment-textarea').value = '';
 
-            // Обновляем список комментариев после успешной отправки
-            await fetchShowCommentsByPost(slug, commentsListWrapper);
+            // Обновляем список комментариев с нужным рендером
+            await fetchShowCommentsByPost(slug, commentsListWrapper, renderCommentFn, showEmptyMessageFn);
 
         } catch (error) {
             console.error('Request error:', error);
             alert('There was an error sending your comment. Please try again.');
         }
     });
-
 }

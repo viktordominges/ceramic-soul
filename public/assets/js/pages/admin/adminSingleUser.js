@@ -20,7 +20,7 @@ export function initAdminSingleUserPage(id) {
     // Проверяем, что секция user, id и секция comments существуют
     if (!userSection || !id || !commentsListSection) return;
 
-    const commentsListWrapper = prepareWrapper(commentsListSection, '.comments-post__wrapper');
+    const commentsListWrapper = prepareWrapper(commentsListSection, 'comments-list__wrapper');
 
     // Загружаем пользователя по id
     fetchShowUserById(id, userSection, adminRenderSingleUser, showEmptyMessage);

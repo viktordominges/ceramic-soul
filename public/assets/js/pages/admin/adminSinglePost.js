@@ -25,7 +25,7 @@ export function initAdminSinglePostPage(slug) {
 
     const singlePostWrapper = postSection;
 
-    const commentsListWrapper = prepareWrapper(commentsListSection, '.comments-post__wrapper');
+    const commentsListWrapper = prepareWrapper(commentsListSection, 'comments-list__wrapper');
 
     // Загружаем пост по slug
     fetchShowPostBySlug(slug, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);

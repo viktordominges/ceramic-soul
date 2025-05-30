@@ -1,14 +1,18 @@
 export function prepareWrapper(parent, className) {
+    // Если передана точка, убираем её
+    const cleanClassName = className.startsWith('.') ? className.slice(1) : className;
+
     let wrapper = parent.querySelector(className);
     if (!wrapper) {
         wrapper = document.createElement('div');
-        wrapper.classList.add(className);
+        wrapper.classList.add(cleanClassName);
         parent.appendChild(wrapper);
     } else {
         wrapper.innerHTML = '';
     }
     return wrapper;
 }
+
 
 export function setActiveLink() {
     document.querySelectorAll('.header__nav a').forEach(link => {

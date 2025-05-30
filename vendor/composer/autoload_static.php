@@ -10,6 +10,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '4261b81d83317b83b1a23a28748b34e8' => __DIR__ . '/../..' . '/config/bootstrap.php',
         '015a8488c5be483cbdd29299fb24fba0' => __DIR__ . '/../..' . '/core/application.php',
         '74431b2aabe2e4e9bde52a3f65c1d7d1' => __DIR__ . '/../..' . '/core/request.php',
         'c19bbaa4e47021c1a4446e4194f7f59e' => __DIR__ . '/../..' . '/core/response.php',

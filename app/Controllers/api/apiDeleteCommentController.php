@@ -1,19 +1,25 @@
 <?php
 
 function apiDeleteCommentController($id) {
-    session_start();
-    $userId = $_SESSION['user']['id'] ?? null;
+    // session_start();
+    error_log("SESSION user: " . print_r($_SESSION['user'], true));
 
-    if (!$userId) {
+    $user = $_SESSION['user'] ?? null;
+
+    if (!$user || !isset($user['id'], $user['role'])) {
         return json_response(['error' => 'Unauthorized'], 401);
     }
+
+    $userId = (int)$user['id'];
+    $isAdmin = $user['role'] === 'admin';
 
     $comment = findCommentById($id);
     if (!$comment) {
         return json_response(['error' => 'Comment not found'], 404);
     }
 
-    if ($comment['user_id'] !== $userId) {
+    // Разрешить удаление: если это админ или автор комментария
+    if (!$isAdmin && $comment['user_id'] !== $userId) {
         return json_response(['error' => 'No rights to delete comment'], 403);
     }
 

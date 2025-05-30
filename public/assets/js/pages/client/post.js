@@ -3,15 +3,16 @@ import { renderSinglePost } from '../../components/client/renderSinglePost.js';
 
 import { fetchShowPopularPosts } from '../../modules/fetchShowPopularPosts.js';
 
-import { prepareWrapper } from '../../modules/helpers.js';
-
 import { fetchShowCategories } from '../../modules/fetchShowCategories.js';
 import { renderCategoriesNameList } from '../../components/client/renderCategoriesNameList.js';
 
 import { fetchShowCommentsByPost } from '../../modules/fetchShowCommentsByPost.js';
 
+import { renderPostComment } from '../../components/client/renderPostComment.js';
+
 import { fetchCreateComment } from '../../modules/fetchCreateComment.js';
 
+import { prepareWrapper } from '../../modules/helpers.js';
 import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
 export function initPostPage(slug) {
@@ -43,11 +44,11 @@ export function initPostPage(slug) {
         renderItem: renderCategoriesNameList,
         showEmptyMessageFn: showEmptyMessage
     });
-
+ 
     // Загружаем список комментариев по посту
-    fetchShowCommentsByPost(slug, commentsListWrapper);
+    fetchShowCommentsByPost(slug, commentsListWrapper, renderPostComment, showEmptyMessage);
 
     // Добавляем новый комментарий
-    fetchCreateComment(slug, commentsListWrapper);
+    fetchCreateComment(slug, commentsListWrapper, renderPostComment, showEmptyMessage);
 
 }

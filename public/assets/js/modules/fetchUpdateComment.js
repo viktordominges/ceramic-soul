@@ -1,4 +1,6 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
+import { renderPostComment } from "../components/client/renderPostComment.js";
+import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
 
 export function fetchUpdateComment(slug) {
 
@@ -32,8 +34,8 @@ export function fetchUpdateComment(slug) {
             // Заменяем содержимое текста на поле ввода
             textElement.replaceWith(textarea);
             button.style.display = 'none'; // скрыть кнопку "редактировать"
-            commentElement.appendChild(saveBtn);
-            commentElement.appendChild(cancelBtn);
+            commentElement.querySelector('.comment__actions').appendChild(saveBtn);
+            commentElement.querySelector('.comment__actions').appendChild(cancelBtn);
 
             // Обработка нажатия кнопки "отмена"
             cancelBtn.addEventListener('click', () => {
@@ -59,13 +61,19 @@ export function fetchUpdateComment(slug) {
                     body: JSON.stringify({ text: updatedText })
                 });
 
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText); // Логируем тело ответа
+                    throw new Error(`Error updating post comments: ${response.status}`);
+                }
+
                 const result = await response.json();
 
                 if (result.success) {
                     const commentsWrapper = document.querySelector('.comments-list__wrapper');
 
                     // Обновляем содержимое комментариев
-                    fetchShowCommentsByPost(slug, commentsWrapper);
+                    fetchShowCommentsByPost(slug, commentsWrapper, renderPostComment, showEmptyMessage);
 
                 } else {
                     alert(result.error || 'Error updating comment');

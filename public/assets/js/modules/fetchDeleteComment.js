@@ -1,16 +1,14 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
 
-export function fetchDeleteComment(slug) {
-     
-    // === Обработка удаления комментария ===
+export function fetchDeleteComment(slug, renderCommentFn, showEmptyMessageFn) {
     document.querySelectorAll('.delete-comment-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
-            // Получаем id комментария
             const commentId = e.target.dataset.id;
 
             if (confirm('Delete comment?')) {
                 const response = await fetch(`/api/comments/${commentId}/delete`, {
-                    method: 'DELETE'
+                    method: 'DELETE',
+                    credentials: 'include',
                 });
 
                 const result = await response.json();
@@ -18,9 +16,7 @@ export function fetchDeleteComment(slug) {
                 if (result.success) {
                     const commentsWrapper = document.querySelector('.comments-list__wrapper');
 
-                    // Обновляем список комментариев
-                    fetchShowCommentsByPost(slug, commentsWrapper);
-
+                    fetchShowCommentsByPost(slug, commentsWrapper, renderCommentFn, showEmptyMessageFn);
                 } else {
                     alert(result.error || 'Error deleting comment');
                 }

@@ -7,7 +7,7 @@ export function renderSinglePost(post) {
 
     // Базовый HTML, общий для всех постов
     let postHTML = `
-        <img src="${post.image}" alt="${post.title}" />
+        <img src="${post.image || 'assets/images/placeholders/ceramic-vase.jpg'}" alt="${post.title}" />
         <h1>${post.title}</h1>
         <div class="single-post__info_wrapper">
             <div class="category-name__wrapper">
