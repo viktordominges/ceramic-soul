@@ -6,8 +6,8 @@
 
     <section class="user-info__buttons">
 
-        <div class="details__btn">Update post</div>
-        <div class="delete__btn">Delete post</div>
+        <div class="details__btn">Update user</div>
+        <div class="delete__btn">Delete user</div>
 
     </section>
 

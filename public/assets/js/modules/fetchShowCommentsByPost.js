@@ -41,3 +41,4 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper, renderI
         showEmptyMessageFn(commentsListWrapper, 'Error loading post comments.');
     }
 }
+ 

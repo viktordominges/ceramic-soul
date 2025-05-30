@@ -1,7 +1,7 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
 
 export function fetchDeleteComment(slug) {
-    
+     
     // === Обработка удаления комментария ===
     document.querySelectorAll('.delete-comment-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
