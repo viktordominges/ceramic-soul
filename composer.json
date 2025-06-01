@@ -35,6 +35,8 @@
             "app/Controllers/api/apiCategoryByNameController.php",
             "app/Controllers/api/apiUserByIdController.php",
             "app/Controllers/api/apiPostController.php",
+            "app/Controllers/api/apiGetPostByIdController.php",
+            "app/Controllers/api/apiUpdatePostController.php",
             "app/Controllers/api/apiCreatePostController.php",
             "app/Controllers/api/apiCreateCommentController.php",
             "app/Controllers/api/apiDeleteCommentController.php",

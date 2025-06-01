@@ -22,4 +22,6 @@
     
         <div class="comment-posts__wrapper"></div>  <!-- Здесь будут рендериться комментарии -->
     </section>
+
+    <div id="edit-post-popup-container"></div>  <!-- Здесь будет рендериться попап для редактирования поста -->
 </div>

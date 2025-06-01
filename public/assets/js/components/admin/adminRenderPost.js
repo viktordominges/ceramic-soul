@@ -7,8 +7,8 @@ export function adminRenderPost(post) {
         <span>${post.id}</span>
         <span>${post.category}</span>
         <span>${post.title}</span>
-        
-        <a class="details__btn" href="/admin/post?slug=${encodeURIComponent(post.slug)}">Details</a>
+
+        <a class="details__btn" href="/admin/post?id=${encodeURIComponent(post.id)}">Details</a>
     `;
 
     postElement.innerHTML = postHTML;

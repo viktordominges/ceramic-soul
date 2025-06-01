@@ -1,3 +1,6 @@
+
+import { updatePostWithPopup } from '../../modules/updatePostWithPopup.js';
+
 export function adminRenderSinglePost(post) {
     const postElement = document.createElement('div');
     postElement.classList.add('post-info__wrapper');
@@ -52,9 +55,18 @@ export function adminRenderSinglePost(post) {
             <h3 class="post-info__title">Comments Count:</h3>
             <span class="post-info__info">${post.comments_count}</span>
         </div>
+
+        <button class="edit-post-btn details__btn" data-id="${post.id}">Edit Post</button>
     `;
 
     postElement.innerHTML = postHTML;
+
+    postElement.addEventListener('click', async (e) => {
+        if (e.target.classList.contains('edit-post-btn')) {
+            const postId = e.target.dataset.id;
+            updatePostWithPopup(postId);
+        }
+    });
 
     return postElement;
 }

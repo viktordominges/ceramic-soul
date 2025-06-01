@@ -161,6 +161,48 @@ function findPostBySlug($slug) {
     }
 }
 
+function getPostById($id) {
+    if (!is_numeric($id) || $id < 1) {
+        throw new InvalidArgumentException('Invalid post ID');
+    }
+
+    try {
+        $db = connectDB();
+
+        $sql = "
+            SELECT
+                p.id, 
+                p.title, 
+                p.description,
+                p.text, 
+                p.image, 
+                p.slug, 
+                p.created_at, 
+                p.updated_at,
+                c.name AS category,
+                (
+                    SELECT COUNT(*) 
+                    FROM comments cm 
+                    WHERE cm.post_id = p.id
+                ) AS comments_count
+            FROM posts p
+            LEFT JOIN categories c ON p.category_id = c.id
+            WHERE p.id = :id
+        ";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        $post = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $db = null;
+        return $post ?: null;
+    } catch (PDOException $e) {
+        error_log("Database error in findPostById: " . $e->getMessage());
+        throw new RuntimeException('Failed to retrieve post by ID');
+    }
+}
+
+
 function createPost(array $postData) {
     try {
         $db = connectDB();
@@ -189,3 +231,48 @@ function createPost(array $postData) {
     }
 }
 
+function updatePostById($id, $data) {
+    if (!is_numeric($id) || $id < 1) {
+        throw new InvalidArgumentException('Invalid post ID');
+    }
+
+    $required = ['title', 'description', 'text', 'slug', 'category_id'];
+    foreach ($required as $field) {
+        if (empty($data[$field])) {
+            throw new InvalidArgumentException("Missing required field: $field");
+        }
+    }
+
+    try {
+        $db = connectDB();
+
+        $sql = "
+            UPDATE posts SET
+                title = :title,
+                description = :description,
+                text = :text,
+                slug = :slug,
+                image = :image,
+                category_id = :category_id,
+                updated_at = NOW()
+            WHERE id = :id
+        ";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            ':title' => $data['title'],
+            ':description' => $data['description'],
+            ':text' => $data['text'],
+            ':slug' => $data['slug'],
+            ':image' => $data['image'] ?? null,
+            ':category_id' => $data['category_id'],
+            ':id' => $id,
+        ]);
+
+        $db = null;
+        return $stmt->rowCount() > 0;
+    } catch (PDOException $e) {
+        error_log("Database error in updatePostById: " . $e->getMessage());
+        throw new RuntimeException('Failed to update post');
+    }
+}

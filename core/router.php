@@ -100,6 +100,12 @@ function router($uri) {
             }
         }
 
+        if (preg_match('#^api/posts/id/(\d+)$#', $uri, $matches)) {
+            $id = (int)$matches[1];
+            if (function_exists('apiGetPostByIdController')) {
+                return apiGetPostByIdController($id);
+            }
+        }
 
         if (preg_match('#^api/posts/post/([\w%\-]+)$#u', $uri, $matches)) {
             $slug = urldecode($matches[1]);
@@ -123,7 +129,18 @@ function router($uri) {
         }
     }
 
-    // 2. Динамические маршруты (DELETE)
+    // 3. Динамические маршруты (POST)
+    if ($method === 'POST') {
+        if (preg_match('#^api/posts/(\d+)/update$#', $uri, $matches)) {
+            $postId = (int)$matches[1];
+            if (function_exists('apiUpdatePostController')) {
+                return apiUpdatePostController($postId);
+            }
+        }
+    }
+
+
+    // 4. Динамические маршруты (DELETE)
     if ($method === 'DELETE') {
         if (preg_match('#^api/comments/(\d+)/delete$#', $uri, $matches)) {
             $commentId = (int)$matches[1];
@@ -133,7 +150,7 @@ function router($uri) {
         }
     }
 
-    // 2. Динамические маршруты (PUT)
+    // 5. Динамические маршруты (PUT)
     if ($method === 'PUT') {
         if (preg_match('#^api/comments/(\d+)/update$#', $uri, $matches)) {
             $commentId = (int)$matches[1];
@@ -141,8 +158,15 @@ function router($uri) {
                 return apiUpdateCommentController($commentId);
             }
         }
+
+        if (preg_match('#^api/posts/(\d+)/update$#', $uri, $matches)) {
+            $postId = (int)$matches[1];
+            if (function_exists('apiUpdatePostController')) {
+                return apiUpdatePostController($postId);
+            }
+        }
     }
 
-    // 3. Маршрут не найден
+    // 6. Маршрут не найден
     return notFoundController();
 }

@@ -1,5 +1,7 @@
 import { fetchShowPostBySlug } from '../../modules/fetchShowPostBySlug.js';
 
+import { fetchShowPostById } from '../../modules/fetchShowPostById.js';
+
 // import { fetchShowItemBySlug } from '../../modules/fetchShowItemBySlug.js';
 
 import { adminRenderSinglePost } from '../../components/admin/adminRenderSinglePost.js';
@@ -14,24 +16,26 @@ import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
 
 
-export function initAdminSinglePostPage(slug) {
+export function initAdminSinglePostPage(postId) {
 
 
     const postSection = document.querySelector('section.admin-single-post');
     const commentsListSection = document.querySelector('section.admin-comments');
     
     // Проверяем, что секция постов и name категории существуют
-    if (!postSection || !slug || !commentsListSection) return;
+    if (!postSection || !postId || !commentsListSection) return;
 
     const singlePostWrapper = postSection;
 
     const commentsListWrapper = prepareWrapper(commentsListSection, 'comments-list__wrapper');
 
     // Загружаем пост по slug
-    fetchShowPostBySlug(slug, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
+    //fetchShowPostBySlug(slug, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
+
+    fetchShowPostById(postId, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
 
     // Загружаем список комментариев по посту
-    fetchShowCommentsByPost(slug, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
+    //fetchShowCommentsByPost(slug, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
 
 
 

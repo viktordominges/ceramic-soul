@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
             initAdminUsersPage();
 
         } else if (path === '/admin/post') {
-            const slug = url.searchParams.get('slug');
-            if (slug) {
-                initAdminSinglePostPage(slug);
+            const postId = url.searchParams.get('id');
+            if (postId) {
+                initAdminSinglePostPage(postId);
             }
         
         } else if (path === '/admin/category') {
