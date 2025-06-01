@@ -40,6 +40,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '4d81f0267f6c8c75d02301b00b9ac8e5' => __DIR__ . '/../..' . '/app/Controllers/api/apiGetPostByIdController.php',
         'b40cdced28d92a8f3ccddc82b66d7ce8' => __DIR__ . '/../..' . '/app/Controllers/api/apiUpdatePostController.php',
         'b741624aa643557302c580775d549077' => __DIR__ . '/../..' . '/app/Controllers/api/apiCreatePostController.php',
+        '7583f64482c13bce4a045a5cfe21c0ef' => __DIR__ . '/../..' . '/app/Controllers/api/apiDeletePostController.php',
         '2369e884f83edbf335760153f37d5258' => __DIR__ . '/../..' . '/app/Controllers/api/apiCreateCommentController.php',
         'c1428d6f67aa8d41f5e45f72e3a58f96' => __DIR__ . '/../..' . '/app/Controllers/api/apiDeleteCommentController.php',
         '4c0c58bc09e7f3fd1c9515346dfe87c9' => __DIR__ . '/../..' . '/app/Controllers/api/apiUpdateCommentController.php',

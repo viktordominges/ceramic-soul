@@ -1,5 +1,6 @@
 
 import { updatePostWithPopup } from '../../modules/updatePostWithPopup.js';
+import { deletePostById } from '../../modules/deletePostById.js';
 
 export function adminRenderSinglePost(post) {
     const postElement = document.createElement('div');
@@ -57,6 +58,7 @@ export function adminRenderSinglePost(post) {
         </div>
 
         <button class="edit-post-btn details__btn" data-id="${post.id}">Edit Post</button>
+        <button class="delete-post-btn delete__btn" data-id="${post.id}">Delete Post</button>
     `;
 
     postElement.innerHTML = postHTML;
@@ -65,6 +67,23 @@ export function adminRenderSinglePost(post) {
         if (e.target.classList.contains('edit-post-btn')) {
             const postId = e.target.dataset.id;
             updatePostWithPopup(postId);
+
+        } else if (e.target.classList.contains('delete-post-btn')) {
+            // Подтверждение удаления поста
+            if (!confirm('Are you sure you want to delete this post?')) return;
+
+            const postId = e.target.dataset.id;
+            if (!postId) return;
+
+            const deletePost = await deletePostById(postId);
+
+            if (deletePost) {
+                // e.target.closest('.post-info__wrapper').remove();
+                alert('Post deleted successfully');
+                window.location.href = '/admin/posts';
+            } else {
+                alert('Failed to delete post');
+            }
         }
     });
 

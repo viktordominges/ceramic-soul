@@ -49,9 +49,9 @@ function router($uri) {
     $routes = get_routes();
     $uri = parse_url($uri, PHP_URL_PATH); // убрать ?query=string
     $uri = trim($uri, '/');
-    dump($uri);
+
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-    dump($method, 'method');
+
 
     // 1. Проверка обычных маршрутов
     if (array_key_exists($uri, $routes)) {
@@ -148,6 +148,13 @@ function router($uri) {
                 return apiDeleteCommentController($commentId);
             }
         }
+
+        if (preg_match('#^api/posts/(\d+)/delete$#', $uri, $matches)) {
+            $postId = (int)$matches[1];
+            if (function_exists('apiDeletePostController')) {
+                return apiDeletePostController($postId);
+            }
+        }
     }
 
     // 5. Динамические маршруты (PUT)
@@ -159,12 +166,12 @@ function router($uri) {
             }
         }
 
-        if (preg_match('#^api/posts/(\d+)/update$#', $uri, $matches)) {
-            $postId = (int)$matches[1];
-            if (function_exists('apiUpdatePostController')) {
-                return apiUpdatePostController($postId);
-            }
-        }
+        // if (preg_match('#^api/posts/(\d+)/update$#', $uri, $matches)) {
+        //     $postId = (int)$matches[1];
+        //     if (function_exists('apiUpdatePostController')) {
+        //         return apiUpdatePostController($postId);
+        //     }
+        // }
     }
 
     // 6. Маршрут не найден

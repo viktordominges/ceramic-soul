@@ -276,3 +276,23 @@ function updatePostById($id, $data) {
         throw new RuntimeException('Failed to update post');
     }
 }
+
+function deletePostById($id)
+{
+    if (!is_numeric($id) || $id < 1) {
+        throw new InvalidArgumentException('Invalid post ID');
+    }
+
+    try {
+        $db = connectDB();
+
+        $stmt = $db->prepare('DELETE FROM posts WHERE id = :id');
+        $stmt->execute([':id' => $id]);
+
+        return $stmt->rowCount() > 0;
+    } catch (PDOException $e) {
+        error_log("Database error in deletePostById: " . $e->getMessage());
+        throw new RuntimeException('Failed to delete post');
+    }
+}
+
