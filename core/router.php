@@ -114,17 +114,17 @@ function router($uri) {
             }
         }
 
-        if (preg_match('#^api/comments/post/([\w%-]+)$#u', $uri, $matches)) {
-            $slug = urldecode($matches[1]);
+        if (preg_match('#^api/comments/post/(\d+)$#', $uri, $matches)) {
+            $postId = (int)$matches[1];
             if (function_exists('apiCommentsByPostController')) {
-                return apiCommentsByPostController($slug);
+                return apiCommentsByPostController($postId);
             }
         }
 
         if (preg_match('#^api/comments/user/(\d+)$#', $uri, $matches)) {
-            $user_id = (int)$matches[1];
+            $userId = (int)$matches[1];
             if (function_exists('apiCommentsByUserController')) {
-                return apiCommentsByUserController($user_id);
+                return apiCommentsByUserController($userId);
             }
         }
     }

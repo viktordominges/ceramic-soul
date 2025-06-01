@@ -3,7 +3,7 @@ import { prepareWrapper } from './helpers.js';
 import { adminRenderPost } from '../components/admin/adminRenderPost.js';
 import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
 
-
+ 
 export async function createPostWithPopup() {
     const container = document.getElementById('create-post-popup-container');
     container.innerHTML = '';
@@ -26,7 +26,7 @@ export async function createPostWithPopup() {
     popup.innerHTML = `
         <div class="popup-content">
             <h2>Create New Post</h2>
-            <form id="create-post-form" method="POST" enctype="multipart/form-data">
+            <form id="create-post-form" class="admin-form" method="POST" enctype="multipart/form-data">
                 <label>
                     Title:
                     <input type="text" name="title" required />

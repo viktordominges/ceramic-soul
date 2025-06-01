@@ -1,17 +1,17 @@
 <?php
 
-function apiCommentsByPostController($slug) {
-    file_put_contents('log.txt', "Контроллер apiCommentsByPostController вызван\n", FILE_APPEND);
+function apiCommentsByPostController($id) {
+    // file_put_contents('log.txt', "Контроллер apiCommentsByPostController вызван\n", FILE_APPEND);
     try {
-        // Проверка, что slug — это непустая строка
-        if (empty($slug) || !is_string($slug)) {
-            throw new InvalidArgumentException("Invalid post slug");
+        // Проверка, что id — это положительное целое число
+        if (empty($id) || !is_int($id) || $id <= 0) {
+            throw new InvalidArgumentException("Invalid post ID");
         }
 
-        // Получаем комментарии по slug поста
-        $comments = findCommentsByPostSlug($slug);
+        // Получаем комментарии по id поста
+        $comments = findCommentsByPostId($id);
 
-        // error_log("Comments fetched for post slug [$slug]: " . print_r($comments, true));
+        // error_log("Comments fetched for post id [$id]: " . print_r($comments, true));
 
         if (empty($comments)) {
             return json_response([], 200);

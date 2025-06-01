@@ -2,7 +2,7 @@ import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
 import { renderPostComment } from "../components/client/renderPostComment.js";
 import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
 
-export function fetchUpdateComment(slug) {
+export function fetchUpdateComment(postId) {
 
     // === Обработка редактирования комментария ===
     document.querySelectorAll('.edit-comment-btn').forEach(button => {
@@ -73,7 +73,7 @@ export function fetchUpdateComment(slug) {
                     const commentsWrapper = document.querySelector('.comments-list__wrapper');
 
                     // Обновляем содержимое комментариев
-                    fetchShowCommentsByPost(slug, commentsWrapper, renderPostComment, showEmptyMessage);
+                    fetchShowCommentsByPost(postId, commentsWrapper, renderPostComment, showEmptyMessage);
 
                 } else {
                     alert(result.error || 'Error updating comment');

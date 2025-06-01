@@ -100,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } else if (path === '/post') {
-            const slug = url.searchParams.get('slug');
-            if (slug) {
-                initPostPage(slug);
+            const postId = url.searchParams.get('id');
+            if (postId) {
+                initPostPage(postId);
             }
 
         } else if (path === '/register') {

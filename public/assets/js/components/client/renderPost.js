@@ -7,7 +7,7 @@ export function renderPost(post) {
         <img src="${post.image || 'assets/images/placeholders/ceramic-vase.jpg'}" alt="${post.title}" class="post__item_image" />
         <div class="post__item_header">
             <h2>${post.title}</h2>
-            <a class="read-more" href="/post?slug=${encodeURIComponent(post.slug)}">Read</a>
+            <a class="read-more" href="/post?id=${encodeURIComponent(post.id)}">Read</a>
         </div>
         <p class="post__item_description">${post.description}</p>
         <div class="category-name__wrapper post__item-down">

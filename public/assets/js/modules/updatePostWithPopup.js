@@ -1,7 +1,7 @@
 export async function updatePostWithPopup(postId) {
     const container = document.getElementById('edit-post-popup-container');
     container.innerHTML = '';
-
+ 
     let post;
     let categories = [];
 
@@ -25,7 +25,7 @@ export async function updatePostWithPopup(postId) {
     popup.innerHTML = `
         <div class="popup-content">
             <h2>Edit Post</h2>
-            <form id="edit-post-form" method="POST" enctype="multipart/form-data">
+            <form id="edit-post-form" class="admin-form" method="POST" enctype="multipart/form-data">
                 <label>Title: <input type="text" name="title" value="${post.title}" required /></label>
                 <label>Category:
                     <select name="category_id" required>

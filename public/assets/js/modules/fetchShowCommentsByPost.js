@@ -4,9 +4,9 @@
 import { fetchDeleteComment } from "./fetchDeleteComment.js";
 import { fetchUpdateComment } from "./fetchUpdateComment.js";
 
-export async function fetchShowCommentsByPost(slug, commentsListWrapper, renderItemFn, showEmptyMessageFn) {
+export async function fetchShowCommentsByPost(postId, commentsListWrapper, renderItemFn, showEmptyMessageFn) {
     try {
-        const response = await fetch(`/api/comments/post/${encodeURIComponent(slug)}`);
+        const response = await fetch(`/api/comments/post/${encodeURIComponent(postId)}`);
 
         if (!response.ok) {
             const errorText = await response.text();
@@ -24,8 +24,8 @@ export async function fetchShowCommentsByPost(slug, commentsListWrapper, renderI
                 commentsListWrapper.appendChild(renderItemFn(comment));
             });
 
-            fetchDeleteComment(slug, renderItemFn, showEmptyMessageFn);
-            fetchUpdateComment(slug); // Можно тоже сделать универсальной при необходимости
+            fetchDeleteComment(postId, renderItemFn, showEmptyMessageFn);
+            fetchUpdateComment(postId); // Можно тоже сделать универсальной при необходимости
         } else {
             showEmptyMessageFn(commentsListWrapper, 'There are no comments yet.');
         }

@@ -27,9 +27,9 @@ export async function fetchShowCommentsByUser(userId, commentsListWrapper, rende
             });
 
             // Обработка удаления комментария (добавляем обработчики)
-            //fetchDeleteComment(slug);
+            //fetchDeleteComment(userId, renderItemFn, showEmptyMessageFn);
             // Обработка редактирования комментария (добавляем обработчики)
-            //fetchUpdateComment(slug);
+            // fetchUpdateComment(userId, renderItemFn, showEmptyMessageFn);
 
         } else {
             showEmptyMessageFn(commentsListWrapper, 'There are no comments yet.');

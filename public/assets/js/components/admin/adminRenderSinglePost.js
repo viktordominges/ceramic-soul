@@ -5,7 +5,7 @@ import { deletePostById } from '../../modules/deletePostById.js';
 export function adminRenderSinglePost(post) {
     const postElement = document.createElement('div');
     postElement.classList.add('post-info__wrapper');
-
+ 
     // Базовый HTML, общий для всех постов
     let postHTML = `
         <div class="post-info__item">
@@ -57,8 +57,10 @@ export function adminRenderSinglePost(post) {
             <span class="post-info__info">${post.comments_count}</span>
         </div>
 
-        <button class="edit-post-btn details__btn" data-id="${post.id}">Edit Post</button>
-        <button class="delete-post-btn delete__btn" data-id="${post.id}">Delete Post</button>
+        <div class="post-info__buttons">
+            <button class="edit-post-btn details__btn" data-id="${post.id}">Edit Post</button>
+            <button class="delete-post-btn delete__btn" data-id="${post.id}">Delete Post</button>
+        </div>
     `;
 
     postElement.innerHTML = postHTML;

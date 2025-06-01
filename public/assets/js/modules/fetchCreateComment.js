@@ -1,6 +1,6 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
     
-export function fetchCreateComment(slug, commentsListWrapper, renderCommentFn, showEmptyMessageFn) {
+export function fetchCreateComment(postId, commentsListWrapper, renderCommentFn, showEmptyMessageFn) {
     const addCommentTrigger = document.querySelector('#add-comment-btn');
 
     if (!addCommentTrigger) return;
@@ -11,7 +11,6 @@ export function fetchCreateComment(slug, commentsListWrapper, renderCommentFn, s
         const postElement = document.querySelector('.single-post__item');
         if (!postElement) return;
 
-        const postId = parseInt(postElement.dataset.postId, 10);
         const commentText = document.querySelector('#comment-textarea')?.value.trim();
 
         if (!commentText) {
@@ -38,7 +37,7 @@ export function fetchCreateComment(slug, commentsListWrapper, renderCommentFn, s
             document.querySelector('#comment-textarea').value = '';
 
             // Обновляем список комментариев с нужным рендером
-            await fetchShowCommentsByPost(slug, commentsListWrapper, renderCommentFn, showEmptyMessageFn);
+            await fetchShowCommentsByPost(postId, commentsListWrapper, renderCommentFn, showEmptyMessageFn);
 
         } catch (error) {
             console.error('Request error:', error);

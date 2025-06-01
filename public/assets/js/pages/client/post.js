@@ -1,4 +1,5 @@
-import { fetchShowPostBySlug } from '../../modules/fetchShowPostBySlug.js';
+// import { fetchShowPostBySlug } from '../../modules/fetchShowPostBySlug.js';
+import { fetchShowPostById } from '../../modules/fetchShowPostById.js';
 import { renderSinglePost } from '../../components/client/renderSinglePost.js';
 
 import { fetchShowPopularPosts } from '../../modules/fetchShowPopularPosts.js';
@@ -15,7 +16,7 @@ import { fetchCreateComment } from '../../modules/fetchCreateComment.js';
 import { prepareWrapper } from '../../modules/helpers.js';
 import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
-export function initPostPage(slug) {
+export function initPostPage(postId) {
 
     // Получаем элемент секции постов и спан для имени категории
     const postSection = document.querySelector('section.single-post');
@@ -25,15 +26,15 @@ export function initPostPage(slug) {
     
     
     // Проверяем, что секция постов и name категории существуют
-    if (!postSection || !slug || !popularPostsSection || !categoriesListSection || !commentsListSection) return;
+    if (!postSection || !postId || !popularPostsSection || !categoriesListSection || !commentsListSection) return;
 
     const singlePostWrapper = prepareWrapper(postSection, '.single-post__wrapper');
     const commentsListWrapper = prepareWrapper(commentsListSection, '.comments-list__wrapper');
     const popularPostsWrapper = prepareWrapper(popularPostsSection, '.popular-posts__wrapper');
     const categoriesListWrapper = prepareWrapper(categoriesListSection, '.categories-list__wrapper');
 
-    // Загружаем пост по slug
-    fetchShowPostBySlug(slug, singlePostWrapper, renderSinglePost, showEmptyMessage);
+    // Загружаем пост по id
+    fetchShowPostById(postId, singlePostWrapper, renderSinglePost, showEmptyMessage);
 
     // Загружаем список популярных постов
     fetchShowPopularPosts(popularPostsWrapper);
@@ -46,9 +47,9 @@ export function initPostPage(slug) {
     });
  
     // Загружаем список комментариев по посту
-    fetchShowCommentsByPost(slug, commentsListWrapper, renderPostComment, showEmptyMessage);
+    fetchShowCommentsByPost(postId, commentsListWrapper, renderPostComment, showEmptyMessage);
 
     // Добавляем новый комментарий
-    fetchCreateComment(slug, commentsListWrapper, renderPostComment, showEmptyMessage);
+    fetchCreateComment(postId, commentsListWrapper, renderPostComment, showEmptyMessage);
 
 }

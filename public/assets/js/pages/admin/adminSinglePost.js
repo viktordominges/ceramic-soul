@@ -35,7 +35,7 @@ export function initAdminSinglePostPage(postId) {
     fetchShowPostById(postId, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
 
     // Загружаем список комментариев по посту
-    //fetchShowCommentsByPost(slug, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
+    fetchShowCommentsByPost(postId, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
 
 
 

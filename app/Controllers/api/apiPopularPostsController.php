@@ -24,7 +24,7 @@ function apiPopularPostsController() {
                 'comments_count' => (int)$post['comments_count']
             ];
         }, $posts);
-
+ 
         return json_response($formattedPosts);
 
     } catch (Exception $e) {

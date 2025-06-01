@@ -53,6 +53,38 @@ function findCommentsByPostSlug($slug) {
     }
 }
 
+function findCommentsByPostId(int $post_id): ?array
+{
+    try {
+        $db = connectDB();
+        $sql = "
+            SELECT 
+                c.id,
+                c.text,
+                u.username,
+                u.avatar,
+                c.user_id,
+                c.post_id,
+                c.created_at,
+                c.updated_at
+            FROM comments c
+            INNER JOIN users u ON c.user_id = u.id
+            WHERE c.post_id = :post_id
+            ORDER BY c.created_at ASC
+        ";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $comments ?: null;
+    } catch (PDOException $e) {
+        error_log("Database error in findCommentsByPostId: " . $e->getMessage());
+        throw new RuntimeException('Failed to retrieve comments by post ID');
+    }
+}
+
 function findCommentById(int $id)
 {
     try {
