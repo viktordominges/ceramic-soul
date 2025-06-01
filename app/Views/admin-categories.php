@@ -1,6 +1,6 @@
 
 <div class="flex2__wrapper">
-    <div class="create__btn">Create category</div>
+    <div id="create-category__btn" class="create__btn">Create category</div>
 
     <section class="admin-search">
         <input type="text" class="admin-search__input" placeholder="Search category by name...">
@@ -19,3 +19,5 @@
 
     <div class="admin-categories__wrapper"></div>  <!-- Здесь будут рендериться категории -->
 </section>
+
+<div id="create-category-popup-container"></div>

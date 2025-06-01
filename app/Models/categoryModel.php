@@ -76,3 +76,29 @@ function getCategoriesCount() {
         throw new RuntimeException('Failed to get category count');
     }
 }
+
+function createCategory(array $categoryData) {
+    try {
+        $db = connectDB();
+
+        $sql = "
+            INSERT INTO categories (name, description, image)
+            VALUES (:name, :description, :image)
+        ";
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':name', $categoryData['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':description', $categoryData['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':image', $categoryData['image'] ?? null, PDO::PARAM_STR); // может быть null
+
+
+        $stmt->execute();
+
+        return $db->lastInsertId();
+
+    } catch (PDOException $e) {
+        error_log("Database error in createCategory: " . $e->getMessage());
+        throw new RuntimeException('Failed to create category');
+    }
+}

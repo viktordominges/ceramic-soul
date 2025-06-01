@@ -7,6 +7,8 @@ export function adminRenderUserComments(comment) {
         <span>${comment.id}</span>
         <span>${comment.post_title}</span>
         <span>${comment.text}</span>
+        <span></span>
+
         <button class="delete__btn" data-id="${comment.id}">Delete</button>
     `;
 

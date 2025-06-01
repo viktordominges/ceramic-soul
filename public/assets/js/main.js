@@ -20,6 +20,7 @@ import { initAdminSingleCategoryPage } from './pages/admin/adminSingleCategory.j
 import { initAdminSingleUserPage } from './pages/admin/adminSingleUser.js';
 
 import { createPostWithPopup } from './modules/createPostWithPopup.js';
+import { createCategoryWithPopup } from './modules/createCategoryWithPopup.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (path === '/admin/categories') {
 
             initAdminCategoriesPage();
+            document.querySelector('#create-category__btn').addEventListener('click', createCategoryWithPopup);
 
         } else if (path === '/admin/users') {
 

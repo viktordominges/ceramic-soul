@@ -24,6 +24,7 @@ function get_routes() {
         'api/users/delete' => 'apiDeleteAccountController',
         'api/comments/create' => 'apiCreateCommentController',
         'api/posts/create' => 'apiCreatePostController',
+        'api/categories/create' => 'apiCreateCategoryController',
 
         // Admin panel pages
         // 'admin' => 'adminController',
@@ -68,7 +69,8 @@ function router($uri) {
                 ($uri === 'api/users/logout' && $method === 'POST') ||
                 ($uri === 'api/users/delete' && $method === 'POST') ||
                 ($uri === 'api/comments/create' && $method === 'POST') ||
-                ($uri === 'api/posts/create' && $method === 'POST')
+                ($uri === 'api/posts/create' && $method === 'POST') ||
+                ($uri === 'api/categories/create' && $method === 'POST') 
             ) {
                 return $handler();
             }

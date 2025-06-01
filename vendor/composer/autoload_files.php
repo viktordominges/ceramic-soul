@@ -34,6 +34,7 @@ return array(
     '454aa69f3aa682aff4215c48230f3da5' => $baseDir . '/app/Controllers/api/apiPopularPostsController.php',
     '258fc8dc40f9c02d67fdb8aea03668da' => $baseDir . '/app/Controllers/api/apiCategoryPostsController.php',
     'd5e70ce1764360f5b9b45ca5eb484930' => $baseDir . '/app/Controllers/api/apiCategoryByNameController.php',
+    'dffc5f9cabdba88d76146cd8e862cbc0' => $baseDir . '/app/Controllers/api/apiCreateCategoryController.php',
     '82d114a6565dfb50b29dc924aa3f0c48' => $baseDir . '/app/Controllers/api/apiUserByIdController.php',
     '4d81f0267f6c8c75d02301b00b9ac8e5' => $baseDir . '/app/Controllers/api/apiGetPostByIdController.php',
     'b40cdced28d92a8f3ccddc82b66d7ce8' => $baseDir . '/app/Controllers/api/apiUpdatePostController.php',
