@@ -17,7 +17,6 @@ function apiCategoryPostsController($name) {
                 'description' => htmlspecialchars($post['description']),
                 'text' => htmlspecialchars($post['text']),
                 'image' => htmlspecialchars($post['image']),
-                'slug' => htmlspecialchars($post['slug']),
                 'created_at' => $post['created_at'],
                 'updated_at' => $post['updated_at'] ?: null,
                 'category' => $post['category'] ? htmlspecialchars($post['category']) : null

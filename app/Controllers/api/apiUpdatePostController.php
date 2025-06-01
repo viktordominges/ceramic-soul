@@ -40,18 +40,11 @@ function apiUpdatePostController($id)
             $imagePath = '/uploads/posts/' . $fileName;
         }
 
-        $slug = generateSlug($title);
-
-        if (!preg_match('/^[a-z0-9-]+$/', $slug)) {
-            return json_response(['error' => 'Invalid slug format'], 400);
-        }
-
         $updated = updatePostById($id, [
             'title' => $title,
             'description' => $description,
             'text' => $text,
             'image' => $imagePath,
-            'slug' => $slug,
             'category_id' => $categoryId,
         ]);
 

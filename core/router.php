@@ -107,13 +107,6 @@ function router($uri) {
             }
         }
 
-        if (preg_match('#^api/posts/post/([\w%\-]+)$#u', $uri, $matches)) {
-            $slug = urldecode($matches[1]);
-            if (function_exists('apiPostController')) {
-                return apiPostController($slug);
-            }
-        }
-
         if (preg_match('#^api/comments/post/(\d+)$#', $uri, $matches)) {
             $postId = (int)$matches[1];
             if (function_exists('apiCommentsByPostController')) {

@@ -33,16 +33,12 @@ function apiCreatePostController()
             $imagePath = '/uploads/posts/' . $fileName;
         }
 
-        // Генерация slug
-        $slug = generateSlug($title);
-
         // Сохранение в БД
         $postId = createPost([
             'title' => $title,
             'description' => $description,
             'text' => $text,
             'image' => $imagePath,
-            'slug' => $slug,
             'category_id' => $categoryId,
         ]);
 

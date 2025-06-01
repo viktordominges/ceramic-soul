@@ -27,7 +27,6 @@ function findAllPosts() {
                 p.description,
                 p.text, 
                 p.image, 
-                p.slug, 
                 p.created_at, 
                 p.updated_at,
                 c.name AS category
@@ -58,7 +57,6 @@ function findPopularPosts() {
                 p.description,
                 p.text,
                 p.image,
-                p.slug,
                 p.created_at,
                 p.updated_at,
                 c.name AS category,
@@ -99,7 +97,6 @@ function findCategoryPosts($name) {
                 p.description,
                 p.text, 
                 p.image, 
-                p.slug, 
                 p.created_at, 
                 p.updated_at,
                 c.name AS category
@@ -120,47 +117,6 @@ function findCategoryPosts($name) {
     }
 }
 
-function findPostBySlug($slug) {
-    if (!preg_match('/^[a-z0-9-]+$/', $slug)) {
-        throw new InvalidArgumentException('Invalid post slug format');
-    }
-
-    try {
-        $db = connectDB();
-
-        $sql = "
-            SELECT
-                p.id, 
-                p.title, 
-                p.description,
-                p.text, 
-                p.image, 
-                p.slug, 
-                p.created_at, 
-                p.updated_at,
-                c.name AS category,
-                (
-                    SELECT COUNT(*) 
-                    FROM comments cm 
-                    WHERE cm.post_id = p.id
-                ) AS comments_count
-            FROM posts p
-            LEFT JOIN categories c ON p.category_id = c.id
-            WHERE p.slug = :slug
-        ";
-
-        $stmt = $db->prepare($sql);
-        $stmt->execute([':slug' => $slug]);
-        $post = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $db = null;
-        return $post ?: null;
-    } catch (PDOException $e) {
-        error_log("Database error in findPostBySlug: " . $e->getMessage());
-        throw new RuntimeException('Failed to retrieve post by slug');
-    }
-}
-
 function getPostById($id) {
     if (!is_numeric($id) || $id < 1) {
         throw new InvalidArgumentException('Invalid post ID');
@@ -175,8 +131,7 @@ function getPostById($id) {
                 p.title, 
                 p.description,
                 p.text, 
-                p.image, 
-                p.slug, 
+                p.image,  
                 p.created_at, 
                 p.updated_at,
                 c.name AS category,
@@ -208,8 +163,8 @@ function createPost(array $postData) {
         $db = connectDB();
 
         $sql = "
-            INSERT INTO posts (title, description, text, image, slug, category_id)
-            VALUES (:title, :description, :text, :image, :slug, :category_id)
+            INSERT INTO posts (title, description, text, image, category_id)
+            VALUES (:title, :description, :text, :image, :category_id)
         ";
 
         $stmt = $db->prepare($sql);
@@ -218,7 +173,7 @@ function createPost(array $postData) {
         $stmt->bindValue(':description', $postData['description'], PDO::PARAM_STR);
         $stmt->bindValue(':text', $postData['text'], PDO::PARAM_STR);
         $stmt->bindValue(':image', $postData['image'] ?? null, PDO::PARAM_STR); // может быть null
-        $stmt->bindValue(':slug', $postData['slug'], PDO::PARAM_STR);
+        $stmt->bindValue(':category_id', $postData['category_id'], PDO::PARAM_INT);
         $stmt->bindValue(':category_id', $postData['category_id'], PDO::PARAM_INT);
 
         $stmt->execute();
@@ -236,7 +191,7 @@ function updatePostById($id, $data) {
         throw new InvalidArgumentException('Invalid post ID');
     }
 
-    $required = ['title', 'description', 'text', 'slug', 'category_id'];
+    $required = ['title', 'description', 'text', 'category_id'];
     foreach ($required as $field) {
         if (empty($data[$field])) {
             throw new InvalidArgumentException("Missing required field: $field");
@@ -251,7 +206,6 @@ function updatePostById($id, $data) {
                 title = :title,
                 description = :description,
                 text = :text,
-                slug = :slug,
                 image = :image,
                 category_id = :category_id,
                 updated_at = NOW()
@@ -263,7 +217,6 @@ function updatePostById($id, $data) {
             ':title' => $data['title'],
             ':description' => $data['description'],
             ':text' => $data['text'],
-            ':slug' => $data['slug'],
             ':image' => $data['image'] ?? null,
             ':category_id' => $data['category_id'],
             ':id' => $id,

@@ -39,8 +39,8 @@ function apiCommentsByPostController($id) {
         json_response($formattedComments);
 
     } catch (InvalidArgumentException $e) {
-        // error_log("Invalid post slug: " . $e->getMessage());
-        json_response(['error' => 'Invalid post slug'], 400);
+        // error_log("Invalid post id: " . $e->getMessage());
+        json_response(['error' => 'Invalid post id'], 400);
 
     } catch (RuntimeException $e) {
         // error_log("Database error in post comments fetch: " . $e->getMessage());

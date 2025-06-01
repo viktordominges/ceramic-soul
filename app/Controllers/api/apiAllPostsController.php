@@ -17,7 +17,6 @@ function apiAllPostsController() {
                 'description' => htmlspecialchars($post['description'] ?? '', ENT_QUOTES, 'UTF-8'),
                 'text' => htmlspecialchars($post['text'] ?? '', ENT_QUOTES, 'UTF-8'),
                 'image' => htmlspecialchars($post['image'] ?? '', ENT_QUOTES, 'UTF-8'),
-                'slug' => htmlspecialchars($post['slug'] ?? '', ENT_QUOTES, 'UTF-8'),
                 'created_at' => $post['created_at'] ?? null,
                 'updated_at' => $post['updated_at'] ?? null,
                 'category' => isset($post['category']) ? htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8') : null

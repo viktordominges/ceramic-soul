@@ -21,38 +21,6 @@ function createComment($text, int $user_id, int $post_id) {
     }
 }
 
-function findCommentsByPostSlug($slug) {
-    try {
-        $db = connectDB();
-        $sql = "
-            SELECT 
-                c.id,
-                c.text,
-                u.username,
-                u.avatar,
-                c.user_id,
-                c.post_id,
-                c.created_at,
-                c.updated_at
-            FROM comments c
-            INNER JOIN users u ON c.user_id = u.id
-            INNER JOIN posts p ON c.post_id = p.id
-            WHERE p.slug = :slug
-            ORDER BY c.created_at ASC
-        ";
-
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
-        $stmt->execute();
-        $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $comments ?: null;
-    } catch (PDOException $e) {
-        error_log("Database error in findCommentsByPostSlug: " . $e->getMessage());
-        throw new RuntimeException('Failed to retrieve comments by post slug');
-    }
-}
-
 function findCommentsByPostId(int $post_id): ?array
 {
     try {
