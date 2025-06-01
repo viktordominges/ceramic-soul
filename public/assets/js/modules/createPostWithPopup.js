@@ -1,3 +1,9 @@
+import { fetchShowPosts } from './fetchShowPosts.js';
+import { prepareWrapper } from './helpers.js';
+import { adminRenderPost } from '../components/admin/adminRenderPost.js';
+import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
+
+
 export async function createPostWithPopup() {
     const container = document.getElementById('create-post-popup-container');
     container.innerHTML = '';
@@ -76,7 +82,20 @@ export async function createPostWithPopup() {
             if (result.success) {
                 alert('Post created!');
                 container.innerHTML = '';
-                // TODO: обновить список постов
+                
+                // Обновить список постов в админке
+                const postsSection = document.querySelector('section.admin-posts');
+
+                if (postsSection) {
+                    const postsWrapper = prepareWrapper(postsSection, '.admin-posts__wrapper');
+                    postsWrapper.innerHTML = ''; // Очистить текущие посты
+                    fetchShowPosts({
+                        wrapper: postsWrapper,
+                        renderItem: adminRenderPost,
+                        showEmptyMessageFn: showEmptyMessage
+                    });
+                }
+
             } else {
                 alert(result.error || 'Error creating post');
             }
