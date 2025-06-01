@@ -19,6 +19,8 @@ import { initAdminSinglePostPage } from './pages/admin/adminSinglePost.js';
 import { initAdminSingleCategoryPage } from './pages/admin/adminSingleCategory.js';
 import { initAdminSingleUserPage } from './pages/admin/adminSingleUser.js';
 
+import { createPostWithPopup } from './modules/createPostWithPopup.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     setActiveLink();
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (path === '/admin/posts') {
 
             initAdminPostsPage();
+            document.querySelector('#create-post__btn').addEventListener('click', createPostWithPopup);
 
         } else if (path === '/admin/categories') {
 

@@ -35,6 +35,7 @@
             "app/Controllers/api/apiCategoryByNameController.php",
             "app/Controllers/api/apiUserByIdController.php",
             "app/Controllers/api/apiPostController.php",
+            "app/Controllers/api/apiCreatePostController.php",
             "app/Controllers/api/apiCreateCommentController.php",
             "app/Controllers/api/apiDeleteCommentController.php",
             "app/Controllers/api/apiUpdateCommentController.php",
@@ -49,6 +50,7 @@
             "helpers/view.php",
             "helpers/validateUserData.php",
             "helpers/validateUserAvatar.php",
+            "helpers/generateSlug.php",
 
             "app/Controllers/admin/adminPostsController.php",
             "app/Controllers/admin/adminCategoriesController.php",

@@ -8,7 +8,7 @@ function apiCreateCommentController() {
         }
 
         // Проверка авторизации (должна быть активна сессия)
-        session_start();
+        // session_start();
         if (!isset($_SESSION['user'])) {
             return json_response(['error' => 'Authorization required'], 401);
         }
@@ -44,7 +44,7 @@ function apiCreateCommentController() {
     } catch (RuntimeException $e) {
         return json_response(['error' => $e->getMessage()], 500);
     } catch (Exception $e) {
-        error_log("Unexpected error in apiCreateCommentController: " . $e->getMessage());
+        // error_log("Unexpected error in apiCreateCommentController: " . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);
     }
 }

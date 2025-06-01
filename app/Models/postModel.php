@@ -160,3 +160,32 @@ function findPostBySlug($slug) {
         throw new RuntimeException('Failed to retrieve post by slug');
     }
 }
+
+function createPost(array $postData) {
+    try {
+        $db = connectDB();
+
+        $sql = "
+            INSERT INTO posts (title, description, text, image, slug, category_id)
+            VALUES (:title, :description, :text, :image, :slug, :category_id)
+        ";
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':title', $postData['title'], PDO::PARAM_STR);
+        $stmt->bindValue(':description', $postData['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':text', $postData['text'], PDO::PARAM_STR);
+        $stmt->bindValue(':image', $postData['image'] ?? null, PDO::PARAM_STR); // может быть null
+        $stmt->bindValue(':slug', $postData['slug'], PDO::PARAM_STR);
+        $stmt->bindValue(':category_id', $postData['category_id'], PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $db->lastInsertId();
+
+    } catch (PDOException $e) {
+        error_log("Database error in createPost: " . $e->getMessage());
+        throw new RuntimeException('Failed to create post');
+    }
+}
+

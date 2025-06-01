@@ -19,7 +19,7 @@ function apiLoginController() {
         $user = authenticateUser($email, $password);
 
         // Устанавливаем сессию
-        session_start();
+        // session_start();
         $_SESSION['user'] = $user;
 
         return json_response([
@@ -34,7 +34,7 @@ function apiLoginController() {
         return json_response(['error' => $e->getMessage()], 500);
 
     } catch (Exception $e) {
-        error_log("Unexpected error in apiLoginController: " . $e->getMessage());
+        // error_log("Unexpected error in apiLoginController: " . $e->getMessage());
         return json_response(['error' => 'Unexpected server error'], 500);
     }
 }

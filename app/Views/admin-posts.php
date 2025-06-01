@@ -1,9 +1,8 @@
 
 <div class="flex2__wrapper">
-    <div class="create__btn">Create post</div>
+    <div id="create-post__btn" class="create__btn">Create post</div>
 
     <section class="admin-search">
-        <!-- Здесь будут рендериться категории -->
         <input type="text" class="admin-search__input" placeholder="Search posts by title...">
         <span class="admin-search__btn"><i class="fas fa-search"></i></span>
     </section>
@@ -20,3 +19,7 @@
    
     <div class="admin-posts__wrapper"></div>  <!-- Здесь будут рендериться посты -->
 </section>
+
+<div id="create-post-popup-container"></div>  <!-- Здесь будет рендериться попап для создания поста -->
+
+

@@ -14,7 +14,7 @@ function apiAdminStatsController() {
         return json_response($data, 200);
 
     } catch (Exception $e) {
-        error_log('Dashboard error: ' . $e->getMessage());
+
         return json_response(['error' => 'Internal Server Error'], 500);
     }
 }

@@ -9,7 +9,7 @@ export async function fetchShowCategories({
         if (!response.ok) {
             throw new Error(`Loading error: ${response.status}`);
         }
-
+ 
         const data = await response.json();
         const categories = Array.isArray(data) ? data : data.content;
 

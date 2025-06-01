@@ -100,7 +100,7 @@ export function fetchRegisterForm(formId) {
         }
 
         const formData = new FormData(form);
-
+ 
         try {
             const response = await fetch('/api/users/register', {
                 method: 'POST',

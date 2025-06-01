@@ -5,3 +5,4 @@ function methodNotAllowedController() {
     echo "Method Not Allowed";
     exit;
 }
+ 

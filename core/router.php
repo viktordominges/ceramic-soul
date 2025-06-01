@@ -23,6 +23,7 @@ function get_routes() {
         'api/users/logout' => 'apiLogoutController',
         'api/users/delete' => 'apiDeleteAccountController',
         'api/comments/create' => 'apiCreateCommentController',
+        'api/posts/create' => 'apiCreatePostController',
 
         // Admin panel pages
         // 'admin' => 'adminController',
@@ -46,8 +47,11 @@ function get_routes() {
  */
 function router($uri) {
     $routes = get_routes();
+    $uri = parse_url($uri, PHP_URL_PATH); // убрать ?query=string
     $uri = trim($uri, '/');
+    dump($uri);
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+    dump($method, 'method');
 
     // 1. Проверка обычных маршрутов
     if (array_key_exists($uri, $routes)) {
@@ -63,7 +67,8 @@ function router($uri) {
                 ($uri === 'api/users/login' && $method === 'POST') ||
                 ($uri === 'api/users/logout' && $method === 'POST') ||
                 ($uri === 'api/users/delete' && $method === 'POST') ||
-                ($uri === 'api/comments/create' && $method === 'POST')
+                ($uri === 'api/comments/create' && $method === 'POST') ||
+                ($uri === 'api/posts/create' && $method === 'POST')
             ) {
                 return $handler();
             }

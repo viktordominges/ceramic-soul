@@ -14,7 +14,7 @@ function apiAllCategoriesController() {
         $categories = findAllCategories();
         
         // Логируем полученные категории для отладки
-        error_log('Categories fetched: ' . print_r($categories, true));
+        // error_log('Categories fetched: ' . print_r($categories, true));
 
         // Если категорий нет - возвращаем пустой массив вместо ошибки
         if (empty($categories)) {
@@ -33,14 +33,14 @@ function apiAllCategoriesController() {
         }, $categories);
 
         // Логируем форматированные категории для отладки
-        error_log('Formatted categories: ' . print_r($formattedCategories, true));
+        // error_log('Formatted categories: ' . print_r($formattedCategories, true));
         
         // Возвращаем ответ с форматированными категориями
         return json_response($formattedCategories);
         
     } catch (Exception $e) {
         // Логируем ошибку
-        error_log('Categories error: ' . $e->getMessage());
+        // error_log('Categories error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
     }
 }

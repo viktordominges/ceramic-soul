@@ -31,17 +31,17 @@ function apiUserByIdController($id) {
 
     } catch (InvalidArgumentException $e) {
         // Неверный id — вернем 400
-        error_log('Invalid id: ' . $e->getMessage());
+        // error_log('Invalid id: ' . $e->getMessage());
         return json_response(['error' => 'Invalid user id'], 400);
 
     } catch (RuntimeException $e) {
         // Проблемы с базой данных
-        error_log('User fetch error: ' . $e->getMessage());
+        // error_log('User fetch error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
 
     } catch (Exception $e) {
         // Все остальные ошибки
-        error_log('Unexpected error: ' . $e->getMessage());
+        // error_log('Unexpected error: ' . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);
     }
 }

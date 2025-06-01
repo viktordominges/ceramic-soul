@@ -1,7 +1,7 @@
 <?php
 
 function apiUpdateCommentController($commentId) {
-    session_start();
+    // session_start();
     $userId = $_SESSION['user']['id'] ?? null;
 
     if (!$userId) {

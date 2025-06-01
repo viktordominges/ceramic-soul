@@ -24,17 +24,17 @@ function apiCategoryByNameController($name) {
 
     } catch (InvalidArgumentException $e) {
         // Неверный name — вернем 400
-        error_log('Invalid name: ' . $e->getMessage());
+        // error_log('Invalid name: ' . $e->getMessage());
         return json_response(['error' => 'Invalid category name'], 400);
 
     } catch (RuntimeException $e) {
         // Проблемы с базой данных
-        error_log('Category fetch error: ' . $e->getMessage());
+        // error_log('Category fetch error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
 
     } catch (Exception $e) {
         // Все остальные ошибки
-        error_log('Unexpected error: ' . $e->getMessage());
+        // error_log('Unexpected error: ' . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);
     }
 }

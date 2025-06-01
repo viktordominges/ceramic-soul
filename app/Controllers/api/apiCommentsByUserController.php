@@ -28,15 +28,15 @@ function apiCommentsByUserController($user_id) {
         return json_response($formattedComments);
 
     } catch (InvalidArgumentException $e) {
-        error_log("Invalid user_id: " . $e->getMessage());
+        // error_log("Invalid user_id: " . $e->getMessage());
         return json_response(['error' => 'Invalid user ID'], 400);
 
     } catch (RuntimeException $e) {
-        error_log("Database error in user comments fetch: " . $e->getMessage());
+        // error_log("Database error in user comments fetch: " . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
 
     } catch (Exception $e) {
-        error_log("Unexpected error in user comments: " . $e->getMessage());
+        // error_log("Unexpected error in user comments: " . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);
     }
 }

@@ -12,22 +12,22 @@ function apiAllPostsController() {
 
         $formattedPosts = array_map(function($post) {
             return [
-                'id' => (int)$post['id'],
-                'title' => htmlspecialchars($post['title']),
-                'description' => htmlspecialchars($post['description']),
-                'text' => htmlspecialchars($post['text']),
-                'image' => htmlspecialchars($post['image']),
-                'slug' => htmlspecialchars($post['slug']),
-                'created_at' => $post['created_at'],
-                'updated_at' => $post['updated_at'] ? $post['updated_at'] : null,
-                'category' => $post['category'] ? htmlspecialchars($post['category']) : null
+                'id' => (int)($post['id'] ?? 0),
+                'title' => htmlspecialchars($post['title'] ?? '', ENT_QUOTES, 'UTF-8'),
+                'description' => htmlspecialchars($post['description'] ?? '', ENT_QUOTES, 'UTF-8'),
+                'text' => htmlspecialchars($post['text'] ?? '', ENT_QUOTES, 'UTF-8'),
+                'image' => htmlspecialchars($post['image'] ?? '', ENT_QUOTES, 'UTF-8'),
+                'slug' => htmlspecialchars($post['slug'] ?? '', ENT_QUOTES, 'UTF-8'),
+                'created_at' => $post['created_at'] ?? null,
+                'updated_at' => $post['updated_at'] ?? null,
+                'category' => isset($post['category']) ? htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8') : null
             ];
         }, $posts);
 
         return json_response($formattedPosts);
 
     } catch (Exception $e) {
-        error_log('Posts error: ' . $e->getMessage());
+        // error_log('Posts error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
     }
 }

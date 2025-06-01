@@ -17,7 +17,7 @@ function apiCommentsByPostController($slug) {
             return json_response([], 200);
         }
 
-        session_start();
+        // session_start();
         $currentUserId = isset($_SESSION['user']['id']) ? (int)$_SESSION['user']['id'] : null;
 
 
@@ -39,15 +39,15 @@ function apiCommentsByPostController($slug) {
         json_response($formattedComments);
 
     } catch (InvalidArgumentException $e) {
-        error_log("Invalid post slug: " . $e->getMessage());
+        // error_log("Invalid post slug: " . $e->getMessage());
         json_response(['error' => 'Invalid post slug'], 400);
 
     } catch (RuntimeException $e) {
-        error_log("Database error in post comments fetch: " . $e->getMessage());
+        // error_log("Database error in post comments fetch: " . $e->getMessage());
         json_response(['error' => 'Internal Server Error'], 500);
 
     } catch (Exception $e) {
-        error_log("Unexpected error in post comments: " . $e->getMessage());
+        // error_log("Unexpected error in post comments: " . $e->getMessage());
         json_response(['error' => 'Unexpected error'], 500);
     }
 }

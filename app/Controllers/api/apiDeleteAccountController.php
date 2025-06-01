@@ -1,7 +1,7 @@
 <?php
 
 function apiDeleteAccountController() {
-    session_start();
+    // session_start();
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         return methodNotAllowedController();
@@ -27,7 +27,7 @@ function apiDeleteAccountController() {
     } catch (RuntimeException $e) {
         return json_response(['error' => $e->getMessage()], 500);
     } catch (Exception $e) {
-        error_log("Unexpected error in apiDeleteAccountController: " . $e->getMessage());
+        // error_log("Unexpected error in apiDeleteAccountController: " . $e->getMessage());
         return json_response(['error' => 'Unexpected server error'], 500);
     }
 }

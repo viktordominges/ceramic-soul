@@ -28,7 +28,7 @@ function apiPopularPostsController() {
         return json_response($formattedPosts);
 
     } catch (Exception $e) {
-        error_log('Posts error: ' . $e->getMessage());
+        // error_log('Posts error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
     }
 }

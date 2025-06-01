@@ -23,7 +23,7 @@ function apiAllUsersController() {
         return json_response($formattedUsers);
 
     } catch (Exception $e) {
-        error_log('Users error: ' . $e->getMessage());
+        // error_log('Users error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
     }
 }

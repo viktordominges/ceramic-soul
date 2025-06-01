@@ -2,7 +2,7 @@
 
 function apiLogoutController() {
     // Запуск сессии
-    session_start();
+    // session_start();
 
     // Удаление всех данных сессии
     $_SESSION = [];
