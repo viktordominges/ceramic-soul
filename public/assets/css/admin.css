@@ -367,7 +367,7 @@ button {
     padding-left: 10px;
     padding-bottom: 10px;
     display: grid;
-    grid-template-columns: 100px 350px 1fr;
+    grid-template-columns: 100px 350px 500px 1fr;
     justify-content: start;
     gap: 20px;
     align-items: center;
@@ -390,12 +390,19 @@ button {
 .users-list__item,
 .comments-list__item {
     display: grid;
-    grid-template-columns: 100px 350px 1fr min-content;
+    grid-template-columns: 100px 350px 500px 1fr min-content;
     justify-content: start;
     align-items: center;
     gap: 20px;
     padding: 10px;
     border-bottom: 1px solid var(--light-gray-color);
+}
+
+.posts-list__item a,
+.categories-list__item a,
+.users-list__item a,
+.comments-list__item a {
+    width: 100px;
 }
 
 .admin-users__wrapper_admin {

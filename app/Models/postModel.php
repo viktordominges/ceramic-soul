@@ -29,9 +29,12 @@ function findAllPosts() {
                 p.image, 
                 p.created_at, 
                 p.updated_at,
-                c.name AS category
+                c.name AS category,
+                COUNT(cm.id) AS comments_count
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
+            LEFT JOIN comments cm ON cm.post_id = p.id
+            GROUP BY p.id, c.name
             ORDER BY p.created_at DESC
         ";
 
@@ -46,6 +49,7 @@ function findAllPosts() {
         throw new RuntimeException('Failed to retrieve posts');
     }
 }
+
 
 function findPopularPosts() {
     try {

@@ -7,6 +7,7 @@ export function adminRenderUser(user) {
         <span>${user.id}</span>
         <span>${user.username}</span>
         <span>${user.email}</span>
+        <span></span>
     
         <a class="details__btn" data-user-role="${user.role}" href="/admin/user?id=${user.id}">Details</a>
     `;

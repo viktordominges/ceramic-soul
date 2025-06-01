@@ -19,7 +19,8 @@ function apiAllPostsController() {
                 'image' => htmlspecialchars($post['image'] ?? '', ENT_QUOTES, 'UTF-8'),
                 'created_at' => $post['created_at'] ?? null,
                 'updated_at' => $post['updated_at'] ?? null,
-                'category' => isset($post['category']) ? htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8') : null
+                'category' => isset($post['category']) ? htmlspecialchars($post['category'], ENT_QUOTES, 'UTF-8') : null,
+                'comments_count' => (int)($post['comments_count'] ?? 0)
             ];
         }, $posts);
 

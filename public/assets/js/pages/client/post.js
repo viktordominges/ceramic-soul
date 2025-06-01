@@ -1,4 +1,4 @@
-// import { fetchShowPostBySlug } from '../../modules/fetchShowPostBySlug.js';
+
 import { fetchShowPostById } from '../../modules/fetchShowPostById.js';
 import { renderSinglePost } from '../../components/client/renderSinglePost.js';
 
