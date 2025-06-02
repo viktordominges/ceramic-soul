@@ -1,16 +1,18 @@
-export async function deleteCategoryById(id) {
+export async function deleteCategoryById(categoryId) {
     try {
-        const response = await fetch(`/api/categories/${encodeURIComponent(id)}/delete`, {
+        const response = await fetch(`/api/categories/${categoryId}/delete`, {
             method: 'DELETE',
-        });
-
+            credentials: 'include'
+        }); 
+ 
         if (!response.ok) {
-            throw new Error('Failed to delete category');
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Unknown error');
         }
 
         return true;
     } catch (error) {
-        console.error(error);
+        console.error('Error deleting category:', error);
         return false;
     }
 }

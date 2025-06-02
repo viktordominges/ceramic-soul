@@ -7,6 +7,8 @@ export function adminRenderPostComments(comment) {
         <span>${comment.id}</span>
         <span>${comment.username}</span>
         <span>${comment.text}</span>
+        <span>${comment.created_at}</span>
+        
         <button class="delete__btn delete-comment-btn" data-id="${comment.id}">Delete</button>
     `;
  

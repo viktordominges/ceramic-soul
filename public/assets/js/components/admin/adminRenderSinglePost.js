@@ -58,7 +58,7 @@ export function adminRenderSinglePost(post) {
         </div>
 
         <div class="post-info__buttons">
-            <button class="edit-post-btn details__btn" data-id="${post.id}">Edit Post</button>
+            <button class="edit-post-btn details__btn" data-id="${post.id}">Update Post</button>
             <button class="delete-post-btn delete__btn" data-id="${post.id}">Delete Post</button>
         </div>
     `;

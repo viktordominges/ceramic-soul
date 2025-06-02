@@ -158,6 +158,13 @@ function router($uri) {
                 return apiDeletePostController($postId);
             }
         }
+
+        if (preg_match('#^api/categories/(\d+)/delete$#', $uri, $matches)) {
+            $categoryId = (int)$matches[1];
+            if (function_exists('apiDeleteCategoryController')) {
+                return apiDeleteCategoryController($categoryId);
+            }
+        }
     }
 
     // 5. Динамические маршруты (PUT)
@@ -168,13 +175,6 @@ function router($uri) {
                 return apiUpdateCommentController($commentId);
             }
         }
-
-        // if (preg_match('#^api/posts/(\d+)/update$#', $uri, $matches)) {
-        //     $postId = (int)$matches[1];
-        //     if (function_exists('apiUpdatePostController')) {
-        //         return apiUpdatePostController($postId);
-        //     }
-        // }
     }
 
     // 6. Маршрут не найден

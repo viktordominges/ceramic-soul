@@ -1,6 +1,3 @@
-
-// import { renderPostComment } from "../components/client/renderPostComment.js";
-// import { showEmptyMessage } from "../components/client/showEmptyMessage.js";
 import { fetchDeleteComment } from "./fetchDeleteComment.js";
 import { fetchUpdateComment } from "./fetchUpdateComment.js";
 
@@ -24,8 +21,17 @@ export async function fetchShowCommentsByPost(postId, commentsListWrapper, rende
                 commentsListWrapper.appendChild(renderItemFn(comment));
             });
 
-            fetchDeleteComment(postId, renderItemFn, showEmptyMessageFn);
-            fetchUpdateComment(postId); // Можно тоже сделать универсальной при необходимости
+            fetchDeleteComment({
+                contextId: postId,
+                contextType: 'post',
+                renderFn: renderItemFn,
+                showEmptyFn: showEmptyMessageFn
+            });
+
+            // Если fetchUpdateComment ожидает renderFn и showEmptyFn, передать их тоже:
+            // fetchUpdateComment(postId, renderItemFn, showEmptyMessageFn);
+            fetchUpdateComment(postId);
+
         } else {
             showEmptyMessageFn(commentsListWrapper, 'There are no comments yet.');
         }

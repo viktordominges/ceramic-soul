@@ -8,7 +8,7 @@ import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
 export function initCategoryPage(categoryId) {
 
-    // const categoryNameSpan = document.querySelector('.category__name');
+    const categoryNameSpan = document.querySelector('.category__name');
 
     // Получаем элементы секций постов, популярных постов и категорий
     const postsSection = document.querySelector('section.posts');

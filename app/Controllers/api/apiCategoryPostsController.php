@@ -2,13 +2,14 @@
 
 function apiCategoryPostsController($categoryId) {
     try {
-        $posts = findCategoryPosts($categoryId);
-
-        // error_log('Category Posts fetched for id [' . $categoryId . ']: ' . print_r($posts, true));
-
-        if (empty($posts)) {
-            return json_response([], 200);
+        // Проверяем существование категории
+        $category = findCategoryById($categoryId);
+        if (!$category) {
+            return json_response(['error' => 'Category not found'], 404);
         }
+
+        // Получаем посты
+        $posts = findCategoryPosts($categoryId);
 
         $formattedPosts = array_map(function($post) {
             return [
@@ -23,20 +24,21 @@ function apiCategoryPostsController($categoryId) {
             ];
         }, $posts);
 
-        return json_response($formattedPosts);
+        // Возвращаем всегда массив постов + имя категории
+        return json_response([
+            'category' => htmlspecialchars($category['name']),
+            'posts' => $formattedPosts
+        ]);
 
     } catch (InvalidArgumentException $e) {
-        // Неверный id — вернём 400
         error_log('Invalid category id: ' . $e->getMessage());
         return json_response(['error' => 'Invalid category id'], 400);
 
     } catch (RuntimeException $e) {
-        // Проблемы с базой данных
         error_log('Category post fetch error: ' . $e->getMessage());
         return json_response(['error' => 'Internal Server Error'], 500);
 
     } catch (Exception $e) {
-        // Все остальные ошибки
         error_log('Unexpected error: ' . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);
     }

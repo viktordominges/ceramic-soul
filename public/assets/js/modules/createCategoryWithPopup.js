@@ -66,7 +66,7 @@ export async function createCategoryWithPopup() {
                         renderItem: adminRenderCategory,
                         showEmptyMessageFn: showEmptyMessage,
                     });
-                } 
+                }  
             } else {
                 alert(result.error || 'Error creating category');
             }

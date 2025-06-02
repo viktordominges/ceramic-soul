@@ -38,6 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleDropdownMenuTriggers('.main-dropdown__menu_trigger', '.main-dropdown__menu', 'dropdown__close');
     }
 
+
+
+
+    if (document.querySelector('.admin-account__trigger')) {
+        toggleDropdownMenuTriggers('.admin-account__trigger', '.admin-account__dropdown-menu', 'admin-close__trigger');
+    }
+ 
+
+
+
     if (document.querySelector('.dropdown-account__menu')) {
         fetchLogout();
         fetchDeleteAccount();

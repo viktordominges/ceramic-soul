@@ -35,6 +35,7 @@
             "app/Controllers/api/apiCategoryByIdController.php",
             "app/Controllers/api/apiCreateCategoryController.php",
             "app/Controllers/api/apiUpdateCategoryController.php",
+            "app/Controllers/api/apiDeleteCategoryController.php",
             "app/Controllers/api/apiUserByIdController.php",
             "app/Controllers/api/apiGetPostByIdController.php",
             "app/Controllers/api/apiUpdatePostController.php",

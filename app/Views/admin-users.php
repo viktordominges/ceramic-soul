@@ -3,7 +3,7 @@
 
     <section class="admin-search">
         <!-- Здесь будут рендериться категории -->
-        <input type="text" class="admin-search__input" placeholder="Search posts by title...">
+        <input type="text" class="admin-search__input" placeholder="Search users by name...">
         <span class="admin-search__btn"><i class="fas fa-search"></i></span>
     </section>
 </div>

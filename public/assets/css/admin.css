@@ -218,6 +218,7 @@ button {
 }
 
 .admin-header__wrapper {
+    position: relative;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr min-content;
@@ -278,6 +279,88 @@ button {
     text-align: center;
 }
 
+
+
+
+
+/******************************************************************
+/* Dropdown Menu
+/******************************************************************/
+.admin-account__dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 80px 30px 50px 30px;
+    z-index: 200;
+    top: -130px;
+    right: 0;
+    width: 200px;
+    height: auto;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.admin-account__dropdown-menu.open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.admin-close__trigger {
+    position:absolute;
+    top: 30px;
+    left: 30px;
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.admin-close__trigger::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: -3px;
+    width: 30px;
+    height: 2px;
+    transform: rotate(45deg);
+    background-color: var(--white-color);
+    cursor: pointer;
+}
+
+.admin-close__trigger::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 11px;
+    width: 2px;
+    height: 30px;
+    transform: rotate(45deg);
+    background-color: var(--white-color);
+    cursor: pointer;
+}
+
+.dropdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 100; /* ниже меню */
+}
+
+.dropdown-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 
 
 
@@ -436,7 +519,7 @@ button {
     color: var(--black-color);
     line-height: 1;
 }
-
+ 
 .admin-sections__grid-wrapper {
     /* display: grid;
     grid-template-columns: 1fr 180px;
@@ -478,6 +561,12 @@ button {
 .post-info__info img {
     width: 100px;
     height: 100px;
+}
+
+.category-info__item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 

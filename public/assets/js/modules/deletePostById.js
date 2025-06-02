@@ -1,7 +1,8 @@
 export async function deletePostById(postId) {
     try {
         const response = await fetch(`/api/posts/${postId}/delete`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -15,3 +16,4 @@ export async function deletePostById(postId) {
         return false;
     }
 }
+

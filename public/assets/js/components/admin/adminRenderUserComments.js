@@ -9,7 +9,7 @@ export function adminRenderUserComments(comment) {
         <span>${comment.text}</span>
         <span></span>
 
-        <button class="delete__btn" data-id="${comment.id}">Delete</button>
+        <button class="delete__btn delete-comment-btn" data-id="${comment.id}">Delete</button>
     `;
 
     commentElement.innerHTML = commentHTML;

@@ -37,6 +37,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '8128d1a44fc998879b8eb534a7c7e639' => __DIR__ . '/../..' . '/app/Controllers/api/apiCategoryByIdController.php',
         'dffc5f9cabdba88d76146cd8e862cbc0' => __DIR__ . '/../..' . '/app/Controllers/api/apiCreateCategoryController.php',
         'e90bb4423791dd8a04a4004e2f0324f9' => __DIR__ . '/../..' . '/app/Controllers/api/apiUpdateCategoryController.php',
+        '62e8dfde0192fa0976047c3d78dd67a7' => __DIR__ . '/../..' . '/app/Controllers/api/apiDeleteCategoryController.php',
         '82d114a6565dfb50b29dc924aa3f0c48' => __DIR__ . '/../..' . '/app/Controllers/api/apiUserByIdController.php',
         '4d81f0267f6c8c75d02301b00b9ac8e5' => __DIR__ . '/../..' . '/app/Controllers/api/apiGetPostByIdController.php',
         'b40cdced28d92a8f3ccddc82b66d7ce8' => __DIR__ . '/../..' . '/app/Controllers/api/apiUpdatePostController.php',

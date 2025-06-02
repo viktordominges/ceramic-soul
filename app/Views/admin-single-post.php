@@ -11,6 +11,7 @@
         <span>Comment ID</span>
         <span>User Name</span>
         <span>Comment Text</span>
+        <span>Created At</span>
     </div>
 
     <div class="comment-posts__wrapper"></div>  <!-- Здесь будут рендериться комментарии -->

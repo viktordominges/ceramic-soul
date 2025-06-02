@@ -35,9 +35,6 @@
                     <a href="/admin/users">Users <span class="user-count"><?= htmlspecialchars($userCount ?? '0') ?></span></a>
                 </nav>
 
-            
-        
-
                 <!-- <div class="main-dropdown__menu">
                     <div class="main-dropdown__menu_items">
                         <span class="dropdown__close"></span>
@@ -55,17 +52,9 @@
                         <img src="/assets/images/placeholders/default-avatar.png" alt="avatar">
                     <?php endif; ?>
                 </div>
-
-                <!-- <div class="admin-account__dropdown-menu">
-
-                    <span class="admin-close__trigger"></span>
-
-                    <a href="/register">Register</a>
-                    <div class="admin-logout__trigger">Logout</div>
-                    <div class="admin-delete__trigger">Delete account</div>
-                </div> -->
             </div>
         </div>
+        
     </header>
  
 
@@ -91,6 +80,16 @@
             <p>&copy; <?= date('Y') ?> Blog Admin Panel. All rights reserved.</p>
         </div>
     </footer>
+
+    <div class="admin-account__dropdown-menu">
+
+        <span class="admin-close__trigger"></span>
+
+        <a href="/register">Register</a>
+        <div class="admin-logout__trigger">Logout</div>
+        <div class="admin-delete__trigger">Delete account</div>
+        <a href="/">Site</a>
+    </div>        
 
     <div class="dropdown-overlay"></div>
 

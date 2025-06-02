@@ -14,8 +14,8 @@ export function adminRenderSingleCategory(category) {
         </span></div>
         <div class="category-info__item"><h3>Posts Count:</h3><span>${category.posts_count}</span></div>
         <div class="category-info__buttons">
-            <button class="edit-category-btn details__btn" data-id="${category.id}">Edit</button>
-            <button class="delete-category-btn delete__btn" data-id="${category.id}">Delete</button>
+            <button class="edit-category-btn details__btn" data-id="${category.id}">Update Category</button>
+            <button class="delete-category-btn delete__btn" data-id="${category.id}">Delete Category</button>
         </div>
     `;
 
@@ -45,10 +45,10 @@ export function adminRenderSingleCategory(category) {
             if (!confirm('Are you sure you want to delete this category?')) return;
             const deleted = await deleteCategoryById(categoryId);
             if (deleted) {
-                alert('Deleted');
-                categoryElement.remove();
+                alert('Category deleted successfully');
+                window.location.href = '/admin/categories';
             } else {
-                alert('Delete failed');
+                alert('Category delete failed');
             }
         }
     });
