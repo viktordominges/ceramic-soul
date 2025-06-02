@@ -4,7 +4,7 @@ export function renderCategoriesNameList(category) {
 
     categoryElement.innerHTML = `
         <img src="assets/images/icons/gold-star.png" alt="star" />
-        <a href="/category?name=${encodeURIComponent(category.name)}">${category.name}</a>
+        <a href="/category?id=${encodeURIComponent(category.id)}">${category.name}</a>
     `;
 
     return categoryElement;

@@ -69,7 +69,7 @@ export function adminRenderSinglePost(post) {
         if (e.target.classList.contains('edit-post-btn')) {
             const postId = e.target.dataset.id;
             updatePostWithPopup(postId);
-
+ 
         } else if (e.target.classList.contains('delete-post-btn')) {
             // Подтверждение удаления поста
             if (!confirm('Are you sure you want to delete this post?')) return;

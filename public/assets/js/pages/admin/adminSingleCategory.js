@@ -6,27 +6,27 @@ import { fetchShowPostsByCategory } from '../../modules/fetchShowPostsByCategory
 
 import { adminRenderPost } from '../../components/admin/adminRenderPost.js';
 
-import { fetchShowCategoryByName } from '../../modules/fetchShowCategoryByName.js';
+import { fetchShowCategoryById } from '../../modules/fetchShowCategoryById.js';
 
 import { adminRenderSingleCategory } from '../../components/admin/adminRenderSingleCategory.js';
 
 
 
-export function initAdminSingleCategoryPage(name) {
+export function initAdminSingleCategoryPage(id) {
 
     const categorySection = document.querySelector('section.admin-single-category');
     const postsListSection = document.querySelector('section.admin-category-posts');
     
     // Проверяем, что секции для категории и для списка постов существуют
-    if (!categorySection || !postsListSection || !name) return;
+    if (!categorySection || !postsListSection || !id) return;
 
     const singleCategoryWrapper = categorySection;
 
     const postsListWrapper = prepareWrapper(postsListSection, '.admin-posts__wrapper');
 
-    fetchShowCategoryByName(name, singleCategoryWrapper, adminRenderSingleCategory, showEmptyMessage)
+    fetchShowCategoryById(id, singleCategoryWrapper, adminRenderSingleCategory, showEmptyMessage)
 
-    fetchShowPostsByCategory(name, postsListWrapper, adminRenderPost, showEmptyMessage)
+    fetchShowPostsByCategory(id, postsListWrapper, adminRenderPost, showEmptyMessage)
 
 
     // fetchShowItemBySlug({

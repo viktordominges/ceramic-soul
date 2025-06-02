@@ -1,6 +1,6 @@
-export async function fetchShowPostsByCategory(name, postsWrapper, renderPost, showEmptyMessageFn, categoryNameSpan) {
+export async function fetchShowPostsByCategory(id, postsWrapper, renderPost, showEmptyMessageFn, categoryNameSpan) {
     try {
-        const response = await fetch(`/api/posts/category/${encodeURIComponent(name)}`);
+        const response = await fetch(`/api/posts/category/${encodeURIComponent(id)}`);
         if (!response.ok) {
             throw new Error(`Loading error: ${response.status}`);
         }

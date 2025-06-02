@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         
         } else if (path === '/admin/category') {
-            const name = url.searchParams.get('name');
-            if (name) {
-                initAdminSingleCategoryPage(name);
+            const id = url.searchParams.get('id');
+            if (id) {
+                initAdminSingleCategoryPage(id);
             }
 
         } else if (path === '/admin/user') {
@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
             initCategoriesPage();
 
         } else if (path === '/category') {
-            const name = url.searchParams.get('name');
-            if (name) {
-                initCategoryPage(name);
+            const id = url.searchParams.get('id');
+            if (id) {
+                initCategoryPage(id);
             }
 
         } else if (path === '/post') {

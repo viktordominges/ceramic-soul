@@ -81,17 +81,17 @@ function router($uri) {
 
     // 2. Динамические маршруты (GET)
     if ($method === 'GET') {
-        if (preg_match('#^api/posts/category/([\w%\-]+)$#u', $uri, $matches)) {
-            $name = urldecode($matches[1]);
+        if (preg_match('#^api/posts/category/(\d+)$#', $uri, $matches)) {
+            $id = (int)$matches[1];
             if (function_exists('apiCategoryPostsController')) {
-                return apiCategoryPostsController($name);
+                return apiCategoryPostsController($id);
             }
         }
 
-        if (preg_match('#^api/categories/category/([\w%\-]+)$#u', $uri, $matches)) {
-            $name = urldecode($matches[1]);
-            if (function_exists('apiCategoryByNameController')) {
-                return apiCategoryByNameController($name);
+        if (preg_match('#^api/categories/category/(\d+)$#', $uri, $matches)) {
+            $id = (int)$matches[1];
+            if (function_exists('apiCategoryByIdController')) {
+                return apiCategoryByIdController($id);
             }
         }
 
@@ -132,7 +132,15 @@ function router($uri) {
                 return apiUpdatePostController($postId);
             }
         }
+
+        if (preg_match('#^api/categories/(\d+)/update$#u', $uri, $matches)) {
+            $categoryId = (int)$matches[1];
+            if (function_exists('apiUpdateCategoryController')) {
+                return apiUpdateCategoryController($categoryId);
+            }
+        }
     }
+
 
 
     // 4. Динамические маршруты (DELETE)

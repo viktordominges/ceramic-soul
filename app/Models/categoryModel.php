@@ -1,40 +1,40 @@
 <?php
 
-function findCategoryByName($name) {
-    // Убедимся, что строка — это UTF-8
-    if (!is_string($name) || !mb_check_encoding($name, 'UTF-8')) {
-        throw new InvalidArgumentException('Invalid category name');
+function findCategoryById($id) {
+    if (!is_int($id)) {
+        throw new InvalidArgumentException('Invalid category ID');
     }
 
     try {
         $db = connectDB();
 
-        // Получаем данные о категории
-        $sql = "SELECT id, name, description, image FROM categories WHERE name = :name";
+        $sql = "
+            SELECT 
+                c.id, 
+                c.name, 
+                c.description, 
+                c.image, 
+                COUNT(p.id) AS posts_count
+            FROM categories c
+            LEFT JOIN posts p ON p.category_id = c.id
+            WHERE c.id = :id
+            GROUP BY c.id, c.name, c.description, c.image
+        ";
+
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
         $category = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($category) {
-            // Получаем количество постов в категории по ID
-            $sqlPosts = "SELECT COUNT(*) as posts_count FROM posts WHERE category_id = :category_id";
-            $stmtPosts = $db->prepare($sqlPosts);
-            $stmtPosts->bindParam(':category_id', $category['id'], PDO::PARAM_INT);
-            $stmtPosts->execute();
-
-            $postCount = $stmtPosts->fetch(PDO::FETCH_ASSOC);
-            $category['posts_count'] = (int) $postCount['posts_count'];
-        }
-
-        return $category;
+        return $category ?: null;
 
     } catch (PDOException $e) {
-        error_log("Database error in findCategoryByName: " . $e->getMessage());
-        throw new RuntimeException("Failed to retrieve category by name");
+        error_log("Database error in findCategoryById: " . $e->getMessage());
+        throw new RuntimeException("Failed to retrieve category by ID");
     }
 }
+
 
 
 function findAllCategories() {
@@ -102,3 +102,30 @@ function createCategory(array $categoryData) {
         throw new RuntimeException('Failed to create category');
     }
 }
+
+function updateCategoryById(int $id, array $categoryData): bool
+{
+    try {
+        $db = connectDB();
+
+        $sql = "
+            UPDATE categories 
+            SET name = :name, description = :description, image = :image
+            WHERE id = :id
+        ";
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':name', $categoryData['name'], PDO::PARAM_STR);
+        $stmt->bindValue(':description', $categoryData['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':image', $categoryData['image'] ?? null, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        return $stmt->execute();
+
+    } catch (PDOException $e) {
+        error_log("Database error in updateCategory: " . $e->getMessage());
+        throw new RuntimeException('Failed to update category');
+    }
+}
+

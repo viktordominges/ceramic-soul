@@ -86,10 +86,10 @@ function findPopularPosts() {
     }
 }
 
-function findCategoryPosts($name) {
-    // Пример мягкой валидации: убираем опасные символы, но разрешаем буквы, пробелы, тире
-    if (!preg_match('/^[\p{L}\p{N}\s\-]+$/u', $name)) {
-        throw new InvalidArgumentException('Invalid category name format');
+function findCategoryPosts($categoryId) {
+    // Валидация: проверяем, что передан положительный целочисленный ID
+    if (!filter_var($categoryId, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]])) {
+        throw new InvalidArgumentException('Invalid category ID');
     }
 
     try {
@@ -103,14 +103,15 @@ function findCategoryPosts($name) {
                 p.image, 
                 p.created_at, 
                 p.updated_at,
-                c.name AS category
+                c.name AS category,
+                c.id AS category_id
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
-            WHERE c.name = :name
+            WHERE c.id = :id
             ORDER BY p.created_at DESC
         ";
         $stmt = $db->prepare($sql);
-        $stmt->execute([':name' => $name]);
+        $stmt->execute([':id' => $categoryId]);
         $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $db = null;
@@ -120,6 +121,7 @@ function findCategoryPosts($name) {
         throw new RuntimeException('Failed to retrieve category posts');
     }
 }
+
 
 function getPostById($id) {
     if (!is_numeric($id) || $id < 1) {

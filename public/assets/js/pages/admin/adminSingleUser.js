@@ -28,18 +28,4 @@ export function initAdminSingleUserPage(userId) {
     // Загружаем список комментариев по пользователю
     fetchShowCommentsByUser(userId, commentsListWrapper, adminRenderUserComments, showEmptyMessage);
 
-
-
-    // fetchShowItemBySlug({
-    //     slug,
-    //     endpoint: '//posts/post/',
-    //     wrapper: document.querySelector('.single-post__wrapper'),
-    //     renderItemFn: renderPost,
-    //     showEmptyMessageFn: showEmptyMessage,
-    //     notFoundMessage: 'Post not found.',
-    //     errorMessage: 'Error loading post.'
-    // });
-
-    
-
 }
