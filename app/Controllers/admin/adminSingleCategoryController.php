@@ -6,6 +6,9 @@
  * @return string HTML-код страницы категории
  */
 function adminSingleCategoryController() {
+    // Сессия уже установлена в app/config/bootstrap.php, поэтому здесь не требуется
+
+    requireAdmin(); // Проверяем, что пользователь администратор
     // Подготавливаем данные
     $data = [
         'title' => 'Admin Single Category', // Заголовок страницы

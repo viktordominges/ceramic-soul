@@ -1,5 +1,8 @@
 <?php
 function apiAdminStatsController() {
+    // Сессия уже установлена в app/config/bootstrap.php, поэтому здесь не требуется
+    requireAdminApi(); // Проверяем, что пользователь администратор
+
     try {
         $postCount = getPostsCount();
         $categoryCount = getCategoriesCount();
