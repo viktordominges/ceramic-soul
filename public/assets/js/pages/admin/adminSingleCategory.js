@@ -24,21 +24,8 @@ export function initAdminSingleCategoryPage(id) {
 
     const postsListWrapper = prepareWrapper(postsListSection, '.admin-posts__wrapper');
 
-    fetchShowCategoryById(id, singleCategoryWrapper, adminRenderSingleCategory, showEmptyMessage)
+    fetchShowCategoryById(id, singleCategoryWrapper, adminRenderSingleCategory, showEmptyMessage);
 
-    fetchShowPostsByCategory(id, postsListWrapper, adminRenderPost, showEmptyMessage)
-
-
-    // fetchShowItemBySlug({
-    //     slug,
-    //     endpoint: '//posts/post/',
-    //     wrapper: document.querySelector('.single-post__wrapper'),
-    //     renderItemFn: renderPost,
-    //     showEmptyMessageFn: showEmptyMessage,
-    //     notFoundMessage: 'Post not found.',
-    //     errorMessage: 'Error loading post.'
-    // });
-
-    
+    fetchShowPostsByCategory(id, postsListWrapper, adminRenderPost, showEmptyMessage);
 
 }

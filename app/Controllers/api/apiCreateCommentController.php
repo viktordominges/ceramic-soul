@@ -1,6 +1,7 @@
 <?php
 
 function apiCreateCommentController() {
+    // Сессия запущена автоматически из фалйла app/config/bootstrap.php
     try {
         // Проверка, что метод запроса — POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -8,7 +9,7 @@ function apiCreateCommentController() {
         }
 
         // Проверка авторизации (должна быть активна сессия)
-        // session_start();
+        
         if (!isset($_SESSION['user'])) {
             return json_response(['error' => 'Authorization required'], 401);
         }
@@ -18,9 +19,6 @@ function apiCreateCommentController() {
         $text = trim($input['text'] ?? '');
         $post_id = (int)($input['post_id'] ?? 0);
 
-        // Получаем данные из POST-запроса
-        // $text = trim($_POST['text'] ?? '');
-        // $post_id = (int)($_POST['post_id'] ?? 0);
         $user_id = $_SESSION['user']['id'];
 
         // Простая валидация
@@ -43,6 +41,7 @@ function apiCreateCommentController() {
 
     } catch (RuntimeException $e) {
         return json_response(['error' => $e->getMessage()], 500);
+
     } catch (Exception $e) {
         // error_log("Unexpected error in apiCreateCommentController: " . $e->getMessage());
         return json_response(['error' => 'Unexpected error'], 500);

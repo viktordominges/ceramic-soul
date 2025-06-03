@@ -14,8 +14,6 @@ export async function fetchShowPostsByCategory(
         const data = await response.json();
         const posts = Array.isArray(data.posts) ? data.posts : [];
 
-        console.log('Posts by category:', posts);
-
         // Установка имени категории, если передан соответствующий элемент
         if (categoryNameSpan) {
             categoryNameSpan.textContent = data.category || 'Unknown category';

@@ -28,7 +28,6 @@ function get_routes() {
 
         // Admin panel pages
         'admin' => 'adminLoginController',
-        // 'admin/register' => 'adminRegisterController',
         'admin/categories' => 'adminCategoriesController',
         'admin/category' => 'adminSingleCategoryController',
         'admin/posts' => 'adminPostsController',
@@ -36,7 +35,6 @@ function get_routes() {
         'admin/users' => 'adminUsersController',
         'admin/user' => 'adminSingleUserController',
         
-
         // Admin API
         'api/admin/stats' => 'apiAdminStatsController',
         'api/admin/users' => 'apiAllUsersController',
@@ -168,6 +166,13 @@ function router($uri) {
             $categoryId = (int)$matches[1];
             if (function_exists('apiDeleteCategoryController')) {
                 return apiDeleteCategoryController($categoryId);
+            }
+        }
+
+        if (preg_match('#^api/users/(\d+)/delete$#', $uri, $matches)) {
+            $userId = (int)$matches[1];
+            if (function_exists('apiDeleteUserByAdminController')) {
+                return apiDeleteUserByAdminController($userId);
             }
         }
     }

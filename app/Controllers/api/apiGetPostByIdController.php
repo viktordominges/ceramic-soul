@@ -19,3 +19,4 @@ function apiGetPostByIdController($id)
         return json_response(['error' => 'Server error'], 500);
     }
 }
+  

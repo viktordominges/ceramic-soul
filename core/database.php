@@ -1,10 +1,15 @@
 <?php
-require_once CONFIG . '/database.php';
+// require_once CONFIG . '/database.php';
 
 function connectDB() {
-    $config = require CONFIG . '/database.php'; // Подключение к базе данных
-    if (empty($config)) {
-        die("Database configuration is not set.");
+    
+    static $config = null;
+
+    if ($config === null) {
+        $config = require CONFIG . '/database.php'; 
+        if (empty($config)) {
+            die("Database configuration is not set.");
+        }
     }
     
     try {

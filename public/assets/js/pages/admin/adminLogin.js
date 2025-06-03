@@ -1,9 +1,6 @@
 export function fetchAdminLoginForm(formId) {
     const form = document.getElementById(formId);
-
-    console.log(`Fetching admin login form with ID: ${formId}`);
     
-
     if (!form) {
         console.error(`Form with ID "${formId}" not found.`);
         return;

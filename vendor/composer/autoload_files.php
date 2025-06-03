@@ -65,4 +65,5 @@ return array(
     '86c15290abcc4bb02f5010c6ceea3760' => $baseDir . '/app/Controllers/admin/adminLoginController.php',
     '260306aaad556789d4c233a2beaa05be' => $baseDir . '/app/Controllers/admin/apiAdminLoginController.php',
     '745596e05865db2915596407c3f1f062' => $baseDir . '/app/Controllers/admin/apiAdminLogoutController.php',
+    '9df16acd34cb3e13ec5b78f78b3eb30c' => $baseDir . '/app/Controllers/admin/apiDeleteUserByAdminController.php',
 );

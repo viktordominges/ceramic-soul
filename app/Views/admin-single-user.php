@@ -4,13 +4,6 @@
     <!-- Здесь будут рендериться посты -->
 </section>
 
-<section class="user-info__buttons">
-
-    <div class="details__btn">Update user</div>
-    <div class="delete__btn">Delete user</div>
-
-</section>
-
 <section class="admin-comments">
     <h2 class="admin-title">Comments from user:</h2>
 

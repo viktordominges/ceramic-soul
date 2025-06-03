@@ -12,7 +12,7 @@ import { showEmptyMessage } from '../../components/client/showEmptyMessage.js';
 
 
 
-export function initAdminSinglePostPage(postId) {
+export async function initAdminSinglePostPage(postId) {
 
 
     const postSection = document.querySelector('section.admin-single-post');
@@ -25,9 +25,16 @@ export function initAdminSinglePostPage(postId) {
 
     const commentsListWrapper = prepareWrapper(commentsListSection, 'comments-list__wrapper');
 
-    fetchShowPostById(postId, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
+    try {
+        await fetchShowPostById(postId, singlePostWrapper, adminRenderSinglePost, showEmptyMessage);
+    } catch (err) {
+        console.error('Ошибка при загрузке поста:', err);
+    }
 
-    // Загружаем список комментариев по посту
-    fetchShowCommentsByPost(postId, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
+    try {
+        await fetchShowCommentsByPost(postId, commentsListWrapper, adminRenderPostComments, showEmptyMessage);
+    } catch (err) {
+        console.error('Ошибка при загрузке комментариев:', err);
+    }
 
 }
