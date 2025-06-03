@@ -1,5 +1,5 @@
 <?php
-
+ 
 function apiCreateCategoryController()
 {
     try {
@@ -33,7 +33,7 @@ function apiCreateCategoryController()
             'description' => $description,
             'image' => $imagePath,
         ]);
-
+ 
         return json_response(['success' => true, 'category_id' => $categoryId]);
 
     } catch (Exception $e) {

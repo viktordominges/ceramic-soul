@@ -610,6 +610,9 @@ button {
 }
 
 .admin-form input[type="text"],
+.admin-form input[type="file"],
+.admin-form input[type="email"],
+.admin-form input[type="password"],
 .admin-form select,
 .admin-form textarea {
     width: 100%;
@@ -624,6 +627,9 @@ button {
 }
 
 .admin-form input[type="text"]:focus,
+.admin-form input[type="file"]:focus,
+.admin-form input[type="email"]:focus,
+.admin-form input[type="password"]:focus,
 .admin-form select:focus,
 .admin-form textarea:focus {
     border-color: #007bff;
@@ -657,12 +663,14 @@ button {
 }
 
 #close-popup-btn,
-#close-edit-popup-btn {
+#close-edit-popup-btn,
+#close-user-popup-btn {
     background-color: var(--red-color);
     color: var(--white-color);
 }
 
 #close-popup-btn:hover,
-#close-edit-popup-btn:hover {
+#close-edit-popup-btn:hover,
+#close-user-popup-btn:hover {
     background-color: #c82333;
 }

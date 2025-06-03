@@ -4,7 +4,7 @@ export async function fetchShowUsers({
     usersWrapper,
     renderItem,
     showEmptyMessageFn
-}) {
+}) { 
     try {
         const response = await fetch(endpoint);
         if (!response.ok) {

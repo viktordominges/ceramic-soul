@@ -51,10 +51,9 @@ function get_routes() {
 function router($uri) {
     $routes = get_routes();
     $uri = parse_url($uri, PHP_URL_PATH); // убрать ?query=string
-    dump($uri);
-    $uri = trim($uri, '/');
-    dump($uri);
 
+    $uri = trim($uri, '/');
+ 
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 

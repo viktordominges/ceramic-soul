@@ -20,7 +20,5 @@ export function initAdminUsersPage() {
         renderItem: adminRenderUser,
         showEmptyMessageFn: showEmptyMessage
     });
-
-    console.log('Admin Users Page Initialized');
     
 }

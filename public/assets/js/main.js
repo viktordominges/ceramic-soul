@@ -22,6 +22,7 @@ import { initAdminSingleUserPage } from './pages/admin/adminSingleUser.js';
 
 import { createPostWithPopup } from './modules/createPostWithPopup.js';
 import { createCategoryWithPopup } from './modules/createCategoryWithPopup.js';
+import { createUserWithPopup } from './modules/createUserWithPopup.js';
 import { fetchAdminLogout } from './pages/admin/adminLogout.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = new URL(window.location.href);
     const path = url.pathname;
     const isAdmin = path.startsWith('/admin');
-
-    console.log(`Current path: ${path}`);
     
     // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
@@ -68,8 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchAdminLogout('.admin-logout__trigger');
         
         if (path === '/admin') {
-
-            console.log('Admin login page loaded');
 
             fetchAdminLoginForm('admin-login-form');
             return;
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (path === '/admin/posts') {
 
             initAdminPostsPage();
-
             document.querySelector('#create-post__btn').addEventListener('click', createPostWithPopup);
 
         } else if (path === '/admin/categories') {
@@ -91,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (path === '/admin/users') {
 
             initAdminUsersPage();
+            document.querySelector('#create-user__btn').addEventListener('click', createUserWithPopup);
 
         } else if (path === '/admin/post') {
             const postId = url.searchParams.get('id');

@@ -13,12 +13,12 @@ function apiRegisterController() {
         $password = $_POST['password'] ?? '';
         $role = $_POST['role'] ?? 'user';
         $avatar = $_FILES['avatar'] ?? null;
- 
+  
         // Попытка создать пользователя
         $success = createUser($username, $email, $password, $role, $avatar);
 
         if ($success) {
-            return json_response(['message' => 'User registered successfully'], 201);
+            return json_response(['success' => true, 'message' => 'User registered successfully'], 201);
         } else {
             return json_response(['error' => 'Failed to create user'], 500);
         }
@@ -34,3 +34,4 @@ function apiRegisterController() {
         return json_response(['error' => 'Unexpected error'], 500);
     }
 }
+ 

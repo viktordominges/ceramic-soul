@@ -1,5 +1,5 @@
 <div class="flex2__wrapper">
-    <div class="create__btn">Create user</div>
+    <div id="create-user__btn" class="create__btn">Create user</div>
 
     <section class="admin-search">
         <!-- Здесь будут рендериться категории -->
@@ -29,3 +29,5 @@
 
     <div class="admin-users__wrapper"></div>  <!-- Здесь будут рендериться пользователи -->
 </section>
+
+<div id="create-user-popup-container"></div>
