@@ -6,6 +6,7 @@
     "autoload": {
         "files": [
             "config/bootstrap.php",
+            "config/checkAuth.php",
 
             "core/application.php",
             "core/request.php",
@@ -62,7 +63,10 @@
             "app/Controllers/admin/adminSinglePostController.php",
             "app/Controllers/admin/adminSingleCategoryController.php",
             "app/Controllers/admin/adminSingleUserController.php",
-            "app/Controllers/admin/apiAdminStatsController.php"
+            "app/Controllers/admin/apiAdminStatsController.php",
+            "app/Controllers/admin/adminLoginController.php",
+            "app/Controllers/admin/apiAdminLoginController.php",
+            "app/Controllers/admin/apiAdminLogoutController.php"
         ]
     }
 }

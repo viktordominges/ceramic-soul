@@ -46,8 +46,12 @@
 
                 <!-- Триггер для открытия выпадающего меню аккаунта -->
                 <div class="admin-account__trigger"> 
-                    <?php if (isset($_SESSION['user'])): ?>
-                        <img src="<?= $_SESSION['user']['avatar'] ?>" alt="avatar">
+                    <?php if (isset($_SESSION['admin'])): ?>
+                        <img src="<?= 
+                            !empty($_SESSION['admin']['avatar']) 
+                            ? htmlspecialchars($_SESSION['admin']['avatar']) 
+                            : '/assets/images/placeholders/default-avatar.png' 
+                        ?>" alt="avatar">
                     <?php else: ?>
                         <img src="/assets/images/placeholders/default-avatar.png" alt="avatar">
                     <?php endif; ?>

@@ -27,7 +27,7 @@ function get_routes() {
         'api/categories/create' => 'apiCreateCategoryController',
 
         // Admin panel pages
-        // 'admin' => 'adminController',
+        'admin' => 'adminLoginController',
         // 'admin/register' => 'adminRegisterController',
         'admin/categories' => 'adminCategoriesController',
         'admin/category' => 'adminSingleCategoryController',
@@ -40,6 +40,8 @@ function get_routes() {
         // Admin API
         'api/admin/stats' => 'apiAdminStatsController',
         'api/admin/users' => 'apiAllUsersController',
+        'api/admin/login' => 'apiAdminLoginController',
+        'api/admin/logout' => 'apiAdminLogoutController',
     ];
 }
 
@@ -49,7 +51,9 @@ function get_routes() {
 function router($uri) {
     $routes = get_routes();
     $uri = parse_url($uri, PHP_URL_PATH); // убрать ?query=string
+    dump($uri);
     $uri = trim($uri, '/');
+    dump($uri);
 
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
@@ -70,7 +74,9 @@ function router($uri) {
                 ($uri === 'api/users/delete' && $method === 'POST') ||
                 ($uri === 'api/comments/create' && $method === 'POST') ||
                 ($uri === 'api/posts/create' && $method === 'POST') ||
-                ($uri === 'api/categories/create' && $method === 'POST') 
+                ($uri === 'api/categories/create' && $method === 'POST') ||
+                ($uri === 'api/admin/login' && $method === 'POST') ||
+                ($uri === 'api/admin/logout' && $method === 'POST')
             ) {
                 return $handler();
             }

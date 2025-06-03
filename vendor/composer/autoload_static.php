@@ -11,6 +11,7 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '4261b81d83317b83b1a23a28748b34e8' => __DIR__ . '/../..' . '/config/bootstrap.php',
+        '294ca2c1718e3c2f711b6d82af356f1e' => __DIR__ . '/../..' . '/config/checkAuth.php',
         '015a8488c5be483cbdd29299fb24fba0' => __DIR__ . '/../..' . '/core/application.php',
         '74431b2aabe2e4e9bde52a3f65c1d7d1' => __DIR__ . '/../..' . '/core/request.php',
         'c19bbaa4e47021c1a4446e4194f7f59e' => __DIR__ . '/../..' . '/core/response.php',
@@ -62,6 +63,9 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         'b8f256c1fbbe8f4f159b216939d65728' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSingleCategoryController.php',
         '2d99b8c6b81fc508d80e46a5ded8237d' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSingleUserController.php',
         'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
+        '86c15290abcc4bb02f5010c6ceea3760' => __DIR__ . '/../..' . '/app/Controllers/admin/adminLoginController.php',
+        '260306aaad556789d4c233a2beaa05be' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminLoginController.php',
+        '745596e05865db2915596407c3f1f062' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminLogoutController.php',
     );
 
     public static $prefixLengthsPsr4 = array (

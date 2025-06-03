@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Page Not Found | 404 Error</title>
+    <title><?= htmlspecialchars($title ?? 'Page Not Found | 404 Error') ?></title>
+    <meta name="description" content="<?= htmlspecialchars($description ?? 'Site description') ?>">
 </head>
 <body>
     <main>
@@ -21,5 +22,6 @@
         }
         ?>
     </main>
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

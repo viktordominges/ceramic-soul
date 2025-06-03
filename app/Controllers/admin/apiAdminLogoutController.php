@@ -1,8 +1,9 @@
 <?php
 
-function apiLogoutController() {
+function apiAdminLogoutController() {
     // Запуск сессии организован в config/bootstrap.php
 
+    requireAdminApi(); // Проверка авторизации администратора
     // Удаление всех данных сессии
     $_SESSION = [];
 
