@@ -9,6 +9,7 @@ import { fetchRegisterForm } from './pages/client/register.js';
 import { fetchLoginForm } from './pages/client/login.js';
 import { fetchLogout } from './pages/client/logout.js';
 import { fetchDeleteAccount } from './pages/client/deleteAccount.js';
+import { fetchUpdateForm } from './pages/client/update.js';
 
 // Админка
 import { fetchAdminLoginForm } from './pages/admin/adminLogin.js';
@@ -136,10 +137,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (path === '/login') {
 
             fetchLoginForm('login-form');
+        } else if (path === '/update') {
+
+            fetchUpdateForm();
         } else {
 
             initHomePage();
-            
+
         }
 
     }

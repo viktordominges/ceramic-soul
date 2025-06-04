@@ -20,7 +20,7 @@ export function updateCategoryWithPopup(category) {
             </form>
         </div>
     `;
-
+ 
     container.appendChild(popup);
 
     document.getElementById('close-edit-popup-btn').addEventListener('click', () => {

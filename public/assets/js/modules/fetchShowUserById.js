@@ -16,4 +16,4 @@ export async function fetchShowUserById(id, singleUserWrapper, renderItemFn, sho
         console.error('Error loading user by id:', error);
         showEmptyMessageFn(singleUserWrapper, 'Error loading user by id.');
     }
-}
+} 

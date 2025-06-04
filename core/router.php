@@ -13,7 +13,8 @@ function get_routes() {
         'post' => 'postController',
         'register' => 'registerController',
         'login' => 'loginController',
-        
+        'update' => 'updateController',
+
         // API
         'api/categories' => 'apiAllCategoriesController',
         'api/posts' => 'apiAllPostsController',
@@ -22,6 +23,8 @@ function get_routes() {
         'api/users/login' => 'apiLoginController',
         'api/users/logout' => 'apiLogoutController',
         'api/users/delete' => 'apiDeleteAccountController',
+        'api/users/update' => 'apiUpdateUserController',
+        'api/users/current' => 'apiGetCurrentUserController',
         'api/comments/create' => 'apiCreateCommentController',
         'api/posts/create' => 'apiCreatePostController',
         'api/categories/create' => 'apiCreateCategoryController',
@@ -69,6 +72,7 @@ function router($uri) {
                 ($uri === 'api/users/login' && $method === 'POST') ||
                 ($uri === 'api/users/logout' && $method === 'POST') ||
                 ($uri === 'api/users/delete' && $method === 'POST') ||
+                ($uri === 'api/users/update' && $method === 'POST') ||
                 ($uri === 'api/comments/create' && $method === 'POST') ||
                 ($uri === 'api/posts/create' && $method === 'POST') ||
                 ($uri === 'api/categories/create' && $method === 'POST') ||

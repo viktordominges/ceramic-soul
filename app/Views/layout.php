@@ -73,7 +73,6 @@
                 <a href="/categories">Categories</a>
             </div>
         </div>
-        
 
         <div class="dropdown-auth__menu">
             <span class="auth-close__trigger"></span>
@@ -83,8 +82,9 @@
 
         <div class="dropdown-account__menu">
             <span class="user-close__trigger"></span>
-            <div class="user-logout__trigger">Logout</div>
+            <div class="user-logout__trigger">Logout</div> 
             <div class="user-delete__trigger">Delete account</div>
+            <div class="user-edit__trigger"><a href="/update">Edit profile</a></div>
         </div>
     </header>
  

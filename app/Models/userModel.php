@@ -84,28 +84,77 @@ function authenticateUser($email, $password) {
 }
 
 
-function updateUserPassword($id, $newPassword) {
+function updateUser($userId, $username, $password = null, $avatar = null) {
+    $db = connectDB();
+
+    // Получаем текущие данные пользователя
+    $stmt = $db->prepare("SELECT * FROM users WHERE id = :id");
+    $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+    $stmt->execute();
+    $existingUser = $stmt->fetch();
+
+    if (!$existingUser) {
+        throw new InvalidArgumentException("User not found.");
+    }
+
+    // Валидация данных
+    if (!empty($username)) {
+        $errors = validateUserData($username, $existingUser['email'], $password ?? 'placeholder');
+        if (!empty($errors)) {
+            throw new InvalidArgumentException(implode(" ", $errors));
+        }
+    }
+
+    // Обработка аватара
+    $avatarPath = $existingUser['avatar'];
+    if ($avatar !== null && $avatar['error'] === UPLOAD_ERR_OK) {
+        $avatarPath = validateUserAvatar($avatar);
+    }
+
     try {
-        $db = connectDB();
-        $sql = "
-            UPDATE users
-            SET password = :password
-            WHERE id = :id
-        ";
+        $sql = "UPDATE users SET username = :username";
+
+        if (!empty($password)) {
+            $sql .= ", password = :password";
+        }
+
+        if ($avatar !== null && $avatar['error'] === UPLOAD_ERR_OK) {
+            $sql .= ", avatar = :avatar";
+        }
+
+        $sql .= " WHERE id = :id";
 
         $stmt = $db->prepare($sql);
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-        $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        if (!empty($password)) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        }
+        if ($avatar !== null && $avatar['error'] === UPLOAD_ERR_OK) {
+            $stmt->bindParam(':avatar', $avatarPath, PDO::PARAM_STR);
+        }
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
 
         $stmt->execute();
-        $db = null;
+
+        // Обновление сессии, если это текущий пользователь
+        if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $userId) {
+            $_SESSION['user']['username'] = $username;
+            if ($avatar !== null && $avatar['error'] === UPLOAD_ERR_OK) {
+                $_SESSION['user']['avatar'] = $avatarPath;
+            }
+        }
+
         return true;
+
     } catch (PDOException $e) {
-        error_log("Database error in updateUserPassword: " . $e->getMessage());
-        throw new RuntimeException('Failed to update user password');
+        error_log("Error in updateUserByAdmin: " . $e->getMessage());
+        throw new RuntimeException("Failed to update user.");
     }
 }
+
+
 
 
 function deleteUser($id) {

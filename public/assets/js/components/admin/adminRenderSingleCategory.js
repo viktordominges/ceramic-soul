@@ -26,7 +26,7 @@ export function adminRenderSingleCategory(category) {
 
         console.log(`Button clicked: ${btn.className}, Category ID: ${categoryId}`);
         
-
+ 
         if (btn.classList.contains('edit-category-btn')) {
             try {
                 const res = await fetch(`/api/categories/category/${categoryId}`);
