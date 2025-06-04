@@ -7,7 +7,7 @@
                 <label for="username">Update your name:</label>
                 <input type="text" id="username" name="username" placeholder="Name" required />
             </div>
-            
+             
             <div>
                 <label for="password">Update your password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required />

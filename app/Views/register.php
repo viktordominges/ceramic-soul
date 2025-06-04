@@ -7,7 +7,7 @@
                 <label for="username">Enter your name:</label>
                 <input type="text" id="username" name="username" placeholder="Name" required />
             </div>
-
+ 
             <div>
                 <label for="email">Enter your email:</label>
                 <input type="email" id="email" name="email" placeholder="Email" required />

@@ -1,6 +1,30 @@
-export function updateUserHandler(formElement) {
+export function updateUserHandler(formElement, validateFn, showErrorsFn) {
+
+    const submitButton = formElement.querySelector('button[type="submit"]');
+
+    formElement.addEventListener('input', () => {
+        const errors = validateFn(formElement);
+        submitButton.disabled = Object.keys(errors).length > 0;
+        
+        // Добавим класс .disabled для стилизации
+        if (submitButton.disabled) {
+            submitButton.classList.add('disabled');
+        } else {
+            submitButton.classList.remove('disabled');
+        }
+
+        showErrorsFn(formElement, errors);
+    });
+
     formElement.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const errors = validateFn(formElement);
+
+        if (Object.keys(errors).length > 0) {
+            showErrorsFn(formElement, errors);
+            return;
+        }
 
         const formData = new FormData(formElement);
 
@@ -8,7 +32,7 @@ export function updateUserHandler(formElement) {
             const response = await fetch('/api/users/update', {
                 method: 'POST',
                 body: formData
-            });
+            }); 
 
             const result = await response.json();
 

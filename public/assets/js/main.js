@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchLoginForm('login-form');
         } else if (path === '/update') {
 
-            fetchUpdateForm();
+            fetchUpdateForm('update-form');
         } else {
 
             initHomePage();

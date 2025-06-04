@@ -1,7 +1,44 @@
 import { updateUserHandler } from '../../modules/updateUserHandler.js';
+import { showValidationMessages } from './register.js';
 
-export async function fetchUpdateForm() {
-    const form = document.getElementById('update-form');
+
+// Валидация всех полей формы [username, email, password, confirm_password, avatar, terms]
+function validateUpdateForm(form) {
+
+    const username = form.username.value.trim();
+    const password = form.password.value;
+    const confirmPassword = form.confirm_password.value;
+    const avatar = form.avatar.files[0];
+
+    const errors = {};
+
+    if (username.length < 3) {
+        errors.username = 'Name must be at least 3 characters';
+    }
+
+    if (password && password.length < 6) {
+        errors.password = 'Password must be at least 6 characters';
+    }
+
+    if (password && password !== confirmPassword) {
+        errors.confirm_password = 'Passwords do not match';
+    }
+
+    if (avatar) {
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+        if (!allowedTypes.includes(avatar.type)) {
+            errors.avatar = 'Allowed formats: jpeg, png, jpg';
+        } else if (avatar.size > 1024 * 1024) {
+            errors.avatar = 'File must be less than 1MB';
+        }
+    }
+
+    return errors;
+}
+
+
+export async function fetchUpdateForm(updateFormId) {
+    const form = document.getElementById(updateFormId);
     if (!form) return;
 
     try {
@@ -24,7 +61,7 @@ export async function fetchUpdateForm() {
         }
 
         // Обработчик обновления
-        updateUserHandler(form);
+        updateUserHandler(form, validateUpdateForm, showValidationMessages);
 
     } catch (error) {
         console.error('Error fetching user info:', error);

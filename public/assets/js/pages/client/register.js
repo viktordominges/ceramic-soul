@@ -44,7 +44,8 @@ function validateRegisterForm(form) {
 
 
 // Показываем сообщения об ошибках
-function showValidationMessages(form, errors) {
+export function showValidationMessages(form, errors) {
+
     [...form.elements].forEach(input => {
         if (!input.name) return;
 
