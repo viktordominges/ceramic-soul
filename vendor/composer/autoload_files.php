@@ -28,6 +28,7 @@ return array(
     '470cfa0a18143f15bb185cd3a2ea8b7d' => $baseDir . '/app/Controllers/methodNotAllowedController.php',
     '8387cdfc06e747246eed1a38b26379c3' => $baseDir . '/app/Controllers/api/apiRegisterController.php',
     '9907aaf192976c576f8233beeb51d5fc' => $baseDir . '/app/Controllers/api/apiUpdateUserController.php',
+    'fd5dcae4794d32fbe121f8a75e9dbbab' => $baseDir . '/app/Controllers/api/apiUpdateUserByAdminController.php',
     '2c631ebbf36043d1113199f4d8d8259b' => $baseDir . '/app/Controllers/api/apiLoginController.php',
     'fcdd122180e5f613967cc9dcc98f2551' => $baseDir . '/app/Controllers/api/apiLogoutController.php',
     'bc508855a95e5821f83661094f1574b7' => $baseDir . '/app/Controllers/api/apiDeleteAccountController.php',

@@ -11,8 +11,6 @@ export async function fetchShowCommentsByUser(userId, commentsListWrapper, rende
 
         const data = await response.json();
 
-        console.log('Comments:', data);
-
         const comments = Array.isArray(data) ? data : data.content;
 
         commentsListWrapper.innerHTML = '';

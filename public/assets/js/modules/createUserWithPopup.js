@@ -51,6 +51,7 @@ export async function createUserWithPopup() {
     });
 
     const form = document.getElementById('create-user-form');
+    
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 

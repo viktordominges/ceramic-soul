@@ -89,7 +89,7 @@
 
         <span class="admin-close__trigger"></span>
 
-        <a href="/register">Register</a>
+        <!-- <a href="/register">Register</a> -->
         <div class="admin-logout__trigger">Logout</div>
         <div class="admin-delete__trigger">Delete account</div>
         <a href="/">Site</a>

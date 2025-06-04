@@ -3,7 +3,7 @@
 function createUser($username, $email, $password, $role = 'user', $avatar = null) {
 
     // Валидация входных данных
-    $validationErrors = validateUserData($username, $email, $password);
+    $validationErrors = validateUserData($username, $email, $password, true); //Флаг true означает что пароль обязателен
     if (!empty($validationErrors)) {
         // Можно кинуть исключение или вернуть ошибки, в зависимости от логики проекта
         throw new InvalidArgumentException(implode(" ", $validationErrors));
@@ -99,7 +99,7 @@ function updateUser($userId, $username, $password = null, $avatar = null) {
 
     // Валидация данных
     if (!empty($username)) {
-        $errors = validateUserData($username, $existingUser['email'], $password ?? 'placeholder');
+        $errors = validateUserData($username, $existingUser['email'], $password, false); // Флаг false означает что пароль необязателен
         if (!empty($errors)) {
             throw new InvalidArgumentException(implode(" ", $errors));
         }

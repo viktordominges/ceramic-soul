@@ -15,3 +15,5 @@
 
     <div class="comment-posts__wrapper"></div>  <!-- Здесь будут рендериться комментарии -->
 </section>
+
+<div id="update-user-popup-container"></div> <!-- Здесь будет Popup для обновления пользователя -->

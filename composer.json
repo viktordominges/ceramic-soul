@@ -27,6 +27,7 @@
 
             "app/Controllers/api/apiRegisterController.php",
             "app/Controllers/api/apiUpdateUserController.php",
+            "app/Controllers/api/apiUpdateUserByAdminController.php",
             "app/Controllers/api/apiLoginController.php",
             "app/Controllers/api/apiLogoutController.php",
             "app/Controllers/api/apiDeleteAccountController.php",

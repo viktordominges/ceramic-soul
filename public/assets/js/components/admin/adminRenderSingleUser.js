@@ -1,8 +1,5 @@
 import { deleteUserById } from '../../modules/deleteUserById.js';
-// import { fetchShowUsers } from '../../modules/fetchShowUsers.js';
-// import { showEmptyMessage } from '../client/showEmptyMessage.js';
-// import { prepareWrapper } from '../../modules/helpers.js';
-// import { adminRenderUser } from './adminRenderUser.js';
+import { updateUserWithPopup } from '../../modules/updateUserWithPopup.js';
 
 export function adminRenderSingleUser(user) {
     const userElement = document.createElement('div');
@@ -56,24 +53,26 @@ export function adminRenderSingleUser(user) {
 
     userElement.addEventListener('click', async (e) => {
         const btn = e.target;
-        const userId = parseInt(btn.dataset.id, 10);
+        const userId = parseInt(btn.dataset.id, 10); // Получаем ID пользователя из атрибута data-id
         if (!userId) return;
 
         if (btn.classList.contains('edit-user-btn')) {
-            // Заглушка или вызов popup для обновления
-            alert('Update functionality not implemented yet.');
-            // const res = await fetch(`/api/users/${userId}`);
-            // const data = await res.json();
-            // if (res.ok && data.id) {
-            //     updateUserWithPopup(data);
-            // } else {
-            //     alert('Failed to load user');
-            // }
+
+            const res = await fetch(`/api/users/user/${userId}`);
+            const data = await res.json();
+            if (res.ok && data.id) {
+                // Открываем попап для обновления пользователя
+                updateUserWithPopup(data);
+            } else {
+                alert('Failed to load user');
+            }
+
 
         } else if (btn.classList.contains('delete-user-btn')) {
 
             if (!confirm('Are you sure you want to delete this user?')) return;
 
+            // Удаляем пользователя по ID
             const deleted = await deleteUserById(userId);
 
             if (deleted) {

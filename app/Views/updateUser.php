@@ -9,12 +9,12 @@
             </div>
              
             <div>
-                <label for="password">Update your password:</label>
+                <label for="password">Update your password (to keep the old password - enter it):</label>
                 <input type="password" id="password" name="password" placeholder="Password" required />
             </div>
 
             <div>
-                <label for="confirm_password">Repeat your new password:</label>
+                <label for="confirm_password">Repeat your password:</label>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required />
             </div>
 

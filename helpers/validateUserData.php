@@ -1,6 +1,6 @@
 <?php
 
-function validateUserData($username, $email, $password) {
+function validateUserData($username, $email, $password = null, $isPasswordRequired = true) {
     $errors = [];
 
     if (empty($username) || strlen($username) < 2) {
@@ -11,9 +11,17 @@ function validateUserData($username, $email, $password) {
         $errors[] = "Invalid email format.";
     }
 
-    if (strlen($password) < 6) {
+    // Разделение проверки пароля на обязательный (при регистрации) и необязательный (при обновлении профиля)
+    if ($isPasswordRequired) {
+        if (empty($password)) {
+            $errors[] = "Password is required.";
+        } elseif (strlen($password) < 6) {
+            $errors[] = "Password must be at least 6 characters long.";
+        }
+    } elseif (!empty($password) && strlen($password) < 6) {
         $errors[] = "Password must be at least 6 characters long.";
     }
 
     return $errors;
 }
+

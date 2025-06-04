@@ -146,6 +146,13 @@ function router($uri) {
                 return apiUpdateCategoryController($categoryId);
             }
         }
+
+        if (preg_match('#^api/users/(\d+)/update$#u', $uri, $matches)) {
+            $userId = (int)$matches[1];
+            if (function_exists('apiUpdateUserByAdminController')) {
+                return apiUpdateUserByAdminController($userId);
+            }
+        }
     }
 
 
