@@ -1,4 +1,14 @@
+import { limitInputLengthWithCounter } from './helpers.js';
+
 export function updateUserHandler(formElement, validateFn, showErrorsFn) {
+
+    if (formElement) {
+        limitInputLengthWithCounter(formElement, {
+            username: 95,
+            email: 149,
+            password: 250,
+        });
+    }
 
     const submitButton = formElement.querySelector('button[type="submit"]');
 

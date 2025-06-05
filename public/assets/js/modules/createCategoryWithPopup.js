@@ -2,6 +2,7 @@ import { fetchShowCategories } from './fetchShowCategories.js'; // если ес
 import { prepareWrapper } from './helpers.js';
 import { adminRenderCategory } from '../components/admin/adminRenderCategory.js'; // рендер категории
 import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
+import { limitInputLengthWithCounter } from './helpers.js'; // функция для ограничения длины ввода
 
 export async function createCategoryWithPopup() {
     const container = document.getElementById('create-category-popup-container');
@@ -40,6 +41,15 @@ export async function createCategoryWithPopup() {
     });
 
     const form = document.getElementById('create-category-form');
+
+    // Ограничим поле `name` до 95 символов, а `description` максимум до 250 символов
+    if (form) {
+        limitInputLengthWithCounter(form, {
+            name: 95,
+            description: 250,
+        });
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 

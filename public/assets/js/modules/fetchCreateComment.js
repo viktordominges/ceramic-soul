@@ -1,9 +1,18 @@
 import { fetchShowCommentsByPost } from "./fetchShowCommentsByPost.js";
+import { limitInputLengthWithCounter } from './helpers.js';
     
 export function fetchCreateComment(postId, commentsListWrapper, renderCommentFn, showEmptyMessageFn) {
     const addCommentTrigger = document.querySelector('#add-comment-btn');
 
     if (!addCommentTrigger) return;
+
+    // Применим ограничение длины
+    const commentForm = document.querySelector('#add-comment-form');
+    if (commentForm) {
+        limitInputLengthWithCounter(commentForm, {
+            'comment': 490, // если name="comment", иначе используй имя поля
+        });
+    }
 
     addCommentTrigger.addEventListener('click', async (e) => {
         e.preventDefault();

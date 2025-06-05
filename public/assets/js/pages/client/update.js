@@ -1,5 +1,6 @@
 import { updateUserHandler } from '../../modules/updateUserHandler.js';
 import { showValidationMessages } from './register.js';
+import { limitInputLengthWithCounter } from '../../modules/helpers.js';
 
 
 // Валидация всех полей формы [username, email, password, confirm_password, avatar, terms]
@@ -40,6 +41,13 @@ function validateUpdateForm(form) {
 export async function fetchUpdateForm(updateFormId) {
     const form = document.getElementById(updateFormId);
     if (!form) return;
+
+    // Ограничим длину ввода в полях формы
+    limitInputLengthWithCounter(form, {
+        username: 95,
+        email: 149,
+        password: 250,
+    });
 
     try {
         const response = await fetch('/api/users/current');

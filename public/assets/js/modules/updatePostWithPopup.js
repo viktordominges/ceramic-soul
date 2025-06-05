@@ -1,3 +1,5 @@
+import { limitInputLengthWithCounter } from './helpers.js';
+
 export async function updatePostWithPopup(postId) {
     const container = document.getElementById('edit-post-popup-container');
     container.innerHTML = '';
@@ -49,7 +51,17 @@ export async function updatePostWithPopup(postId) {
         container.innerHTML = '';
     });
 
-    document.getElementById('edit-post-form').addEventListener('submit', async (e) => {
+    const form = document.getElementById('edit-post-form');
+    // Ограничим длину ввода в полях формы
+    if (form) {
+            limitInputLengthWithCounter(form, {
+            title: 95,
+            description: 250,
+            text: 5000,
+        });
+    }
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
 

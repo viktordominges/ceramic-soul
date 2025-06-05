@@ -2,6 +2,7 @@ import { prepareWrapper } from './helpers.js';
 import { fetchShowUsers } from './fetchShowUsers.js'; // если есть функция отображения списка
 import { adminRenderUser } from '../components/admin/adminRenderUser.js';
 import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
+import { limitInputLengthWithCounter } from './helpers.js';
 
 export async function createUserWithPopup() {
     const container = document.getElementById('create-user-popup-container');
@@ -51,6 +52,15 @@ export async function createUserWithPopup() {
     });
 
     const form = document.getElementById('create-user-form');
+
+    // Ограничим длину ввода в полях формы
+    if (form) {
+        limitInputLengthWithCounter(form, {
+            username: 95,
+            email: 149,
+            password: 250,
+        });
+    }
     
     form.addEventListener('submit', async (e) => {
         e.preventDefault();

@@ -1,3 +1,5 @@
+import { limitInputLengthWithCounter } from '../../modules/helpers.js';
+
 // Валидация всех полей формы [username, email, password, confirm_password, avatar, terms]
 function validateRegisterForm(form) {
     const username = form.username.value.trim();
@@ -73,7 +75,18 @@ export function showValidationMessages(form, errors) {
 
 // Активируем валидацию, показ сообщений об ошибках и отправку формы
 export function fetchRegisterForm(formId) {
+    
     const form = document.getElementById(formId);
+
+    // Ограничим длину ввода в полях формы
+    if (form) {
+        limitInputLengthWithCounter(form, {
+            username: 95,
+            email: 149,
+            password: 250,
+        });
+    }
+
     const submitButton = form.querySelector('button[type="submit"]');
 
     form.addEventListener('input', () => {

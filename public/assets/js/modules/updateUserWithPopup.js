@@ -3,6 +3,7 @@
 import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
 import { fetchShowUserById } from './fetchShowUserById.js';
 import { adminRenderSingleUser } from '../components/admin/adminRenderSingleUser.js';
+import { limitInputLengthWithCounter } from './helpers.js';
 
 export function updateUserWithPopup(user) {
     const container = document.getElementById('update-user-popup-container');
@@ -45,6 +46,15 @@ export function updateUserWithPopup(user) {
     });
 
     const form = document.getElementById('update-user-form');
+
+    // Ограничим длину ввода в полях формы
+    if (form) {
+        limitInputLengthWithCounter(form, {
+            username: 95,
+            email: 149,
+            password: 250,
+        });
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();

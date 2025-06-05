@@ -2,6 +2,7 @@ import { fetchShowPosts } from './fetchShowPosts.js';
 import { prepareWrapper } from './helpers.js';
 import { adminRenderPost } from '../components/admin/adminRenderPost.js';
 import { showEmptyMessage } from '../components/client/showEmptyMessage.js';
+import { limitInputLengthWithCounter } from './helpers.js';
 
  
 export async function createPostWithPopup() {
@@ -66,6 +67,16 @@ export async function createPostWithPopup() {
 
     // Обработка отправки формы
     const form = document.getElementById('create-post-form');
+
+    // Ограничим максимальную длину полей в форме
+    if (form) {
+        limitInputLengthWithCounter(form, {
+            title: 95,
+            description: 250,
+            text: 5000,
+        });
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 

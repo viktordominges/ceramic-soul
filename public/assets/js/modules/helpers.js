@@ -91,4 +91,39 @@ export function toggleDropdownMenuTriggers(openTriggerClass, menuClass, closeTri
     });
 }
 
-   
+
+/**
+ * Добавляет ограничение по количеству символов для текстовых полей формы
+ * @param {HTMLFormElement} form - сама форма
+ * @param {Object} limits - объект вида { fieldName: maxLength }
+ */
+export function limitInputLengthWithCounter(form, limits) {
+    for (const [name, maxLength] of Object.entries(limits)) {
+        const field = form.querySelector(`[name="${name}"]`);
+        if (!field) continue;
+
+        // Создаем элемент для счётчика
+        const counter = document.createElement('div');
+        counter.className = 'input-counter';
+        counter.style.fontSize = '0.85em';
+        counter.style.color = '#666';
+        counter.style.marginTop = '4px';
+
+        field.insertAdjacentElement('afterend', counter);
+
+        const updateCounter = () => {
+            const remaining = maxLength - field.value.length;
+            counter.textContent = `${remaining} characters left`;
+        };
+
+        // Ограничение и обновление счётчика при вводе
+        field.addEventListener('input', () => {
+            if (field.value.length > maxLength) {
+                field.value = field.value.slice(0, maxLength);
+            }
+            updateCounter();
+        });
+
+        updateCounter(); // Первичная инициализация
+    }
+}
