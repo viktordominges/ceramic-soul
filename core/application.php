@@ -3,9 +3,6 @@ function application() {
     // 1. Включаем буферизацию
     ob_start();
     
-    // 2. Логирование инициализации
-    echo "Application function initialized.<br>";
-    
     // 3. Получаем и анализируем URI
     $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 

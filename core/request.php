@@ -2,8 +2,6 @@
 
 
 function request($uri) {
-    echo "Request function initialized.";
-    echo "<br>";
 
     // Декодируем URI
     $uri = trim(urldecode($uri), '/');
