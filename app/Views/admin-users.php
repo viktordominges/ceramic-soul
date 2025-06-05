@@ -1,11 +1,10 @@
 <div class="flex2__wrapper">
     <div id="create-user__btn" class="create__btn">Create user</div>
 
-    <section class="admin-search">
-        <!-- Здесь будут рендериться категории -->
+    <!-- <section class="admin-search">
         <input type="text" class="admin-search__input" placeholder="Search users by name...">
         <span class="admin-search__btn"><i class="fas fa-search"></i></span>
-    </section>
+    </section> -->
 </div>
 
 <section class="admin-users">

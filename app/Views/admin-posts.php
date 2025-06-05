@@ -2,10 +2,10 @@
 <div class="flex2__wrapper">
     <div id="create-post__btn" class="create__btn">Create post</div>
 
-    <section class="admin-search">
+    <!-- <section class="admin-search">
         <input type="text" class="admin-search__input" placeholder="Search posts by title...">
         <span class="admin-search__btn"><i class="fas fa-search"></i></span>
-    </section>
+    </section> -->
 </div>
 
 <section class="admin-posts">

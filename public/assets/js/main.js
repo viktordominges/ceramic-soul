@@ -25,6 +25,7 @@ import { createPostWithPopup } from './modules/createPostWithPopup.js';
 import { createCategoryWithPopup } from './modules/createCategoryWithPopup.js';
 import { createUserWithPopup } from './modules/createUserWithPopup.js';
 import { fetchAdminLogout } from './pages/admin/adminLogout.js';
+import { fetchSuperadminRegisterForm } from './pages/admin/superadminRegister.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -62,11 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = url.pathname;
     const isAdmin = path.startsWith('/admin');
     
+    if (path === '/superadmin/register') {
+
+        fetchSuperadminRegisterForm('superadmin-register-form');
+        return;
+    }
     // Если путь начинается с /admin, значит мы в админке
     if (isAdmin) {
 
         fetchAdminLogout('.admin-logout__trigger');
-        
+
         if (path === '/admin') {
 
             fetchAdminLoginForm('admin-login-form');

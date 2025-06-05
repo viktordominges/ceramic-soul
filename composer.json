@@ -69,9 +69,12 @@
             "app/Controllers/admin/adminSingleUserController.php",
             "app/Controllers/admin/apiAdminStatsController.php",
             "app/Controllers/admin/adminLoginController.php",
+            "app/Controllers/admin/apiSuperAdminRegisterController.php",
             "app/Controllers/admin/apiAdminLoginController.php",
             "app/Controllers/admin/apiAdminLogoutController.php",
-            "app/Controllers/admin/apiDeleteUserByAdminController.php"
+            "app/Controllers/admin/apiDeleteUserByAdminController.php",
+            "app/Controllers/admin/superAdminRegisterController.php"
+
         ]
     }
 }

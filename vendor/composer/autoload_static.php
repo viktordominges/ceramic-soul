@@ -68,9 +68,11 @@ class ComposerStaticInit67b2b370325ce66294befdf5ee5d8155
         '2d99b8c6b81fc508d80e46a5ded8237d' => __DIR__ . '/../..' . '/app/Controllers/admin/adminSingleUserController.php',
         'f0acce3a2377ebd02fc552b7dd5dea69' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminStatsController.php',
         '86c15290abcc4bb02f5010c6ceea3760' => __DIR__ . '/../..' . '/app/Controllers/admin/adminLoginController.php',
+        'd26c00114d5fd14c24efe5eacf8c0729' => __DIR__ . '/../..' . '/app/Controllers/admin/apiSuperAdminRegisterController.php',
         '260306aaad556789d4c233a2beaa05be' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminLoginController.php',
         '745596e05865db2915596407c3f1f062' => __DIR__ . '/../..' . '/app/Controllers/admin/apiAdminLogoutController.php',
         '9df16acd34cb3e13ec5b78f78b3eb30c' => __DIR__ . '/../..' . '/app/Controllers/admin/apiDeleteUserByAdminController.php',
+        'b929a471e957d968c19b27f2dcec8a69' => __DIR__ . '/../..' . '/app/Controllers/admin/superAdminRegisterController.php',
     );
 
     public static $prefixLengthsPsr4 = array (

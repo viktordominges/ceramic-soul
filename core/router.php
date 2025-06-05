@@ -31,6 +31,7 @@ function get_routes() {
 
         // Admin panel pages
         'admin' => 'adminLoginController',
+        'superadmin/register' => 'superAdminRegisterController',
         'admin/categories' => 'adminCategoriesController',
         'admin/category' => 'adminSingleCategoryController',
         'admin/posts' => 'adminPostsController',
@@ -43,6 +44,7 @@ function get_routes() {
         'api/admin/users' => 'apiAllUsersController',
         'api/admin/login' => 'apiAdminLoginController',
         'api/admin/logout' => 'apiAdminLogoutController',
+        'api/superadmin/register' => 'apiSuperAdminRegisterController',
     ];
 }
 
@@ -69,6 +71,7 @@ function router($uri) {
             if (
                 $method === 'GET' ||
                 ($uri === 'api/users/register' && $method === 'POST') ||
+                ($uri === 'api/superadmin/register' && $method === 'POST') ||
                 ($uri === 'api/users/login' && $method === 'POST') ||
                 ($uri === 'api/users/logout' && $method === 'POST') ||
                 ($uri === 'api/users/delete' && $method === 'POST') ||
