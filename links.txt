@@ -1,0 +1,32 @@
+Liens obligatoires :
+
+Partie client de la conception du projet dans Figma :
+DevMod:
+https://www.figma.com/design/gNgtTy6yWLCvEfHDvebp6Y/Ceramic-Blog?node-id=0-1&m=dev&t=OUZRdh2efbhOU4vO-1
+Prototype:
+https://www.figma.com/proto/gNgtTy6yWLCvEfHDvebp6Y/Ceramic-Blog?node-id=0-1&t=qbDjGf2iXGqZ8iFw-1
+
+
+
+Partie administrative de la conception du projet dans Figma:
+DevMod:
+https://www.figma.com/design/4qGorje30TQ63g5JzSkjH5/Admin-panel-for-blog?node-id=0-1&m=dev&t=HuvQOvce5TUi9jbY-1
+Prototype:
+https://www.figma.com/proto/4qGorje30TQ63g5JzSkjH5/Admin-panel-for-blog?node-id=0-1&t=HuvQOvce5TUi9jbY-1
+
+
+
+Planification de projet dans Trello:
+https://trello.com/invite/b/682ada536a90277a6145fcda/ATTIcb1aa4f71804412145566300ae0af4de7B455EB6/ceramic-soul
+
+
+
+Dans MIRO:
+IMPACT MAPPING, L’ARBORESCENCE, ZONING, WIREFRAMING, DICTIONNAIRE DE DONNÉES, Modèle conceptuel de données, Modèle de données logiques,
+Modèle de données physiques:
+https://miro.com/welcomeonboard/VWRrTDhNb2R1bnVrOTA3S3Q5WFNkbEhJN1JXTVBjakpGaDFlOEUvNHkxZzdZYU1zN0hDcFZydDhFSThKUDBJRGRaSHg2Y010V0V2eWY1eVlwaXpwaWZabmNWUGlMaFE5UEdoOFZ5M0QvS0E2VU4zZjIyUHBnUUdLSGk3MXN6bzRyVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=911490383408 
+
+
+
+Présentation du projet:
+https://docs.google.com/presentation/d/1q0hNySptUYIRDsDsS5ZIy7TjgOyT9_Og1LN0aikre74/edit?usp=sharing
