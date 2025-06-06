@@ -369,7 +369,8 @@ button {
 .main-dropdown__menu_items a,
 .dropdown-auth__menu a,
 .user-logout__trigger,
-.user-delete__trigger {
+.user-delete__trigger,
+.user-edit__trigger a {
     position: relative;
     display: block;
     font-size: var(--font-size-s);

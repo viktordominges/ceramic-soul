@@ -11,6 +11,7 @@
         <span>Post ID</span>
         <span>Category Name</span>
         <span>Post Title</span>
+        <span>Comments Count</span>
     </div>
 
     <div class="admin-posts__wrapper"></div>  <!-- Здесь будут рендериться посты -->

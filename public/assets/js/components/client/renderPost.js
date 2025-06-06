@@ -12,7 +12,7 @@ export function renderPost(post) {
         <p class="post__item_description">${post.description}</p>
         <div class="category-name__wrapper post__item-down">
             <img src="assets/images/icons/gold-star.png" alt="star" />
-            <a href="/category?id=${encodeURIComponent(post.category_id)}">${post.category ?? 'Без категории'}</a>
+            <a href="/category?id=${encodeURIComponent(post.category_id)}">${post.category ?? 'Without category'}</a>
         </div>
     `;
 

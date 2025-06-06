@@ -12,7 +12,7 @@ export function renderSinglePost(post) {
         <div class="single-post__info_wrapper">
             <div class="category-name__wrapper">
                 <img src="assets/images/icons/gold-star.png" alt="star" />
-                <a href="/category?name=${encodeURIComponent(post.category)}">${post.category ?? 'Без категории'}</a>
+                <a href="/category?name=${encodeURIComponent(post.category)}">${post.category ?? 'Without category'}</a>
             </div>
             <span class="single-post__date">${new Date(post.created_at).toLocaleDateString()}</span>
             <span class="single-post__comments-count">

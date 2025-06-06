@@ -37,8 +37,8 @@ export function fetchCreateComment(postId, commentsListWrapper, renderCommentFn,
             const data = await response.json();
 
             if (data.error) {
-                alert('Ошибка: ' + data.error);
-                console.error('Ошибка:', data.error);
+                alert('Error: ' + data.error);
+                console.error('Error:', data.error);
                 return;
             }
 

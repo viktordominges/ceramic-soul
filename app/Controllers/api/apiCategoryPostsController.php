@@ -10,7 +10,7 @@ function apiCategoryPostsController($categoryId) {
 
         // Получаем посты
         $posts = findCategoryPosts($categoryId);
-
+ 
         $formattedPosts = array_map(function($post) {
             return [
                 'id' => (int)$post['id'],
@@ -20,7 +20,8 @@ function apiCategoryPostsController($categoryId) {
                 'image' => htmlspecialchars($post['image']),
                 'created_at' => $post['created_at'],
                 'updated_at' => $post['updated_at'] ?: null,
-                'category' => $post['category'] ? htmlspecialchars($post['category']) : null
+                'category' => $post['category'] ? htmlspecialchars($post['category']) : null,
+                'comments_count' => (int)$post['comments_count']
             ];
         }, $posts);
 

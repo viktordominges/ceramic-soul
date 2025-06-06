@@ -43,11 +43,11 @@ export async function fetchUpdateForm(updateFormId) {
     if (!form) return;
 
     // Ограничим длину ввода в полях формы
-    limitInputLengthWithCounter(form, {
-        username: 95,
-        email: 149,
-        password: 250,
-    });
+    // limitInputLengthWithCounter(form, {
+    //     username: 95,
+    //     email: 149,
+    //     password: 250,
+    // });
 
     try {
         const response = await fetch('/api/users/current');

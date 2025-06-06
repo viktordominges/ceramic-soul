@@ -2,6 +2,8 @@ export function adminRenderPost(post) {
     const postElement = document.createElement('div');
     postElement.classList.add('posts-list__item');
     
+    console.log('post', post);
+    
     // Базовый HTML, общий для всех постов
     let postHTML = `
         <span>${post.id}</span>

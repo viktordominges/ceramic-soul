@@ -1,5 +1,5 @@
 export async function fetchShowPostsByCategory(
-    id,
+    id, 
     postsWrapper,
     renderPost,
     showEmptyMessageFn,

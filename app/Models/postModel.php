@@ -104,7 +104,12 @@ function findCategoryPosts($categoryId) {
                 p.created_at, 
                 p.updated_at,
                 c.name AS category,
-                c.id AS category_id
+                c.id AS category_id,
+                (
+                    SELECT COUNT(*) 
+                    FROM comments 
+                    WHERE comments.post_id = p.id
+                ) AS comments_count
             FROM posts p
             LEFT JOIN categories c ON p.category_id = c.id
             WHERE c.id = :id
@@ -121,6 +126,7 @@ function findCategoryPosts($categoryId) {
         throw new RuntimeException('Failed to retrieve category posts');
     }
 }
+
 
 
 function getPostById($id) {
