@@ -67,7 +67,7 @@ export function adminRenderSingleUser(user) {
                 alert('Failed to load user');
             }
 
-
+ 
         } else if (btn.classList.contains('delete-user-btn')) {
 
             if (!confirm('Are you sure you want to delete this user?')) return;

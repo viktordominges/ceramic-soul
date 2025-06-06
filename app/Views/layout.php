@@ -9,7 +9,7 @@
     <meta name="description" content="<?= htmlspecialchars($description ?? 'Site description') ?>">
 
     <!-- Favicon -->
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon_io/favicon.ico" type="image/x-icon">
 
     <!-- Google fonts - Barlow -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -142,9 +142,9 @@
                     <h2 class="footer__header">discover</h2>
                     <nav class="footer__nav">
                         <ul>
-                            <li class="footer__link"><a href="#">Home</a></li>
-                            <li class="footer__link"><a href="#">Categories</a></li>
-                            <li class="footer__link"><a href="#">About</a></li>
+                            <li class="footer__link"><a href="/">Home</a></li>
+                            <li class="footer__link"><a href="/categories">Categories</a></li>
+                            <li class="footer__link"><a href="/about">About</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -188,7 +188,9 @@
             <div class="footer__copyright">© Copyright <?= date('Y') ?>, Ceramic Blog</div>
         </div>
     </footer>
+
     <div class="dropdown-overlay"></div>
+
     <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>
