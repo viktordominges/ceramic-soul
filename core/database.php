@@ -1,6 +1,12 @@
 <?php
-// require_once CONFIG . '/database.php';
 
+/**
+ * Connects to the database
+ * 
+ * @return \PDO
+ * 
+ * @throws \PDOException
+ */
 function connectDB() {
     
     static $config = null;

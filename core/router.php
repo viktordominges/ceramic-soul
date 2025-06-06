@@ -49,7 +49,7 @@ function get_routes() {
 }
 
 /**
- * Основная функция роутера
+ * Main router function
  */
 function router($uri) {
     $routes = get_routes();

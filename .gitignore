@@ -1,0 +1,10 @@
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# Для разработки (опционально)
+/.idea/
+/.vscode/
+/.osp/
+/.env
+.DS_Store

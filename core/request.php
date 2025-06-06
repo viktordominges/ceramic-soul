@@ -1,6 +1,12 @@
 <?php
 
 
+/**
+ * Returns a decoded URI.
+ *
+ * @param string $uri
+ * @return string
+ */
 function request($uri) {
 
     // Декодируем URI
